@@ -34,7 +34,6 @@ jobs:
           mkdir -p scripts
           cat > scripts/update_subscription.py << 'EOF'
 #!/usr/bin/env python3
-# 简化示例脚本
 from pathlib import Path
 import yaml
 
@@ -55,9 +54,9 @@ EOF
         run: |
           python scripts/update_subscription.py
 
-      - name: Show top of subscription.yaml
+      - name: Show subscription.yaml
         run: |
-          head -n 20 subscription.yaml || true
+          cat subscription.yaml || true
 
       - name: Commit & Push
         env:
@@ -65,7 +64,7 @@ EOF
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add subscription.yaml || true
+          git add subscription.yaml
           git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
           BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git pull --rebase origin "$BRANCH" || true
