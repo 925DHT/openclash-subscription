@@ -1,6 +1,6 @@
-# GitHub Actions 自动获取 Clash/OpenClash 节点订阅完整教程（每日自动更新）
+# GitHub Actions 自动获取港澳台/大陆友好 Clash/OpenClash 节点订阅（每日自动更新）
 
-本教程将手把手教你如何用 GitHub Actions 实现每天自动抓取、测速、筛选并发布可用的 Clash/OpenClash 节点订阅链接，实现“一键即用”。
+本项目通过 GitHub Actions 自动抓取机场榜单、社区推荐、港澳台/大陆友好节点源，每日测速/健康检查，优选可用节点并生成 Clash/OpenClash 订阅，实现“国内高速一键即用”。
 
 ---
 
@@ -18,8 +18,6 @@
 
 ### 2.1 仓库目录结构
 
-你的仓库应如下（注意文件夹及文件名）：
-
 ```
 openclash-subscription/
 ├── .github/
@@ -31,107 +29,26 @@ openclash-subscription/
 
 ### 2.2 文件内容
 
-#### 2.2.1 update_subscription.py
+#### 2.2.1 update_subscription.py —— 港澳台/大陆优选+健康筛查
 
-```python name=update_subscription.py
-import requests
-import yaml
-import subprocess
+详见本仓库 `update_subscription.py`，核心优化亮点：
 
-CLASH_SUB_LIST = [
-    "https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/clash.yaml",
-    "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml",
-    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
-]
+- 多渠道机场榜、港澳台节点源抓取
+- 港澳台/大陆友好关键词筛选
+- 优选端口优先、优选 IP 替换（IP 列表源自 [ethgan/yxip](https://github.com/ethgan/yxip/blob/main/ip.txt)）
+- 境内常用网站为健康/延迟测试目标（更贴合国情）
+- 失效节点自动剔除
+- 每日自动筛查，随时保证国内可用性
 
-def fetch_clash_nodes():
-    proxies = []
-    for url in CLASH_SUB_LIST:
-        try:
-            print(f"Fetching: {url}")
-            resp = requests.get(url, timeout=15)
-            data = yaml.safe_load(resp.text)
-            for node in data.get('proxies', []):
-                if node.get('name') and node.get('server') and node.get('port'):
-                    proxies.append(node)
-        except Exception as e:
-            print(f"Failed: {e}")
-    unique = []
-    addr_set = set()
-    for p in proxies:
-        key = f"{p['server']}:{p['port']}"
-        if key not in addr_set:
-            addr_set.add(key)
-            unique.append(p)
-    return unique[:50]
+#### 2.2.2 工作流文件
 
-def ping_node(server):
-    try:
-        r = subprocess.run(['ping', '-c', '1', '-W', '1', server], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        if r.returncode == 0:
-            for line in r.stdout.decode().split('\n'):
-                if 'time=' in line:
-                    return float(line.split('time=')[-1].split()[0])
-        return 9999
-    except Exception:
-        return 9999
-
-def main():
-    print("获取节点...")
-    nodes = fetch_clash_nodes()
-    print(f"共获取到 {len(nodes)} 个节点，开始测速...")
-    for node in nodes:
-        node['delay'] = ping_node(node['server'])
-        print(f"{node['name']} - {node['server']} 延迟: {node['delay']} ms")
-    nodes = sorted(nodes, key=lambda x: x['delay'])[:20]
-    config = {
-        "port": 7890,
-        "socks-port": 7891,
-        "allow-lan": True,
-        "mode": "Rule",
-        "log-level": "info",
-        "external-controller": "127.0.0.1:9090",
-        "proxies": nodes,
-        "proxy-groups": [
-            {
-                "name": "🚀 节点选择",
-                "type": "select",
-                "proxies": [n['name'] for n in nodes]
-            },
-            {
-                "name": "自动选择",
-                "type": "url-test",
-                "proxies": [n['name'] for n in nodes],
-                "url": "http://www.gstatic.com/generate_204",
-                "interval": 300
-            }
-        ],
-        "rules": [
-            "DOMAIN-SUFFIX,google.com,🚀 节点选择",
-            "DOMAIN-SUFFIX,facebook.com,🚀 节点选择",
-            "DOMAIN-KEYWORD,youtube,🚀 节点选择",
-            "DOMAIN-SUFFIX,github.com,🚀 节点选择",
-            "MATCH,自动选择"
-        ]
-    }
-    with open("subscription.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(config, f, allow_unicode=True, sort_keys=False)
-    print("subscription.yaml 已生成。")
-
-if __name__ == "__main__":
-    main()
-```
-
----
-
-#### 2.2.2 工作流文件（用于定时自动运行）
-
-```yaml name=.github/workflows/update_subscription.yml
+```yaml
 name: Update Clash Subscription
 
 on:
   schedule:
-    - cron: '0 3 * * *' # 每天 UTC+8 上午11点自动执行
+    - cron: '0 16 * * *'    # UTC+8 00:00
+    - cron: '0 4 * * *'     # UTC+8 12:00
   workflow_dispatch:
 
 jobs:
@@ -147,12 +64,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests PyYAML
+        run: pip install requests PyYAML
 
       - name: Run update script
-        run: |
-          python update_subscription.py
+        run: python update_subscription.py
 
       - name: Commit & Push changes
         env:
@@ -165,11 +80,12 @@ jobs:
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
 ```
 
----
+### 2.3 项目说明
 
-#### 2.2.3 项目说明
-
-可直接将本教程内容保存为 `README.md`。
+- 推荐补充/替换 `CLASH_SUB_LIST` 为主打港澳台/大陆/社区机场榜
+- 机场榜单/港澳台节点更适合国内科学上网
+- 可定制自建优选 IP 列表，进一步提升可用性
+- 优选 IP 源地址：[ethgan/yxip/main/ip.txt](https://github.com/ethgan/yxip/blob/main/ip.txt)
 
 ---
 
@@ -186,10 +102,10 @@ jobs:
 
 ## 4. 启动并验证 Actions
 
-1. 上传全部文件后，点击仓库上方 `Actions`。
-2. 首次启用需点击 `Enable workflows`。
-3. 可手动点击 `Run workflow` 测试自动化任务能否正常运行。
-4. 稍等片刻，刷新页面，查看是否自动生成了 `subscription.yaml`，并查看日志是否有报错。
+1. 上传全部文件后，点击仓库上方 `Actions`
+2. 首次启用需点击 `Enable workflows`
+3. 可手动点击 `Run workflow` 测试自动化任务能否正常运行
+4. 稍等片刻，刷新页面，查看是否自动生成了 `subscription.yaml`，并查看日志是否有报错
 
 ---
 
