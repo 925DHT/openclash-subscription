@@ -10,37 +10,388 @@ jobs:
   update-subscription:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (full history)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # 确保能获取完整历史，避免 rebase 出问题
+          fetch-depth: 0
 
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests PyYAML dnspython pysocks
 
+      - name: Ensure scripts dir & write update script
+        run: |
+          mkdir -p scripts
+          cat > scripts/update_subscription.py <<'PY'
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+自动抓取/筛选 Clash 节点并生成 subscription.yaml
+要点：
+ - 支持从仓库根目录 sources.txt 或环境变量 SOURCE_URLS 读取节点源（每行一个 URL）
+ - 解析常见链接（vmess/vless/trojan/ss/ssr/http/https/socks5），尽量提取 host:port
+ - 每个节点按照 优先端口 列表 尝试端口（例如 8443,2086,2089,4443），再回退到常见端口
+ - 测量 TCP 连接延迟（毫秒），延迟 < LATENCY_THRESHOLD_MS 优先保留
+ - 拉取优选 IP 列表（PREFERRED_IP_REPO），在节点延迟过高或不可达时尝试替换 IP 并重测
+ - 最终保留 MAX_FINAL 个节点（按延迟排序），写入 subscription.yaml（Clash 简化格式）
+"""
+import os, re, sys, time, socket, base64, random, urllib.parse
+from pathlib import Path
+from typing import List, Tuple, Optional, Dict
+import requests, yaml
+
+ROOT = Path('.').resolve()
+SOURCES_FILE = ROOT / 'sources.txt'
+OUTPUT_FILE = ROOT / 'subscription.yaml'
+
+# environment-configurable
+SOURCE_URLS_ENV = os.environ.get('SOURCE_URLS', '').strip()
+PREFERRED_IP_REPO = os.environ.get('PREFERRED_IP_REPO', 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt')
+KEEP_NODES = int(os.environ.get('KEEP_NODES', '200'))
+MAX_FINAL = int(os.environ.get('MAX_FINAL', '50'))
+LATENCY_THRESHOLD_MS = int(os.environ.get('LATENCY_THRESHOLD_MS', '200'))
+# 优先端口列表（可通过 PRIORITY_PORTS 环境变量覆盖，逗号分隔）
+PRIORITY_PORTS = [int(p.strip()) for p in os.environ.get('PRIORITY_PORTS', '8443,2086,2089,4443').split(',') if p.strip()]
+# 若提供规则 URL（RULES_URL），脚本会尝试拉取并使用
+RULES_URL = os.environ.get('RULES_URL', '').strip()
+
+TCP_TIMEOUT = float(os.environ.get('TCP_TIMEOUT', '5.0'))
+
+PROTO_RE = re.compile(r'\b((?:vmess|vless|trojan|ssr|ss|http|https|socks5)://[^\s\'"<>]+)', re.I)
+HOSTPORT_RE = re.compile(r'([0-9a-zA-Z\-_\.]+):(\d{2,5})')
+
+def http_get_text(url, timeout=10.0):
+    try:
+        r = requests.get(url, timeout=timeout)
+        if r.status_code == 200:
+            return r.text
+    except Exception as e:
+        print(f"HTTP GET failed: {url} -> {e}")
+    return None
+
+def fetch_sources() -> List[str]:
+    urls = []
+    if SOURCE_URLS_ENV:
+        for line in SOURCE_URLS_ENV.splitlines():
+            u = line.strip()
+            if u: urls.append(u)
+    if SOURCES_FILE.exists():
+        for line in SOURCES_FILE.read_text(encoding='utf-8').splitlines():
+            l = line.strip()
+            if l and not l.startswith('#'):
+                urls.append(l)
+    # 去重并返回
+    seen = set(); out=[]
+    for u in urls:
+        if u not in seen:
+            seen.add(u); out.append(u)
+    print(f"Loaded {len(out)} source URLs")
+    return out
+
+def extract_nodes_from_text(text: str) -> List[str]:
+    links = [m.group(1).strip() for m in PROTO_RE.finditer(text)]
+    # 另外尝试抓 host:port 行（有些源直接罗列 host:port）
+    for m in HOSTPORT_RE.finditer(text):
+        links.append(f"{m.group(1)}:{m.group(2)}")
+    # 去重
+    seen=set(); final=[]
+    for l in links:
+        if l not in seen:
+            seen.add(l); final.append(l)
+    return final
+
+def parse_vmess(link: str):
+    try:
+        body = link.split('://',1)[1]
+        body = body.split('#',1)[0]
+        # base64 decode (urlsafe tolerant)
+        padding = '=' * (-len(body) % 4)
+        j = base64.urlsafe_b64decode(body + padding).decode('utf-8', errors='ignore')
+        import json
+        obj = json.loads(j)
+        host = obj.get('add') or obj.get('ps')
+        port = int(obj.get('port') or 0)
+        if host and port:
+            return host, port
+    except Exception:
+        return None
+
+def parse_ss(link: str):
+    try:
+        body = link.split('://',1)[1]
+        if '@' in body:
+            after = body.split('@')[-1]
+            hostport = after.split('#',1)[0]
+            if ':' in hostport:
+                h,p = hostport.rsplit(':',1); return h,int(p)
+        else:
+            b = body.split('#',1)[0]
+            padding = '=' * (-len(b) % 4)
+            dec = base64.urlsafe_b64decode(b + padding).decode('utf-8', errors='ignore')
+            if '@' in dec:
+                hostport = dec.split('@')[-1]
+                if ':' in hostport:
+                    h,p = hostport.rsplit(':',1); return h,int(p)
+    except Exception:
+        return None
+
+def parse_generic(link: str):
+    try:
+        if '://' in link:
+            p = urllib.parse.urlparse(link)
+            if p.hostname and p.port:
+                return p.hostname, p.port
+    except Exception:
+        return None
+
+def parse_hostport_from_link(link: str):
+    for fn in (parse_vmess, parse_ss, parse_generic):
+        try:
+            res = fn(link)
+            if res: return res
+        except Exception:
+            continue
+    m = HOSTPORT_RE.search(link)
+    if m:
+        return m.group(1), int(m.group(2))
+    return None
+
+def measure_latency(host: str, port: int, timeout=TCP_TIMEOUT) -> Optional[float]:
+    # TCP connect timing in milliseconds
+    try:
+        start = time.time()
+        sock = socket.create_connection((host, port), timeout)
+        sock.close()
+        return (time.time() - start) * 1000.0
+    except Exception:
+        return None
+
+def fetch_preferred_ips(url: str) -> List[str]:
+    txt = http_get_text(url, timeout=10)
+    if not txt:
+        return []
+    lines = [l.strip() for l in txt.splitlines() if l.strip() and not l.strip().startswith('#')]
+    ips = [l for l in lines if re.match(r'^(\d{1,3}\.){3}\d{1,3}$', l)]
+    print(f"Loaded {len(ips)} preferred IPs from {url}")
+    return ips
+
+def try_replace_with_preferred(host, port, preferred_ips):
+    best = None
+    # 随机测试部分优选 IP（避免全部测试）
+    sample = random.sample(preferred_ips, min(10, len(preferred_ips)))
+    for ip in sample:
+        lat = measure_latency(ip, port)
+        if lat is not None:
+            if best is None or lat < best[2]:
+                best = (ip, port, lat)
+    return best
+
+def build_clash_entry(link: str, host: str, port: int):
+    proto = 'ss'
+    if '://' in link:
+        proto = link.split('://',1)[0].lower()
+    name = link
+    if len(name) > 80: name = name[:80]
+    entry = {'name': f"{name}", 'server': host, 'port': int(port), 'type': 'ss'}
+    if proto == 'vmess': entry['type'] = 'vmess'
+    elif proto == 'vless': entry['type'] = 'vless'
+    elif proto == 'trojan': entry['type'] = 'trojan'
+    elif proto in ('http','https','socks5'): entry['type'] = 'http'
+    elif proto in ('ss','ssr'): entry['type'] = 'ss'
+    return entry
+
+def load_rules():
+    # 优先：仓库根目录的 openclash_rules.yaml 或 rules.txt
+    rfile1 = ROOT / 'openclash_rules.yaml'
+    rfile2 = ROOT / 'rules.txt'
+    if rfile1.exists():
+        try:
+            with open(rfile1, 'r', encoding='utf-8') as f:
+                data = yaml.safe_load(f)
+                if isinstance(data, dict) and 'rules' in data:
+                    return data['rules']
+                if isinstance(data, list):
+                    return data
+        except Exception as e:
+            print("Failed to parse openclash_rules.yaml:", e)
+    if rfile2.exists():
+        lines = [l.strip() for l in rfile2.read_text(encoding='utf-8').splitlines() if l.strip()]
+        return lines
+    if RULES_URL:
+        txt = http_get_text(RULES_URL, timeout=10)
+        if txt:
+            # 简单判断：若 yaml 格式则解析，否则按行返回
+            try:
+                parsed = yaml.safe_load(txt)
+                if isinstance(parsed, dict) and 'rules' in parsed:
+                    return parsed['rules']
+                if isinstance(parsed, list):
+                    return parsed
+            except Exception:
+                return [l.strip() for l in txt.splitlines() if l.strip()]
+    # fallback minimal rules (建议你把官方 openclash 规则放到仓库并设置 RULES_URL)
+    print("WARNING: no external openclash rules found, using fallback minimal rules. For strict openclash rules, add openclash_rules.yaml or set RULES_URL.")
+    return [
+        'DOMAIN-SUFFIX,google.com,Proxy',
+        'DOMAIN-SUFFIX,youtube.com,Proxy',
+        'DOMAIN-SUFFIX,github.com,Proxy',
+        'GEOIP,CN,DIRECT',
+        'MATCH,Proxy'
+    ]
+
+def main():
+    sources = fetch_sources()
+    if not sources:
+        print("No source URLs found. Put node sources into 'sources.txt' or set SOURCE_URLS environment variable.")
+    raw_links=[]
+    for u in sources:
+        print("Fetching", u)
+        txt = http_get_text(u, timeout=12)
+        if txt:
+            found = extract_nodes_from_text(txt)
+            print(f"  Found {len(found)} nodes in {u}")
+            raw_links.extend(found)
+        else:
+            print(f"  Failed to fetch {u}")
+    # dedupe
+    seen=set(); links=[]
+    for l in raw_links:
+        if l not in seen:
+            seen.add(l); links.append(l)
+    print("Total unique links:", len(links))
+
+    preferred_ips = fetch_preferred_ips(PREFERRED_IP_REPO) if PREFERRED_IP_REPO else []
+
+    candidates=[]
+    for link in links:
+        parsed = parse_hostport_from_link(link)
+        if parsed:
+            host, p = parsed
+            ports_to_try = []
+            if p and p>0:
+                ports_to_try.append(int(p))
+            for pp in PRIORITY_PORTS:
+                if pp not in ports_to_try:
+                    ports_to_try.append(pp)
+            # 常见回退端口
+            for fallback in (443, 80):
+                if fallback not in ports_to_try:
+                    ports_to_try.append(fallback)
+            best_lat=None; best_port=None
+            for port in ports_to_try:
+                lat = measure_latency(host, port)
+                if lat is not None:
+                    if best_lat is None or lat < best_lat:
+                        best_lat = lat; best_port = port
+                    # 优先端口若达标即可接受（但仍查找更优）
+            if best_lat is None:
+                # 若不可达且有优选 IP，尝试替换
+                if preferred_ips:
+                    replaced = try_replace_with_preferred(host, ports_to_try[0], preferred_ips)
+                    if replaced:
+                        rhost, rport, rlat = replaced
+                        candidates.append({'link': link, 'host': rhost, 'port': rport, 'lat': rlat, 'replaced': True, 'orig': host})
+                        print(f"Replaced {host} -> {rhost}:{rport} {rlat:.1f}ms")
+                        continue
+                print(f"Unreachable: {host} ports {ports_to_try}")
+                continue
+            else:
+                candidates.append({'link': link, 'host': host, 'port': best_port, 'lat': best_lat, 'replaced': False})
+                print(f"OK {host}:{best_port} {best_lat:.1f}ms")
+        else:
+            # 无法解析为 host:port，尝试直接作为 link（某些只包含编码的 vmess 等）
+            print("Unable to parse host:port from link (skipping):", link)
+            continue
+
+    # filter reachable
+    candidates = [c for c in candidates if c.get('lat') is not None]
+    print("Reachable candidates:", len(candidates))
+    candidates.sort(key=lambda x: x['lat'])
+    candidates = candidates[:KEEP_NODES]
+
+    # 首先保留延迟 <= LATENCY_THRESHOLD_MS 的节点，再补足到 MAX_FINAL
+    good = [c for c in candidates if c['lat'] <= LATENCY_THRESHOLD_MS]
+    if len(good) < MAX_FINAL:
+        needed = MAX_FINAL - len(good)
+        extras = [c for c in candidates if c['lat'] > LATENCY_THRESHOLD_MS]
+        good.extend(extras[:needed])
+    good.sort(key=lambda x: x['lat'])
+    final = good[:MAX_FINAL]
+    print("Final nodes count:", len(final))
+
+    proxies=[]
+    for c in final:
+        entry = build_clash_entry(c['link'], c['host'], c['port'])
+        entry['name'] = f"{entry['name']} | {int(c['lat'])}ms"
+        proxies.append(entry)
+
+    rules = load_rules()
+
+    sub = {
+        'proxies': proxies,
+        'proxy-groups': [
+            {'name': 'Auto-Selected','type':'select','proxies':[p['name'] for p in proxies]}
+        ],
+        'rules': rules
+    }
+
+    OUTPUT_FILE.write_text(yaml.safe_dump(sub, allow_unicode=True), encoding='utf-8')
+    print("Wrote", OUTPUT_FILE)
+    # exit normally
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
+PY
+          chmod +x scripts/update_subscription.py
+
+      - name: (optional) create example sources.txt if not present
+        run: |
+          if [ ! -f sources.txt ]; then
+            cat > sources.txt <<'SRC'
+# Put your subscription/source URLs here, one per line.
+# Example:
+# https://example.com/subscription.txt
+SRC
+            echo "Created example sources.txt (please edit with actual sources or set SOURCE_URLS secret)."
+          else
+            echo "sources.txt exists, skipping creation."
+          fi
+
       - name: Run update script
         env:
-          SOURCE_URLS: ${{ secrets.SOURCE_URLS }}
+          SOURCE_URLS: ${{ secrets.SOURCE_URLS }}           # optional: 多个 URL 换行分隔
           PREFERRED_IP_REPO: https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt
           KEEP_NODES: '200'
           MAX_FINAL: '50'
+          LATENCY_THRESHOLD_MS: '200'
+          PRIORITY_PORTS: '8443,2086,2089,4443'
+          RULES_URL: ${{ secrets.RULES_URL }}               # optional: 若提供则会尝试拉取 openclash 规则
         run: |
-          python scripts/update_subscription.py
+          python -u scripts/update_subscription.py
 
-      - name: Commit & Push changes
+      - name: Show generated subscription (for debug)
+        if: always()
+        run: |
+          echo "---- subscription.yaml head ----"
+          head -n 200 subscription.yaml || true
+          echo "---- end ----"
+
+      - name: Commit & Push changes (safe: pull --rebase then push)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add subscription.yaml
-          git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
-          git pull --rebase origin main   # 关键步骤：先同步远程最新提交
+          git add subscription.yaml || true
+          # 如果没有变更，commit 会失败，此处用 || true 忽略
+          git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          # 确保同步远程最新改动，避免 push 被拒绝
+          git pull --rebase origin main || true
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
