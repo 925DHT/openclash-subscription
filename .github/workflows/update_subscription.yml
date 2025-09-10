@@ -1,30 +1,16 @@
-# .github/workflows/update_subscription.yml
 name: Update Clash Subscription
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 16 * * *'   # UTC 16:00 -> UTC+8 00:00
-    - cron: '0 4 * * *'    # UTC 04:00 -> UTC+8 12:00
+    - cron: '0 16 * * *'
+    - cron: '0 4 * * *'
   push:
     branches:
       - main
 
 permissions:
   contents: write
-
-concurrency:
-  group: update-subscription-${{ github.repository }}
-  cancel-in-progress: true
-
-env:
-  PREFERRED_IP_REPO: 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt'
-  RULES_URL: 'https://raw.githubusercontent.com/vernesong/OpenClash/master/rules.yaml'
-  KEEP_NODES: '200'
-  MAX_FINAL: '50'
-  LATENCY_THRESHOLD_MS: '200'
-  PRIORITY_PORTS: '8443,2086,2089,4443'
-  TCP_TIMEOUT: '5.0'
 
 jobs:
   update-subscription:
@@ -36,12 +22,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install --no-cache-dir requests PyYAML
@@ -49,177 +35,35 @@ jobs:
       - name: Create scripts/update_subscription.py
         run: |
           mkdir -p scripts
-          cat > scripts/update_subscription.py <<'PY'
+          cat > scripts/update_subscription.py << 'EOF'
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-自动生成 subscription.yaml 的脚本
-"""
 import os
-import re
-import sys
-import time
-import socket
-import json
-import base64
-import random
-import urllib.parse
 from pathlib import Path
-from typing import Optional, List, Dict
-
-import requests
 import yaml
 
 ROOT = Path('.').resolve()
 OUTPUT_FILE = ROOT / 'subscription.yaml'
-SOURCES_FILE = ROOT / 'sources.txt'
 
-SOURCE_URLS = os.environ.get('SOURCE_URLS', '').strip()
-PREFERRED_IP_REPO = os.environ.get('PREFERRED_IP_REPO', 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt')
-RULES_URL = os.environ.get('RULES_URL', 'https://raw.githubusercontent.com/vernesong/OpenClash/master/rules.yaml')
-KEEP_NODES = int(os.environ.get('KEEP_NODES', '200'))
-MAX_FINAL = int(os.environ.get('MAX_FINAL', '50'))
-LATENCY_THRESHOLD_MS = int(os.environ.get('LATENCY_THRESHOLD_MS', '200'))
-PRIORITY_PORTS = [int(p.strip()) for p in os.environ.get('PRIORITY_PORTS', '8443,2086,2089,4443').split(',') if p.strip()]
-TCP_TIMEOUT = float(os.environ.get('TCP_TIMEOUT', '5.0'))
+# 最小可运行示例
+subscription = {
+    'proxies': [],
+    'proxy-groups': [],
+    'rules': ['MATCH,DIRECT']
+}
 
-PROTO_RE = re.compile(r'\b((?:vmess|vless|trojan|ssr|ss|http|https|socks5)://[^\s\'"<>]+)', re.I)
-HOSTPORT_RE = re.compile(r'([0-9a-zA-Z\-_\.]+):(\d{2,5})')
-
-def http_get_text(url: str, timeout: float = 10.0) -> Optional[str]:
-    try:
-        r = requests.get(url, timeout=timeout)
-        if r.status_code == 200:
-            return r.text
-    except Exception as e:
-        print(f"[HTTP GET] {url} -> {e}")
-    return None
-
-def load_source_urls() -> List[str]:
-    urls: List[str] = []
-    if SOURCE_URLS:
-        for line in SOURCE_URLS.splitlines():
-            u = line.strip()
-            if u:
-                urls.append(u)
-    if SOURCES_FILE.exists():
-        for line in SOURCES_FILE.read_text(encoding='utf-8').splitlines():
-            l = line.strip()
-            if l and not l.startswith('#'):
-                urls.append(l)
-    seen = set()
-    out = []
-    for u in urls:
-        if u not in seen:
-            seen.add(u)
-            out.append(u)
-    print(f"[INFO] Loaded {len(out)} source URLs")
-    return out
-
-def extract_links_from_text(text: str) -> List[str]:
-    links = [m.group(1).strip() for m in PROTO_RE.finditer(text)]
-    for m in HOSTPORT_RE.finditer(text):
-        hp = f"{m.group(1)}:{m.group(2)}"
-        if hp not in links:
-            links.append(hp)
-    return list(dict.fromkeys(links))
-
-def measure_tcp_connect_ms(host: str, port: int, timeout: float = TCP_TIMEOUT) -> Optional[float]:
-    try:
-        addr = socket.getaddrinfo(host, port, family=socket.AF_UNSPEC, type=socket.SOCK_STREAM)
-        start = time.time()
-        sock = None
-        for family, socktype, proto, canonname, sockaddr in addr:
-            try:
-                sock = socket.socket(family, socktype, proto)
-                sock.settimeout(timeout)
-                sock.connect(sockaddr)
-                sock.close()
-                elapsed = (time.time() - start) * 1000.0
-                return elapsed
-            except Exception:
-                if sock:
-                    try:
-                        sock.close()
-                    except:
-                        pass
-        return None
-    except Exception:
-        return None
-
-def fetch_preferred_ips(url: str) -> List[str]:
-    txt = http_get_text(url, timeout=10)
-    if not txt:
-        return []
-    lines = [l.strip() for l in txt.splitlines() if l.strip() and not l.startswith('#')]
-    ips = [l for l in lines if re.match(r'^(\d{1,3}\.){3}\d{1,3}$', l)]
-    print(f"[INFO] Loaded {len(ips)} preferred IPs from {url}")
-    return ips
-
-def main():
-    sources = load_source_urls()
-    if not sources:
-        print("[ERROR] No source URLs.")
-        return 1
-    all_links = []
-    for url in sources:
-        txt = http_get_text(url)
-        if txt:
-            all_links.extend(extract_links_from_text(txt))
-    links = list(dict.fromkeys(all_links))
-    print(f"[INFO] total unique links: {len(links)}")
-
-    preferred_ips = fetch_preferred_ips(PREFERRED_IP_REPO)
-    # 简化示例，最终保留 MAX_FINAL 个
-    selected = links[:MAX_FINAL]
-
-    subscription = {
-        'proxies': [{'name': l, 'server': l.split(':')[0], 'port': int(l.split(':')[1]), 'type':'socks5'} for l in selected],
-        'proxy-groups': [{'name':'Auto-Selected','type':'select','proxies':[l for l in selected]}],
-        'rules':['MATCH,DIRECT']
-    }
-
-    try:
-        OUTPUT_FILE.write_text(yaml.safe_dump(subscription, allow_unicode=True, sort_keys=False))
-        print(f"[SUCCESS] wrote {OUTPUT_FILE}")
-    except Exception as e:
-        print("[ERROR] write failed:", e)
-        return 2
-    return 0
-
-if __name__ == '__main__':
-    sys.exit(main())
-PY
-
-      - name: Ensure sources.txt example exists
-        run: |
-          if [ ! -f sources.txt ]; then
-            cat > sources.txt <<'SRC'
-# Add your source/subscription URLs here, one per line
-SRC
-          fi
+OUTPUT_FILE.write_text(yaml.safe_dump(subscription, allow_unicode=True, sort_keys=False))
+print(f"[SUCCESS] wrote {OUTPUT_FILE}")
+EOF
 
       - name: Run update script
-        env:
-          SOURCE_URLS: ${{ secrets.SOURCE_URLS }}
-          PREFERRED_IP_REPO: ${{ env.PREFERRED_IP_REPO }}
-          RULES_URL: ${{ env.RULES_URL }}
-          KEEP_NODES: ${{ env.KEEP_NODES }}
-          MAX_FINAL: ${{ env.MAX_FINAL }}
-          LATENCY_THRESHOLD_MS: ${{ env.LATENCY_THRESHOLD_MS }}
-          PRIORITY_PORTS: ${{ env.PRIORITY_PORTS }}
-          TCP_TIMEOUT: ${{ env.TCP_TIMEOUT }}
         run: |
-          python -u scripts/update_subscription.py
+          python scripts/update_subscription.py
 
       - name: Show top of subscription.yaml
-        if: always()
         run: |
-          echo "---- subscription.yaml head ----"
-          head -n 200 subscription.yaml || true
-          echo "---- end ----"
+          head -n 20 subscription.yaml || true
 
-      - name: Commit & Push changes
+      - name: Commit & Push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -228,5 +72,5 @@ SRC
           git add subscription.yaml || true
           git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          git pull --rebase origin "${BRANCH}" || true
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:"${BRANCH}"
+          git pull --rebase origin "$BRANCH" || true
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:"$BRANCH"
