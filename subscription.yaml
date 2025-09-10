@@ -5,488 +5,529 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🇺🇸US-23.251.121.242-0238
-  server: 23.251.121.242
-  port: 8080
-  type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  delay: 149.9347686767578
-- name: 🏁RELAY-172.67.167.120-0088
-  server: 172.67.167.120
-  port: 443
+- name: 🇨🇳CN-36.156.102.77-0768
+  server: 36.156.102.77
+  port: 1924
+  type: trojan
+  password: 253bc477d4e43c209f2d427272968280
+  sni: 23.45.86.28
+  skip-cert-verify: false
+  delay: 466.60399436950684
+- name: 🏁RELAY-172.67.128.199-0843
+  server: 172.64.82.249
+  port: 2087
   type: vmess
-  uuid: f5e74e66-0241-447c-83a4-a4005f438536
+  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /ray
+    path: /
     headers:
-      Host: m4.v2rayfree1.xyz
-  delay: 151.93891525268555
-- name: 🇺🇸US-104.192.226.106-0232
-  server: 104.192.226.106
-  port: 990
+      Host: v019.emovpn.xyz
+  delay: 474.4458198547363
+- name: 🇹🇼TW-114.46.72.1-2033
+  server: 114.46.72.1
+  port: 10045
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  delay: 155.74002265930176
-- name: 🇺🇸US-104.192.226.106-0231
-  server: 104.192.226.106
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 158.96010398864746
-- name: 🇺🇸US-173.244.56.9-0230
-  server: 173.244.56.9
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 165.32039642333984
-- name: 🇺🇸US-212.102.47.132-0235
-  server: 212.102.47.132
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 166.27097129821777
-- name: 🇺🇸US-212.102.47.130-0233
-  server: 212.102.47.130
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 169.5408821105957
-- name: 🇺🇸US-212.102.47.131-0237
-  server: 212.102.47.131
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 172.04856872558594
-- name: 🇨🇦CA-79.127.233.170-0236
-  server: 79.127.233.170
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 172.49631881713867
-- name: 🇺🇸US-170.130.92.65-0063
-  server: ca2.v2rayserv.com
+  password: 0867a369-602f-42f1-9fb4-c4aa9475d3a9
+  delay: 609.3714237213135
+- name: 🇭🇰HK-5.83.221.31-1498
+  server: 172.64.229.7
+  port: 30017
+  type: trojan
+  password: 61c6ceee-ee4f-475f-867d-dcfda15490fb
+  sni: v2hgc01.fuqiangren.com
+  skip-cert-verify: false
+  delay: 615.1137351989746
+- name: 🇺🇸US-103.224.182.210-0509
+  server: 104.18.106.106
   port: 80
   type: vmess
-  uuid: e3eba3ac-5bea-409f-ac5c-6c964e04d0c4
+  uuid: 506d93ec-ffdb-41cd-bbc3-367039c4b18f
   alterId: 0
   cipher: auto
   tls: false
   skip-cert-verify: false
+  servername: www.baidu.com
   network: ws
   ws-opts:
-    path: /sshocean
+    path: /zh-cn/
     headers:
-      Host: ca2.v2rayserv.com
-  delay: 178.54976654052734
-- name: 🇺🇸US-156.146.38.167-0228
-  server: 156.146.38.167
+      Host: hk80.sanfen001.pics
+  delay: 626.7592906951904
+- name: 🇺🇸US-172.233.219.78-1796
+  server: 104.17.35.91
   port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 191.26653671264648
-- name: 🇺🇸US-156.146.38.169-0225
-  server: 156.146.38.169
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 191.8926239013672
-- name: 🇺🇸US-156.146.38.168-0226
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 191.91527366638184
-- name: 🇺🇸US-156.146.38.170-0227
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 193.01295280456543
-- name: 🇺🇸US-156.146.38.163-0118
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 193.7870979309082
-- name: 🇦🇺AU-103.224.212.215-0210
-  server: 104.18.89.52
+  type: trojan
+  password: 265f092f-418b-30c9-a479-4800fd44dd19mielink
+  sni: paydiu.com
+  skip-cert-verify: false
+  delay: 631.9060325622559
+- name: 🇭🇰HK-207.46.147.148-1837
+  server: 104.18.189.153
   port: 443
   type: vmess
-  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  uuid: 274f11c6-f69b-40b9-8966-f39e06e97be7
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
+  servername: fullaccesstohongkongnet.azurewebsites.net
   network: ws
   ws-opts:
-    path: /chat
+    path: /ws
     headers:
-      Host: vjp3.0bad.com
-  delay: 208.8029384613037
-- name: 🇺🇸US-37.19.198.160-0223
-  server: 37.19.198.160
+      Host: fullaccesstohongkongnet.azurewebsites.net
+  delay: 645.9729671478271
+- name: 🇺🇸US-172.237.146.8-1771
+  server: 162.159.58.65
   port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 210.13188362121582
-- name: 🇺🇸US-37.19.198.243-0224
-  server: 37.19.198.243
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 217.2567844390869
-- name: 🇺🇸US-64.74.163.130-0229
-  server: 64.74.163.130
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  delay: 224.24864768981934
-- name: 🇳🇱NL-193.29.139.189-0240
-  server: 193.29.139.189
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-  delay: 286.29589080810547
-- name: 🇦🇪AE-151.242.251.144-0242
-  server: 151.242.251.144
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  delay: 293.54166984558105
-- name: 🇬🇧GB-212.102.53.194-0116
-  server: 212.102.53.194
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 294.6345806121826
-- name: 🇱🇹LT-45.87.175.154-0241
-  server: 45.87.175.154
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 294.7194576263428
-- name: 🇳🇱NL-109.201.152.181-0239
-  server: 109.201.152.181
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 295.9573268890381
-- name: 🇱🇹LT-45.87.175.166-0243
-  server: 45.87.175.166
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  delay: 299.4844913482666
-- name: 🇦🇺AU-103.224.212.215-0209
-  server: 104.19.154.200
-  port: 443
-  type: vmess
-  uuid: 927094d3-d678-4763-8591-e240d0bcae87
-  alterId: 0
-  cipher: auto
-  tls: true
+  type: trojan
+  password: 265f092f-418b-30c9-a479-4800fd44dd19mielink
+  sni: paydiu.com
   skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /chat
-    headers:
-      Host: vjp1.0bad.com
-  delay: 305.1738739013672
+  delay: 649.205207824707
 - name: 🇨🇳_CN_中国
   type: ss
   server: 103.149.182.191
   port: 8388
   cipher: chacha20-ietf
   password: asd123456
-  delay: 441.83921813964844
-- name: 🇨🇳_CN_中国->🇺🇸_US_美国
-  type: vmess
-  server: 162.159.128.253
-  port: 30835
-  sni: ''
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  cipher: auto
-  network: ws
-  skip-cert-verify: true
-  ws-opts:
-    path: /oooo
-    headers:
-      host: v35.heduian.link
-  alterId: 2
-  delay: 9999
-- name: 🇨🇳_CN_中国->🇺🇸_US_美国_1
-  type: vmess
-  server: 104.31.16.158
-  port: 30829
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      host: ocbc.com
-  alterId: 2
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.220-0000
-  server: 117.164.185.220
-  port: 61027
+  delay: 669.8369979858398
+- name: 🇹🇼TW-223.165.4.173-0334
+  server: 223.165.4.173
+  port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.220-0001
-  server: 117.164.185.220
-  port: 61026
+  password: f8f7aCzcPKbsF8p3
+  delay: 670.8157062530518
+- name: 🇹🇼TW-111.253.205.251-0763
+  server: 111.253.205.251
+  port: 10147
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  delay: 9999
-- name: 🇨🇳CN-36.138.100.57-0009
-  server: 36.138.100.57
-  port: 61001
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: 8fc95eb8-83b4-47af-ae17-d7639dd0fd2c
+  delay: 674.2372512817383
+- name: 🇨🇳CN-106.15.224.42-2039
+  server: 106.15.224.42
+  port: 2055
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: LcmwtQRzICXGQLioSolzi7
+  delay: 676.5592098236084
+- name: 🇭🇰HK-47.83.192.216-0367
+  server: 47.83.192.216
+  port: 36199
+  type: vmess
+  uuid: 49bb1bac-226e-434e-985b-e5fd1ac6c48b
+  alterId: 0
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-36.138.100.57-0010
-  server: 36.138.100.57
-  port: 61002
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  network: ws
+  ws-opts:
+    path: /
+  delay: 677.6158809661865
+- name: 🇹🇼TW-103.61.139.137-0390
+  server: 103.61.139.137
+  port: 20521
+  type: vmess
+  uuid: f8d93cfb-3d5d-447c-a697-16496dd74697
+  alterId: 0
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.220-0011
-  server: 117.164.185.220
-  port: 61001
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  network: ws
+  ws-opts:
+    path: /
+  delay: 678.2917976379395
+- name: 🇭🇰HK-8.210.140.23-0387
+  server: 8.210.140.23
+  port: 54809
+  type: vmess
+  uuid: fde73daf-cc67-42f3-9935-35b132b01abd
+  alterId: 0
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.220-0012
-  server: 117.164.185.220
-  port: 61002
+  network: ws
+  ws-opts:
+    path: /
+  delay: 683.516263961792
+- name: 🇭🇰HK-5.83.221.31-1640
+  server: 104.18.89.52
+  port: 30057
   type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: a0087535-9c6f-42cd-9220-a7bb8eeae6cc
+  sni: v1kr02.fuqiangren.com
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0013
-  server: 117.164.185.222
-  port: 61001
+  delay: 690.8938884735107
+- name: 🇭🇰HK-43.198.184.150-0646
+  server: 43.198.184.150
+  port: 2282
   type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: 253bc477d4e43c209f2d427272968280
+  sni: fe2.update.microsoft.com
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0014
-  server: 117.164.185.222
-  port: 61002
+  delay: 691.2651062011719
+- name: 🇺🇸US-172.233.219.123-1871
+  server: 104.16.65.1
+  port: 443
   type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: 265f092f-418b-30c9-a479-4800fd44dd19mielink
+  sni: paydiu.com
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-36.138.100.57-0017
-  server: 36.138.100.57
-  port: 21002
+  delay: 698.0142593383789
+- name: 🇭🇰HK-5.83.221.31-1582
+  server: 104.18.0.38
+  port: 30052
   type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: c1596d35-5f68-4cef-bf5f-ac0d2ab88b2f
+  sni: v2th01.fuqiangren.com
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-36.138.100.57-0018
-  server: 36.138.100.57
-  port: 21003
+  delay: 705.5649757385254
+- name: 🇭🇰HK-5.83.221.31-1545
+  server: 104.17.167.134
+  port: 30054
   type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: 261ccd4c-425d-43a2-bf2a-59c3d1f02e94
+  sni: v1jp01.fuqiangren.com
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-183.245.146.20-0019
-  server: 183.245.146.20
-  port: 21002
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-183.245.146.20-0020
-  server: 183.245.146.20
-  port: 21001
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0021
-  server: 117.164.185.222
-  port: 21001
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0022
-  server: 117.164.185.222
-  port: 21002
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0023
-  server: 117.164.185.222
-  port: 21003
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0024
-  server: 117.164.185.222
-  port: 21004
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇳CN-117.164.185.222-0025
-  server: 117.164.185.222
-  port: 21005
-  type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
-  skip-cert-verify: false
-  delay: 9999
-- name: 🇺🇸US-75.2.18.233-0027
+  delay: 708.5666656494141
+- name: 🇭🇰HK-5.83.221.31-1631
   server: 104.18.81.19
-  port: 39918
-  type: vmess
-  uuid: fbc2efb0-786a-4074-81ea-8ab12ca5422c
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /je5x3pBN1vez3NQudNkB
-    headers:
-      Host: cdn.cjhh.lol
-  delay: 9999
-- name: 🇭🇰HK-42.3.19.141-0028
-  server: 162.159.61.183
-  port: 888
-  type: vmess
-  uuid: fbc2efb0-786a-4074-81ea-8ab12ca5422c
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /je5x3pBN1vez3NQudNkB
-    headers:
-      Host: edge.cjhh.mom
-  delay: 9999
-- name: 🇨🇳CN-183.245.146.20-0030
-  server: 183.245.146.20
-  port: 41001
+  port: 30051
   type: trojan
-  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-  sni: 103-135-251-39.nhost.00cdn.com
+  password: b17fe152-2615-4fe1-b80e-3c61b557481d
+  sni: v2vn01.fuqiangren.com
   skip-cert-verify: false
-  delay: 9999
-- name: 🇨🇦CA-196.247.59.156-0031
-  server: 196.247.59.156
-  port: 808
+  delay: 709.252119064331
+- name: 🇭🇰HK-5.83.221.31-1570
+  server: 162.159.140.116
+  port: 20223
+  type: trojan
+  password: b504c643-d081-4c90-8f50-9b0bf0b0902d
+  sni: v2sg01.fuqiangren.com
+  skip-cert-verify: false
+  delay: 711.2867832183838
+- name: 🏁RELAY-104.21.90.210-1740
+  server: 104.17.35.91
+  port: 80
+  type: vmess
+  uuid: 3eb05cb6-d2e1-4a31-9f82-514cfa98fe15
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray?ed=2048
+    headers:
+      Host: icook.hk
+  delay: 712.3932838439941
+- name: 🇭🇰HK-42.3.84.133-0308
+  server: 104.18.89.52
+  port: 80
+  type: vmess
+  uuid: 93fb69fc-77cf-11ee-85ee-f23c91369f2d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: broadcastlv.chat.bilibili.com
+  delay: 712.6095294952393
+- name: 🇭🇰HK-47.239.142.73-0296
+  server: 47.239.142.73
+  port: 38846
+  type: vmess
+  uuid: cad4d57f-81a1-451d-a733-cb650b2776ce
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+  delay: 717.3788547515869
+- name: 🇭🇰HK-5.83.221.31-1580
+  server: 172.64.52.127
+  port: 30049
+  type: trojan
+  password: dc773e17-d94e-4f6e-a3cd-26c972a08b89
+  sni: v2sg02.fuqiangren.com
+  skip-cert-verify: false
+  delay: 718.2402610778809
+- name: 🇭🇰HK-5.83.221.31-1581
+  server: 172.64.52.127
+  port: 30056
+  type: trojan
+  password: c1596d35-5f68-4cef-bf5f-ac0d2ab88b2f
+  sni: v1kr01.fuqiangren.com
+  skip-cert-verify: false
+  delay: 726.3140678405762
+- name: 🇭🇰HK-119.237.29.5-0758
+  server: 104.19.205.9
+  port: 80
+  type: vmess
+  uuid: 93fb69fc-77cf-11ee-85ee-f23c91369f2d
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: hkt.gotochinatown.net
+  delay: 727.3218631744385
+- name: 🇭🇰HK-5.83.221.31-1626
+  server: 104.26.3.162
+  port: 30041
+  type: vmess
+  uuid: d3d90998-7bfd-4fc6-930e-35bf96083d8b
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  servername: sh01.fastcloud.club
+  network: ws
+  ws-opts:
+    path: /aceamedv
+    headers:
+      Host: v02.gutingting.com
+  delay: 746.1690902709961
+- name: 🇹🇼TW-154.223.20.79-0361
+  server: 154.223.20.79
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 770.5626487731934
+- name: 🇭🇰HK-203.23.128.33-0342
+  server: 203.23.128.33
+  port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: G!yBwPWH3Vao
-  delay: 9999
+  password: f8f7aCzcPKbsF8p3
+  delay: 775.4671573638916
+- name: 🇭🇰HK-5.83.221.31-1534
+  server: 198.41.194.162
+  port: 30006
+  type: trojan
+  password: 261ccd4c-425d-43a2-bf2a-59c3d1f02e94
+  sni: v2hgc02.fuqiangren.com
+  skip-cert-verify: false
+  delay: 834.7184658050537
+- name: 🇭🇰HK-5.83.221.31-1501
+  server: 104.26.5.134
+  port: 30050
+  type: trojan
+  password: 8cf18212-6899-4d09-9cdc-b7dd91cc4611
+  sni: v2sg02.fuqiangren.com
+  skip-cert-verify: false
+  delay: 893.4948444366455
+- name: 🇺🇸US-172.233.219.123-1797
+  server: 104.19.220.22
+  port: 443
+  type: trojan
+  password: 265f092f-418b-30c9-a479-4800fd44dd19mielink
+  sni: paydiu.com
+  skip-cert-verify: false
+  delay: 908.3218574523926
+- name: 🏁RELAY-104.21.80.1-0852
+  server: 104.16.65.1
+  port: 8443
+  type: vmess
+  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v34.emoyes.top
+  delay: 999.3674755096436
+- name: 🇺🇸US-103.224.182.210-1993
+  server: 104.19.220.22
+  port: 80
+  type: vmess
+  uuid: 3c34f264-6d9c-4234-b1da-3b84f183a931
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  servername: www.baidu.com
+  network: ws
+  ws-opts:
+    path: /zh-cn/
+    headers:
+      Host: hk80-2.sanfen001.pics
+  delay: 1029.4437408447266
+- name: 🇭🇰HK-5.83.221.31-1532
+  server: 104.18.0.38
+  port: 30038
+  type: trojan
+  password: fc2e30d6-474a-42a4-8de2-32720698c97f
+  sni: v2hgc02.fuqiangren.com
+  skip-cert-verify: false
+  delay: 1055.2566051483154
+- name: 🇺🇸US-172.233.219.78-1768
+  server: 104.16.65.1
+  port: 443
+  type: trojan
+  password: 265f092f-418b-30c9-a479-4800fd44dd19mielink
+  sni: paydiu.com
+  skip-cert-verify: false
+  delay: 1215.8033847808838
+- name: 🇨🇳CN-36.156.102.77-0771
+  server: 36.156.102.77
+  port: 9160
+  type: trojan
+  password: 253bc477d4e43c209f2d427272968280
+  sni: 23.45.86.28
+  skip-cert-verify: false
+  delay: 1493.5603141784668
+- name: 🇭🇰HK-47.83.162.4-0329
+  server: 47.83.162.4
+  port: 40873
+  type: vmess
+  uuid: 3fd266bc-7691-43cf-a82f-0c9761a69bf0
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+  delay: 1503.4961700439453
+- name: 🇭🇰HK-5.83.221.31-1619
+  server: 162.159.24.131
+  port: 30055
+  type: trojan
+  password: 1957909a-4f2a-4d9c-99ad-119d45f052c1
+  sni: v1jp02.fuqiangren.com
+  skip-cert-verify: false
+  delay: 1521.9058990478516
+- name: 🇹🇼TW-114.35.114.182-0762
+  server: 114.35.114.182
+  port: 10129
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e6187cf8-7003-47e2-967b-7b900b132ddb
+  delay: 1714.646339416504
+- name: 🇭🇰HK-47.238.252.154-0324
+  server: 47.238.252.154
+  port: 58867
+  type: vmess
+  uuid: 7b80e36f-b082-46fc-ae59-6bb0dd17eee8
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+  delay: 1770.672082901001
+- name: 🇭🇰HK-5.83.221.31-1618
+  server: 104.17.162.3
+  port: 30002
+  type: trojan
+  password: 1957909a-4f2a-4d9c-99ad-119d45f052c1
+  sni: v2tw01.fuqiangren.com
+  skip-cert-verify: false
+  delay: 1780.684232711792
+- name: 🇭🇰HK-5.83.221.31-1499
+  server: 198.41.208.15
+  port: 20224
+  type: trojan
+  password: b46a2da5-79eb-47d1-ad1e-30b988c0f93b
+  sni: v2usa01.fuqiangren.com
+  skip-cert-verify: false
+  delay: 1854.3498516082764
+- name: 🇨🇳CN-163.177.45.204-0765
+  server: 104.18.223.253
+  port: 8766
+  type: ss
+  cipher: rc4-md5
+  password: efanccyun
+  delay: 2254.9240589141846
+- name: 🇭🇰HK-8.210.134.227-2031
+  server: 8.210.134.227
+  port: 28484
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 68trvOEgMDYiNg2n543Bbk
+  delay: 2591.2628173828125
+- name: 🇭🇰HK-5.83.221.31-1583
+  server: 104.17.167.134
+  port: 30053
+  type: trojan
+  password: c1596d35-5f68-4cef-bf5f-ac0d2ab88b2f
+  sni: v2phl01.fuqiangren.com
+  skip-cert-verify: false
+  delay: 2747.7450370788574
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🇺🇸US-23.251.121.242-0238
-  - 🏁RELAY-172.67.167.120-0088
-  - 🇺🇸US-104.192.226.106-0232
-  - 🇺🇸US-104.192.226.106-0231
-  - 🇺🇸US-173.244.56.9-0230
-  - 🇺🇸US-212.102.47.132-0235
-  - 🇺🇸US-212.102.47.130-0233
-  - 🇺🇸US-212.102.47.131-0237
-  - 🇨🇦CA-79.127.233.170-0236
-  - 🇺🇸US-170.130.92.65-0063
-  - 🇺🇸US-156.146.38.167-0228
-  - 🇺🇸US-156.146.38.169-0225
-  - 🇺🇸US-156.146.38.168-0226
-  - 🇺🇸US-156.146.38.170-0227
-  - 🇺🇸US-156.146.38.163-0118
-  - 🇦🇺AU-103.224.212.215-0210
-  - 🇺🇸US-37.19.198.160-0223
-  - 🇺🇸US-37.19.198.243-0224
-  - 🇺🇸US-64.74.163.130-0229
-  - 🇳🇱NL-193.29.139.189-0240
-  - 🇦🇪AE-151.242.251.144-0242
-  - 🇬🇧GB-212.102.53.194-0116
-  - 🇱🇹LT-45.87.175.154-0241
-  - 🇳🇱NL-109.201.152.181-0239
-  - 🇱🇹LT-45.87.175.166-0243
-  - 🇦🇺AU-103.224.212.215-0209
+  - 🇨🇳CN-36.156.102.77-0768
+  - 🏁RELAY-172.67.128.199-0843
+  - 🇹🇼TW-114.46.72.1-2033
+  - 🇭🇰HK-5.83.221.31-1498
+  - 🇺🇸US-103.224.182.210-0509
+  - 🇺🇸US-172.233.219.78-1796
+  - 🇭🇰HK-207.46.147.148-1837
+  - 🇺🇸US-172.237.146.8-1771
   - 🇨🇳_CN_中国
-  - 🇨🇳_CN_中国->🇺🇸_US_美国
-  - 🇨🇳_CN_中国->🇺🇸_US_美国_1
-  - 🇨🇳CN-117.164.185.220-0000
-  - 🇨🇳CN-117.164.185.220-0001
-  - 🇨🇳CN-36.138.100.57-0009
-  - 🇨🇳CN-36.138.100.57-0010
-  - 🇨🇳CN-117.164.185.220-0011
-  - 🇨🇳CN-117.164.185.220-0012
-  - 🇨🇳CN-117.164.185.222-0013
-  - 🇨🇳CN-117.164.185.222-0014
-  - 🇨🇳CN-36.138.100.57-0017
-  - 🇨🇳CN-36.138.100.57-0018
-  - 🇨🇳CN-183.245.146.20-0019
-  - 🇨🇳CN-183.245.146.20-0020
-  - 🇨🇳CN-117.164.185.222-0021
-  - 🇨🇳CN-117.164.185.222-0022
-  - 🇨🇳CN-117.164.185.222-0023
-  - 🇨🇳CN-117.164.185.222-0024
-  - 🇨🇳CN-117.164.185.222-0025
-  - 🇺🇸US-75.2.18.233-0027
-  - 🇭🇰HK-42.3.19.141-0028
-  - 🇨🇳CN-183.245.146.20-0030
-  - 🇨🇦CA-196.247.59.156-0031
+  - 🇹🇼TW-223.165.4.173-0334
+  - 🇹🇼TW-111.253.205.251-0763
+  - 🇨🇳CN-106.15.224.42-2039
+  - 🇭🇰HK-47.83.192.216-0367
+  - 🇹🇼TW-103.61.139.137-0390
+  - 🇭🇰HK-8.210.140.23-0387
+  - 🇭🇰HK-5.83.221.31-1640
+  - 🇭🇰HK-43.198.184.150-0646
+  - 🇺🇸US-172.233.219.123-1871
+  - 🇭🇰HK-5.83.221.31-1582
+  - 🇭🇰HK-5.83.221.31-1545
+  - 🇭🇰HK-5.83.221.31-1631
+  - 🇭🇰HK-5.83.221.31-1570
+  - 🏁RELAY-104.21.90.210-1740
+  - 🇭🇰HK-42.3.84.133-0308
+  - 🇭🇰HK-47.239.142.73-0296
+  - 🇭🇰HK-5.83.221.31-1580
+  - 🇭🇰HK-5.83.221.31-1581
+  - 🇭🇰HK-119.237.29.5-0758
+  - 🇭🇰HK-5.83.221.31-1626
+  - 🇹🇼TW-154.223.20.79-0361
+  - 🇭🇰HK-203.23.128.33-0342
+  - 🇭🇰HK-5.83.221.31-1534
+  - 🇭🇰HK-5.83.221.31-1501
+  - 🇺🇸US-172.233.219.123-1797
+  - 🏁RELAY-104.21.80.1-0852
+  - 🇺🇸US-103.224.182.210-1993
+  - 🇭🇰HK-5.83.221.31-1532
+  - 🇺🇸US-172.233.219.78-1768
+  - 🇨🇳CN-36.156.102.77-0771
+  - 🇭🇰HK-47.83.162.4-0329
+  - 🇭🇰HK-5.83.221.31-1619
+  - 🇹🇼TW-114.35.114.182-0762
+  - 🇭🇰HK-47.238.252.154-0324
+  - 🇭🇰HK-5.83.221.31-1618
+  - 🇭🇰HK-5.83.221.31-1499
+  - 🇨🇳CN-163.177.45.204-0765
+  - 🇭🇰HK-8.210.134.227-2031
+  - 🇭🇰HK-5.83.221.31-1583
 - name: 自动选择
   type: url-test
   proxies: *id001
