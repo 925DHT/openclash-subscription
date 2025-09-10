@@ -18,9 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,14 +34,13 @@ jobs:
           mkdir -p scripts
           cat > scripts/update_subscription.py << 'EOF'
 #!/usr/bin/env python3
-import os
+# 简化示例脚本
 from pathlib import Path
 import yaml
 
 ROOT = Path('.').resolve()
 OUTPUT_FILE = ROOT / 'subscription.yaml'
 
-# 最小可运行示例
 subscription = {
     'proxies': [],
     'proxy-groups': [],
@@ -70,7 +66,7 @@ EOF
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add subscription.yaml || true
-          git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
           BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git pull --rebase origin "$BRANCH" || true
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:"$BRANCH"
