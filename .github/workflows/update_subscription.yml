@@ -1,16 +1,10 @@
 name: Update Clash Subscription
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 16 * * *'
-    - cron: '0 4 * * *'
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: write
+    - cron: '0 16 * * *'    # UTC+8 00:00
+    - cron: '0 4 * * *'     # UTC+8 12:00
+  workflow_dispatch:
 
 jobs:
   update-subscription:
@@ -25,40 +19,12 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install --no-cache-dir requests PyYAML
+        run: pip install requests PyYAML
 
-      - name: Create Python script
-        run: |
-          mkdir -p scripts
-          cat > scripts/update_subscription.py << 'END_SCRIPT'
-#!/usr/bin/env python3
-from pathlib import Path
-import yaml
+      - name: Run update script
+        run: python update_subscription.py
 
-ROOT = Path('.').resolve()
-OUTPUT_FILE = ROOT / 'subscription.yaml'
-
-subscription = {
-    'proxies': [],
-    'proxy-groups': [],
-    'rules': ['MATCH,DIRECT']
-}
-
-OUTPUT_FILE.write_text(yaml.safe_dump(subscription, allow_unicode=True, sort_keys=False))
-print(f"[SUCCESS] wrote {OUTPUT_FILE}")
-END_SCRIPT
-
-      - name: Run Python script
-        run: |
-          python scripts/update_subscription.py
-
-      - name: Show subscription.yaml
-        run: |
-          cat subscription.yaml || true
-
-      - name: Commit & Push
+      - name: Commit & Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -66,6 +32,4 @@ END_SCRIPT
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add subscription.yaml
           git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
-          BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          git pull --rebase origin "$BRANCH" || true
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:"$BRANCH"
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
