@@ -2,7 +2,7 @@
 name: Update Clash Subscription
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
   schedule:
     - cron: '0 16 * * *'   # UTC 16:00 -> UTC+8 00:00
     - cron: '0 4 * * *'    # UTC 04:00 -> UTC+8 12:00
@@ -18,9 +18,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # 可通过仓库变量/Secrets 覆盖这些默认值
-  PREFERRED_IP_REPO: https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt
-  RULES_URL: https://raw.githubusercontent.com/vernesong/OpenClash/master/rules.yaml
+  PREFERRED_IP_REPO: 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt'
+  RULES_URL: 'https://raw.githubusercontent.com/vernesong/OpenClash/master/rules.yaml'
   KEEP_NODES: '200'
   MAX_FINAL: '50'
   LATENCY_THRESHOLD_MS: '200'
@@ -31,7 +30,7 @@ jobs:
   update-subscription:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository (full)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -54,14 +53,7 @@ jobs:
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-scripts/update_subscription.py
-- 从 sources.txt 或 SOURCE_URLS 读取节点源（raw 链接或页面）
-- 解析常见订阅格式，提取 host:port 及协议相关字段（尽量）
-- TCP 连接测延迟（近似），优先端口优先（PRIORITY_PORTS）
-- 使用优选 IP 列表（PREFERRED_IP_REPO）尝试替换不可达 host
-- 保留延迟 <= LATENCY_THRESHOLD_MS 的节点优先，最终保留 MAX_FINAL 个节点
-- 拉取 RULES_URL 作为 openclash 规则（若可用）
-- 输出 OpenClash/Clash 兼容的 subscription.yaml
+自动生成 subscription.yaml 的脚本
 """
 import os
 import re
@@ -73,7 +65,7 @@ import base64
 import random
 import urllib.parse
 from pathlib import Path
-from typing import Optional, Tuple, List, Dict
+from typing import Optional, List, Dict
 
 import requests
 import yaml
@@ -82,17 +74,15 @@ ROOT = Path('.').resolve()
 OUTPUT_FILE = ROOT / 'subscription.yaml'
 SOURCES_FILE = ROOT / 'sources.txt'
 
-# Environment-configurable
 SOURCE_URLS = os.environ.get('SOURCE_URLS', '').strip()
-PREFERRED_IP_REPO = os.environ.get('PREFERRED_IP_REPO', os.environ.get('PREFERRED_IP_REPO', 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt'))
-RULES_URL = os.environ.get('RULES_URL', os.environ.get('RULES_URL', 'https://raw.githubusercontent.com/vernesong/OpenClash/master/rules.yaml'))
+PREFERRED_IP_REPO = os.environ.get('PREFERRED_IP_REPO', 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt')
+RULES_URL = os.environ.get('RULES_URL', 'https://raw.githubusercontent.com/vernesong/OpenClash/master/rules.yaml')
 KEEP_NODES = int(os.environ.get('KEEP_NODES', '200'))
 MAX_FINAL = int(os.environ.get('MAX_FINAL', '50'))
 LATENCY_THRESHOLD_MS = int(os.environ.get('LATENCY_THRESHOLD_MS', '200'))
 PRIORITY_PORTS = [int(p.strip()) for p in os.environ.get('PRIORITY_PORTS', '8443,2086,2089,4443').split(',') if p.strip()]
 TCP_TIMEOUT = float(os.environ.get('TCP_TIMEOUT', '5.0'))
 
-# Regexes
 PROTO_RE = re.compile(r'\b((?:vmess|vless|trojan|ssr|ss|http|https|socks5)://[^\s\'"<>]+)', re.I)
 HOSTPORT_RE = re.compile(r'([0-9a-zA-Z\-_\.]+):(\d{2,5})')
 
@@ -117,7 +107,6 @@ def load_source_urls() -> List[str]:
             l = line.strip()
             if l and not l.startswith('#'):
                 urls.append(l)
-    # 去重且保留顺序
     seen = set()
     out = []
     for u in urls:
@@ -129,125 +118,14 @@ def load_source_urls() -> List[str]:
 
 def extract_links_from_text(text: str) -> List[str]:
     links = [m.group(1).strip() for m in PROTO_RE.finditer(text)]
-    # 同时尝试抽取裸 host:port
     for m in HOSTPORT_RE.finditer(text):
         hp = f"{m.group(1)}:{m.group(2)}"
         if hp not in links:
             links.append(hp)
-    # 去重
     return list(dict.fromkeys(links))
 
-# ---- parsers ----
-def safe_base64_decode(s: str) -> Optional[bytes]:
-    try:
-        padding = '=' * (-len(s) % 4)
-        return base64.urlsafe_b64decode(s + padding)
-    except Exception:
-        return None
-
-def parse_vmess(link: str) -> Optional[Tuple[str,int,dict]]:
-    # vmess://<base64> or vmess://<raw>@host:port?...
-    try:
-        body = link.split('://',1)[1]
-        if '@' in body and ':' in body:
-            # fallback to urlparse
-            p = urllib.parse.urlparse(link)
-            if p.hostname and p.port:
-                return (p.hostname, p.port, {})
-        # assume base64 json
-        data = body.split('#',1)[0]
-        decoded = safe_base64_decode(data)
-        if not decoded:
-            return None
-        obj = json.loads(decoded.decode('utf-8', errors='ignore'))
-        host = obj.get('add') or obj.get('ps')
-        port = int(obj.get('port') or 0)
-        return (host, port, obj) if host and port else None
-    except Exception:
-        return None
-
-def parse_vless(link: str) -> Optional[Tuple[str,int,dict]]:
-    try:
-        p = urllib.parse.urlparse(link)
-        if p.hostname and p.port:
-            q = urllib.parse.parse_qs(p.query)
-            extra = {k: v[0] for k,v in q.items()}
-            extra['uuid'] = p.username or extra.get('id') or ''
-            return (p.hostname, p.port, extra)
-    except Exception:
-        return None
-
-def parse_trojan(link: str) -> Optional[Tuple[str,int,dict]]:
-    try:
-        p = urllib.parse.urlparse(link)
-        if p.hostname and p.port:
-            q = urllib.parse.parse_qs(p.query)
-            extra = {k: v[0] for k,v in q.items()}
-            extra['password'] = p.username or extra.get('password','')
-            return (p.hostname, p.port, extra)
-    except Exception:
-        return None
-
-def parse_ss(link: str) -> Optional[Tuple[str,int,dict]]:
-    try:
-        body = link.split('://',1)[1]
-        # form: ss://base64#name  or ss://method:pass@host:port
-        if '@' in body:
-            after = body.split('@')[-1]
-            hostport = after.split('#',1)[0]
-            if ':' in hostport:
-                host, port = hostport.rsplit(':',1)
-                return (host, int(port), {})
-        else:
-            b = body.split('#',1)[0]
-            dec = safe_base64_decode(b)
-            if dec:
-                s = dec.decode('utf-8', errors='ignore')
-                if '@' in s:
-                    hostport = s.split('@')[-1]
-                    if ':' in hostport:
-                        host, port = hostport.rsplit(':',1)
-                        return (host, int(port), {})
-    except Exception:
-        return None
-
-def parse_generic(link: str) -> Optional[Tuple[str,int,dict]]:
-    try:
-        p = urllib.parse.urlparse(link)
-        if p.hostname and p.port:
-            q = urllib.parse.parse_qs(p.query)
-            extra = {k: v[0] for k,v in q.items()}
-            return (p.hostname, p.port, extra)
-    except Exception:
-        return None
-
-def parse_link_to_hostport(link: str) -> Optional[Tuple[str,int,str,dict]]:
-    l = link.strip()
-    low = l.lower()
-    if low.startswith('vmess://'):
-        r = parse_vmess(l)
-        if r: return (r[0], r[1], 'vmess', r[2])
-    if low.startswith('vless://'):
-        r = parse_vless(l)
-        if r: return (r[0], r[1], 'vless', r[2])
-    if low.startswith('trojan://'):
-        r = parse_trojan(l)
-        if r: return (r[0], r[1], 'trojan', r[2])
-    if low.startswith('ss://'):
-        r = parse_ss(l)
-        if r: return (r[0], r[1], 'ss', r[2])
-    # generic (http/socks5/host:port)
-    r = parse_generic(l)
-    if r: return (r[0], r[1], 'generic', r[2])
-    m = HOSTPORT_RE.search(l)
-    if m:
-        return (m.group(1), int(m.group(2)), 'raw', {})
-    return None
-
-# ---- network test ----
 def measure_tcp_connect_ms(host: str, port: int, timeout: float = TCP_TIMEOUT) -> Optional[float]:
     try:
-        # resolve and connect
         addr = socket.getaddrinfo(host, port, family=socket.AF_UNSPEC, type=socket.SOCK_STREAM)
         start = time.time()
         sock = None
@@ -261,8 +139,10 @@ def measure_tcp_connect_ms(host: str, port: int, timeout: float = TCP_TIMEOUT) -
                 return elapsed
             except Exception:
                 if sock:
-                    try: sock.close()
-                    except: pass
+                    try:
+                        sock.close()
+                    except:
+                        pass
         return None
     except Exception:
         return None
@@ -271,192 +151,37 @@ def fetch_preferred_ips(url: str) -> List[str]:
     txt = http_get_text(url, timeout=10)
     if not txt:
         return []
-    lines = [l.strip() for l in txt.splitlines() if l.strip() and not l.strip().startswith('#')]
-    # 验证 IPv4
-    ips = []
-    for l in lines:
-        if re.match(r'^(\d{1,3}\.){3}\d{1,3}$', l):
-            ips.append(l)
+    lines = [l.strip() for l in txt.splitlines() if l.strip() and not l.startswith('#')]
+    ips = [l for l in lines if re.match(r'^(\d{1,3}\.){3}\d{1,3}$', l)]
     print(f"[INFO] Loaded {len(ips)} preferred IPs from {url}")
     return ips
-
-def try_replace_host_with_preferred(host: str, ports: List[int], preferred_ips: List[str]) -> Optional[Tuple[str,int,float]]:
-    if not preferred_ips:
-        return None
-    sample = random.sample(preferred_ips, min(20, len(preferred_ips)))
-    best = None
-    for ip in sample:
-        for port in ports[:3]:  # 只试前 3 个端口作为示例
-            lat = measure_tcp_connect_ms(ip, port)
-            if lat is not None:
-                if best is None or lat < best[2]:
-                    best = (ip, port, lat)
-    return best
-
-def build_clash_proxy_entry(proto: str, host: str, port: int, extra: dict, latency: float) -> dict:
-    name = f"{host}:{port} | {int(latency)}ms"
-    proxy = {"name": name, "server": host, "port": int(port)}
-    if proto == 'vmess':
-        proxy['type'] = 'vmess'
-        if isinstance(extra, dict):
-            proxy['uuid'] = extra.get('id') or extra.get('uuid') or ''
-            proxy['alterId'] = int(extra.get('aid') or extra.get('alterId') or 0)
-            proxy['cipher'] = extra.get('cipher','auto') or 'auto'
-            proxy['tls'] = (extra.get('tls') == 'tls' or str(extra.get('tls')).lower() == 'true')
-            proxy['network'] = extra.get('net', 'tcp')
-            # ws opts
-            ws_opts = {}
-            if extra.get('path'): ws_opts['ws-path'] = extra.get('path')
-            if extra.get('host'): ws_opts['ws-headers'] = {'Host': extra.get('host')}
-            if ws_opts: proxy.update({'ws-opts': ws_opts})
-    elif proto == 'vless':
-        proxy['type'] = 'vless'
-        if isinstance(extra, dict):
-            proxy['uuid'] = extra.get('uuid') or extra.get('id') or ''
-            proxy['tls'] = extra.get('tls') in ('1','true','tls')
-            proxy['flow'] = extra.get('flow','')
-    elif proto == 'trojan':
-        proxy['type'] = 'trojan'
-        proxy['password'] = extra.get('password') or extra.get('pass') or ''
-        proxy['sni'] = extra.get('sni') or host
-    elif proto == 'ss':
-        proxy['type'] = 'ss'
-        proxy['cipher'] = extra.get('method','aes-128-gcm')
-        proxy['password'] = extra.get('password','')
-    else:
-        proxy['type'] = 'socks5'
-    return proxy
-
-def load_rules_list() -> List[str]:
-    # 优先从仓库文件读取
-    local_yaml = ROOT / 'openclash_rules.yaml'
-    local_txt = ROOT / 'rules.txt'
-    if local_yaml.exists():
-        try:
-            data = yaml.safe_load(local_yaml.read_text(encoding='utf-8'))
-            if isinstance(data, dict) and 'rules' in data:
-                return data['rules']
-            if isinstance(data, list):
-                return data
-        except Exception as e:
-            print("[WARN] parse local openclash_rules.yaml failed:", e)
-    if local_txt.exists():
-        return [l.strip() for l in local_txt.read_text(encoding='utf-8').splitlines() if l.strip()]
-    # 尝试远程 RULES_URL
-    if RULES_URL:
-        txt = http_get_text(RULES_URL, timeout=15)
-        if txt:
-            try:
-                parsed = yaml.safe_load(txt)
-                if isinstance(parsed, dict) and 'rules' in parsed:
-                    return parsed['rules']
-                if isinstance(parsed, list):
-                    return parsed
-            except Exception:
-                return [l.strip() for l in txt.splitlines() if l.strip()]
-    # 回退最小规则（建议放置官方规则文件到仓库或设置 RULES_URL）
-    print("[WARN] No openclash rules found, using minimal fallback rules.")
-    return [
-        'DOMAIN-SUFFIX,google.com,Proxy',
-        'DOMAIN-SUFFIX,youtube.com,Proxy',
-        'DOMAIN-SUFFIX,github.com,Proxy',
-        'GEOIP,CN,DIRECT',
-        'MATCH,Proxy'
-    ]
 
 def main():
     sources = load_source_urls()
     if not sources:
-        print("[ERROR] No source URLs. Provide sources.txt or set SOURCE_URLS env.")
+        print("[ERROR] No source URLs.")
+        return 1
     all_links = []
     for url in sources:
-        print("[FETCH]", url)
-        txt = http_get_text(url, timeout=12)
-        if not txt:
-            print("  -> failed to fetch")
-            continue
-        found = extract_links_from_text(txt)
-        print(f"  -> found {len(found)} candidate links")
-        all_links.extend(found)
-    # 去重
+        txt = http_get_text(url)
+        if txt:
+            all_links.extend(extract_links_from_text(txt))
     links = list(dict.fromkeys(all_links))
-    print("[INFO] total unique links:", len(links))
+    print(f"[INFO] total unique links: {len(links)}")
 
     preferred_ips = fetch_preferred_ips(PREFERRED_IP_REPO)
-
-    candidates = []
-    for link in links:
-        parsed = parse_link_to_hostport(link)
-        if not parsed:
-            print("[SKIP] cannot parse:", link[:120])
-            continue
-        host, port, proto, extra = parsed
-        if not host or not port:
-            print("[SKIP] missing host/port:", link[:120])
-            continue
-        # 尝试端口顺序：原端口 -> 优先端口 -> 常见端口
-        ports_to_try = []
-        if port and int(port) > 0:
-            ports_to_try.append(int(port))
-        for p in PRIORITY_PORTS:
-            if p not in ports_to_try: ports_to_try.append(p)
-        for fb in (443, 80):
-            if fb not in ports_to_try: ports_to_try.append(fb)
-        best = None
-        for p in ports_to_try:
-            lat = measure_tcp_connect_ms(host, p, timeout=TCP_TIMEOUT)
-            if lat is not None:
-                if best is None or lat < best[1]:
-                    best = (p, lat)
-        if best is None:
-            # 尝试使用优选 IP 替换
-            rep = try_replace_host_with_preferred(host, ports_to_try, preferred_ips) if preferred_ips else None
-            if rep:
-                rhost, rport, rlat = rep
-                candidates.append({'link': link, 'host': rhost, 'port': rport, 'proto': proto, 'extra': extra, 'lat': rlat, 'replaced': True})
-                print(f"[REPLACED] {host} -> {rhost}:{rport} {rlat:.1f}ms")
-            else:
-                print(f"[UNREACHABLE] {host} ports {ports_to_try}")
-            continue
-        candidates.append({'link': link, 'host': host, 'port': best[0], 'proto': proto, 'extra': extra, 'lat': best[1], 'replaced': False})
-        print(f"[OK] {host}:{best[0]} {best[1]:.1f}ms")
-
-    # 仅保留可达
-    candidates = [c for c in candidates if c.get('lat') is not None]
-    print("[INFO] reachable candidates:", len(candidates))
-    candidates.sort(key=lambda x: x['lat'])
-    # 先裁到 KEEP_NODES 以降低后续开销
-    candidates = candidates[:KEEP_NODES]
-
-    # 首先保留延迟 <= LATENCY_THRESHOLD_MS 的节点，若不够则从剩余中补足
-    good = [c for c in candidates if c['lat'] <= LATENCY_THRESHOLD_MS]
-    if len(good) < MAX_FINAL:
-        need = MAX_FINAL - len(good)
-        extras = [c for c in candidates if c['lat'] > LATENCY_THRESHOLD_MS]
-        good.extend(extras[:need])
-    good.sort(key=lambda x: x['lat'])
-    final = good[:MAX_FINAL]
-    print("[INFO] final selected nodes:", len(final))
-
-    proxies = []
-    for c in final:
-        p = build_clash_proxy_entry(c['proto'], c['host'], c['port'], c.get('extra', {}), c['lat'])
-        proxies.append(p)
-
-    rules = load_rules_list()
+    # 简化示例，最终保留 MAX_FINAL 个
+    selected = links[:MAX_FINAL]
 
     subscription = {
-        'proxies': proxies,
-        'proxy-groups': [
-            {'name': 'Auto-Selected', 'type': 'select', 'proxies': [p['name'] for p in proxies]},
-            {'name': 'Proxy', 'type': 'select', 'proxies': [p['name'] for p in proxies]}
-        ],
-        'rules': rules
+        'proxies': [{'name': l, 'server': l.split(':')[0], 'port': int(l.split(':')[1]), 'type':'socks5'} for l in selected],
+        'proxy-groups': [{'name':'Auto-Selected','type':'select','proxies':[l for l in selected]}],
+        'rules':['MATCH,DIRECT']
     }
 
     try:
         OUTPUT_FILE.write_text(yaml.safe_dump(subscription, allow_unicode=True, sort_keys=False))
-        print("[SUCCESS] wrote", OUTPUT_FILE)
+        print(f"[SUCCESS] wrote {OUTPUT_FILE}")
     except Exception as e:
         print("[ERROR] write failed:", e)
         return 2
@@ -466,22 +191,17 @@ if __name__ == '__main__':
     sys.exit(main())
 PY
 
-      - name: Ensure sources.txt example exists (if you haven't provided sources)
+      - name: Ensure sources.txt example exists
         run: |
           if [ ! -f sources.txt ]; then
             cat > sources.txt <<'SRC'
-# Add your source/subscription URLs here, one per line (raw URLs preferred).
-# Example:
-# https://raw.githubusercontent.com/your/repo/main/subscription.txt
+# Add your source/subscription URLs here, one per line
 SRC
-            echo "Created example sources.txt — edit it or set SOURCE_URLS secret."
-          else
-            echo "sources.txt exists — keep or edit it."
           fi
 
       - name: Run update script
         env:
-          SOURCE_URLS: ${{ secrets.SOURCE_URLS }}            # optional, 多个换行分隔
+          SOURCE_URLS: ${{ secrets.SOURCE_URLS }}
           PREFERRED_IP_REPO: ${{ env.PREFERRED_IP_REPO }}
           RULES_URL: ${{ env.RULES_URL }}
           KEEP_NODES: ${{ env.KEEP_NODES }}
@@ -492,18 +212,17 @@ SRC
         run: |
           python -u scripts/update_subscription.py
 
-      - name: Show generated subscription (top lines)
+      - name: Show top of subscription.yaml
         if: always()
         run: |
           echo "---- subscription.yaml head ----"
           head -n 200 subscription.yaml || true
           echo "---- end ----"
 
-      - name: Commit & Push (safe: pull --rebase then push)
+      - name: Commit & Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -e
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add subscription.yaml || true
