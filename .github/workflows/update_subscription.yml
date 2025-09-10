@@ -2,14 +2,220 @@
 name: Update Clash Subscription
 
 on:
-  workflow_dispatch:   # 手动触发，方便测试
+  workflow_dispatch:   # 手动触发
   schedule:
     - cron: '0 16 * * *'    # UTC+8 00:00
     - cron: '0 4 * * *'     # UTC+8 12:00
 
 jobs:
-  test-job:
+  update-subscription:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        run: echo "✅ Workflow is running!"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests PyYAML
+
+      - name: Create update script
+        run: |
+          mkdir -p scripts
+          cat > scripts/update_subscription.py <<'PY'
+import os, re, time, socket, base64, urllib.parse, json
+import requests, yaml
+from pathlib import Path
+
+ROOT = Path('.').resolve()
+OUTPUT_FILE = ROOT / 'subscription.yaml'
+SOURCES_FILE = ROOT / 'sources.txt'
+
+SOURCE_URLS = os.environ.get('SOURCE_URLS', '').strip()
+PREFERRED_IP_REPO = os.environ.get('PREFERRED_IP_REPO', 'https://raw.githubusercontent.com/ethgan/yxip/main/ip.txt')
+KEEP_NODES = int(os.environ.get('KEEP_NODES', '200'))
+MAX_FINAL = int(os.environ.get('MAX_FINAL', '50'))
+LATENCY_THRESHOLD_MS = int(os.environ.get('LATENCY_THRESHOLD_MS', '200'))
+PRIORITY_PORTS = [int(p) for p in os.environ.get('PRIORITY_PORTS', '8443,2086,2089,4443').split(',')]
+
+PROTO_RE = re.compile(r'\b((?:vmess|vless|trojan|ss|ssr|http|https|socks5)://[^\s]+)', re.I)
+HOSTPORT_RE = re.compile(r'([0-9a-zA-Z\-_\.]+):(\d{2,5})')
+
+def http_get(url):
+    try:
+        r = requests.get(url, timeout=10)
+        if r.status_code == 200:
+            return r.text
+    except Exception as e:
+        print(f"fetch {url} failed: {e}")
+    return ""
+
+def fetch_sources():
+    urls = []
+    if SOURCE_URLS:
+        urls.extend([u.strip() for u in SOURCE_URLS.splitlines() if u.strip()])
+    if SOURCES_FILE.exists():
+        urls.extend([l.strip() for l in SOURCES_FILE.read_text().splitlines() if l.strip() and not l.startswith('#')])
+    return list(dict.fromkeys(urls))
+
+def extract_nodes(text):
+    links = [m.group(1) for m in PROTO_RE.finditer(text)]
+    for m in HOSTPORT_RE.finditer(text):
+        links.append(f"{m.group(1)}:{m.group(2)}")
+    return list(dict.fromkeys(links))
+
+def parse_vmess(link):
+    try:
+        body = link.split("://",1)[1]
+        j = base64.b64decode(body + "=" * (-len(body) % 4)).decode()
+        obj = json.loads(j)
+        return obj.get("add"), int(obj.get("port")), obj
+    except Exception:
+        return None
+
+def parse_generic(link):
+    try:
+        p = urllib.parse.urlparse(link)
+        if p.hostname and p.port:
+            return p.hostname, p.port, None
+    except Exception:
+        return None
+
+def parse_hostport(link):
+    proto = link.split("://",1)[0].lower() if "://" in link else "raw"
+    if proto == "vmess":
+        parsed = parse_vmess(link)
+        if parsed: return proto, parsed
+    else:
+        parsed = parse_generic(link)
+        if parsed: return proto, parsed
+    m = HOSTPORT_RE.search(link)
+    if m:
+        return proto, (m.group(1), int(m.group(2)), None)
+    return None
+
+def measure_latency(host, port, timeout=5.0):
+    try:
+        start = time.time()
+        s = socket.create_connection((host, port), timeout)
+        s.close()
+        return (time.time() - start) * 1000
+    except Exception:
+        return None
+
+def fetch_preferred_ips():
+    txt = http_get(PREFERRED_IP_REPO)
+    return [l.strip() for l in txt.splitlines() if re.match(r'^\d+\.\d+\.\d+\.\d+$', l.strip())]
+
+def build_clash_entry(proto, link, host, port, extra, latency):
+    name = f"{host}:{port} | {int(latency)}ms"
+    entry = {"name": name, "server": host, "port": port}
+    if proto == "vmess":
+        entry["type"] = "vmess"
+        if extra:
+            entry["uuid"] = extra.get("id")
+            entry["alterId"] = int(extra.get("aid", 0))
+            entry["cipher"] = "auto"
+            entry["tls"] = extra.get("tls", "") == "tls"
+            entry["network"] = extra.get("net", "tcp")
+    elif proto == "vless":
+        entry["type"] = "vless"
+        entry["uuid"] = "demo-uuid"  # 简化示例
+        entry["tls"] = True
+    elif proto == "trojan":
+        entry["type"] = "trojan"
+        entry["password"] = "demo-pass"
+        entry["sni"] = host
+    elif proto in ("ss","ssr"):
+        entry["type"] = "ss"
+        entry["cipher"] = "aes-128-gcm"
+        entry["password"] = "demo-pass"
+    else:
+        entry["type"] = "socks5"
+    return entry
+
+def main():
+    sources = fetch_sources()
+    print("sources:", sources)
+    links = []
+    for u in sources:
+        txt = http_get(u)
+        if txt:
+            links.extend(extract_nodes(txt))
+    print("total nodes:", len(links))
+
+    preferred_ips = fetch_preferred_ips()
+    print("preferred IPs:", len(preferred_ips))
+
+    results = []
+    for link in links:
+        parsed = parse_hostport(link)
+        if not parsed: continue
+        proto, (host, port, extra) = parsed
+        ports = [port] + PRIORITY_PORTS + [443, 80]
+        best = None
+        for p in ports:
+            lat = measure_latency(host, p)
+            if lat:
+                if not best or lat < best[1]:
+                    best = (p, lat)
+        if best:
+            results.append((proto, link, host, best[0], extra, best[1]))
+
+    results.sort(key=lambda x: x[5])
+    results = results[:KEEP_NODES]
+
+    good = [r for r in results if r[5] <= LATENCY_THRESHOLD_MS]
+    if len(good) < MAX_FINAL:
+        good += results[len(good):MAX_FINAL]
+    final = good[:MAX_FINAL]
+
+    proxies = []
+    for proto, link, host, port, extra, lat in final:
+        proxies.append(build_clash_entry(proto, link, host, port, extra, lat))
+
+    sub = {
+        "proxies": proxies,
+        "proxy-groups": [
+            {"name": "Auto", "type": "select", "proxies": [p["name"] for p in proxies]}
+        ],
+        "rules": [
+            "DOMAIN-SUFFIX,google.com,Auto",
+            "DOMAIN-SUFFIX,youtube.com,Auto",
+            "DOMAIN-SUFFIX,github.com,Auto",
+            "MATCH,Auto"
+        ]
+    }
+    OUTPUT_FILE.write_text(yaml.safe_dump(sub, allow_unicode=True))
+    print("✅ wrote subscription.yaml")
+
+if __name__ == "__main__":
+    main()
+PY
+
+      - name: Run update script
+        env:
+          SOURCE_URLS: ${{ secrets.SOURCE_URLS }}
+          KEEP_NODES: '200'
+          MAX_FINAL: '50'
+          LATENCY_THRESHOLD_MS: '200'
+          PRIORITY_PORTS: '8443,2086,2089,4443'
+        run: python scripts/update_subscription.py
+
+      - name: Commit & Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add subscription.yaml || true
+          git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
+          git pull --rebase origin main || true
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
