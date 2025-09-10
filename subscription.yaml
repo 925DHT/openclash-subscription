@@ -5,16 +5,230 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
+- name: 🇺🇸US-23.251.121.242-0238
+  server: 23.251.121.242
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  delay: 149.9347686767578
+- name: 🏁RELAY-172.67.167.120-0088
+  server: 172.67.167.120
+  port: 443
+  type: vmess
+  uuid: f5e74e66-0241-447c-83a4-a4005f438536
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: m4.v2rayfree1.xyz
+  delay: 151.93891525268555
+- name: 🇺🇸US-104.192.226.106-0232
+  server: 104.192.226.106
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  delay: 155.74002265930176
+- name: 🇺🇸US-104.192.226.106-0231
+  server: 104.192.226.106
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 158.96010398864746
+- name: 🇺🇸US-173.244.56.9-0230
+  server: 173.244.56.9
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 165.32039642333984
+- name: 🇺🇸US-212.102.47.132-0235
+  server: 212.102.47.132
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 166.27097129821777
+- name: 🇺🇸US-212.102.47.130-0233
+  server: 212.102.47.130
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 169.5408821105957
+- name: 🇺🇸US-212.102.47.131-0237
+  server: 212.102.47.131
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 172.04856872558594
+- name: 🇨🇦CA-79.127.233.170-0236
+  server: 79.127.233.170
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 172.49631881713867
+- name: 🇺🇸US-170.130.92.65-0063
+  server: ca2.v2rayserv.com
+  port: 80
+  type: vmess
+  uuid: e3eba3ac-5bea-409f-ac5c-6c964e04d0c4
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /sshocean
+    headers:
+      Host: ca2.v2rayserv.com
+  delay: 178.54976654052734
+- name: 🇺🇸US-156.146.38.167-0228
+  server: 156.146.38.167
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 191.26653671264648
+- name: 🇺🇸US-156.146.38.169-0225
+  server: 156.146.38.169
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 191.8926239013672
+- name: 🇺🇸US-156.146.38.168-0226
+  server: 156.146.38.168
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 191.91527366638184
+- name: 🇺🇸US-156.146.38.170-0227
+  server: 156.146.38.170
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 193.01295280456543
+- name: 🇺🇸US-156.146.38.163-0118
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 193.7870979309082
+- name: 🇦🇺AU-103.224.212.215-0210
+  server: 104.18.89.52
+  port: 443
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vjp3.0bad.com
+  delay: 208.8029384613037
+- name: 🇺🇸US-37.19.198.160-0223
+  server: 37.19.198.160
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 210.13188362121582
+- name: 🇺🇸US-37.19.198.243-0224
+  server: 37.19.198.243
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 217.2567844390869
+- name: 🇺🇸US-64.74.163.130-0229
+  server: 64.74.163.130
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  delay: 224.24864768981934
+- name: 🇳🇱NL-193.29.139.189-0240
+  server: 193.29.139.189
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  delay: 286.29589080810547
+- name: 🇦🇪AE-151.242.251.144-0242
+  server: 151.242.251.144
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  delay: 293.54166984558105
+- name: 🇬🇧GB-212.102.53.194-0116
+  server: 212.102.53.194
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 294.6345806121826
+- name: 🇱🇹LT-45.87.175.154-0241
+  server: 45.87.175.154
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  delay: 294.7194576263428
+- name: 🇳🇱NL-109.201.152.181-0239
+  server: 109.201.152.181
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 295.9573268890381
+- name: 🇱🇹LT-45.87.175.166-0243
+  server: 45.87.175.166
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  delay: 299.4844913482666
+- name: 🇦🇺AU-103.224.212.215-0209
+  server: 104.19.154.200
+  port: 443
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vjp1.0bad.com
+  delay: 305.1738739013672
 - name: 🇨🇳_CN_中国
   type: ss
   server: 103.149.182.191
   port: 8388
   cipher: chacha20-ietf
   password: asd123456
-  delay: 9999
+  delay: 441.83921813964844
 - name: 🇨🇳_CN_中国->🇺🇸_US_美国
   type: vmess
-  server: v35.heduian.link
+  server: 162.159.128.253
   port: 30835
   sni: ''
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -29,7 +243,7 @@ proxies:
   delay: 9999
 - name: 🇨🇳_CN_中国->🇺🇸_US_美国_1
   type: vmess
-  server: v29.heduian.link
+  server: 104.31.16.158
   port: 30829
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
   cipher: auto
@@ -174,10 +388,81 @@ proxies:
   sni: 103-135-251-39.nhost.00cdn.com
   skip-cert-verify: false
   delay: 9999
+- name: 🇺🇸US-75.2.18.233-0027
+  server: 104.18.81.19
+  port: 39918
+  type: vmess
+  uuid: fbc2efb0-786a-4074-81ea-8ab12ca5422c
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /je5x3pBN1vez3NQudNkB
+    headers:
+      Host: cdn.cjhh.lol
+  delay: 9999
+- name: 🇭🇰HK-42.3.19.141-0028
+  server: 162.159.61.183
+  port: 888
+  type: vmess
+  uuid: fbc2efb0-786a-4074-81ea-8ab12ca5422c
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /je5x3pBN1vez3NQudNkB
+    headers:
+      Host: edge.cjhh.mom
+  delay: 9999
+- name: 🇨🇳CN-183.245.146.20-0030
+  server: 183.245.146.20
+  port: 41001
+  type: trojan
+  password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+  sni: 103-135-251-39.nhost.00cdn.com
+  skip-cert-verify: false
+  delay: 9999
+- name: 🇨🇦CA-196.247.59.156-0031
+  server: 196.247.59.156
+  port: 808
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+  delay: 9999
 proxy-groups:
 - name: 🚀 节点选择
   type: select
-  proxies:
+  proxies: &id001
+  - 🇺🇸US-23.251.121.242-0238
+  - 🏁RELAY-172.67.167.120-0088
+  - 🇺🇸US-104.192.226.106-0232
+  - 🇺🇸US-104.192.226.106-0231
+  - 🇺🇸US-173.244.56.9-0230
+  - 🇺🇸US-212.102.47.132-0235
+  - 🇺🇸US-212.102.47.130-0233
+  - 🇺🇸US-212.102.47.131-0237
+  - 🇨🇦CA-79.127.233.170-0236
+  - 🇺🇸US-170.130.92.65-0063
+  - 🇺🇸US-156.146.38.167-0228
+  - 🇺🇸US-156.146.38.169-0225
+  - 🇺🇸US-156.146.38.168-0226
+  - 🇺🇸US-156.146.38.170-0227
+  - 🇺🇸US-156.146.38.163-0118
+  - 🇦🇺AU-103.224.212.215-0210
+  - 🇺🇸US-37.19.198.160-0223
+  - 🇺🇸US-37.19.198.243-0224
+  - 🇺🇸US-64.74.163.130-0229
+  - 🇳🇱NL-193.29.139.189-0240
+  - 🇦🇪AE-151.242.251.144-0242
+  - 🇬🇧GB-212.102.53.194-0116
+  - 🇱🇹LT-45.87.175.154-0241
+  - 🇳🇱NL-109.201.152.181-0239
+  - 🇱🇹LT-45.87.175.166-0243
+  - 🇦🇺AU-103.224.212.215-0209
   - 🇨🇳_CN_中国
   - 🇨🇳_CN_中国->🇺🇸_US_美国
   - 🇨🇳_CN_中国->🇺🇸_US_美国_1
@@ -198,34 +483,51 @@ proxy-groups:
   - 🇨🇳CN-117.164.185.222-0023
   - 🇨🇳CN-117.164.185.222-0024
   - 🇨🇳CN-117.164.185.222-0025
+  - 🇺🇸US-75.2.18.233-0027
+  - 🇭🇰HK-42.3.19.141-0028
+  - 🇨🇳CN-183.245.146.20-0030
+  - 🇨🇦CA-196.247.59.156-0031
 - name: 自动选择
   type: url-test
-  proxies:
-  - 🇨🇳_CN_中国
-  - 🇨🇳_CN_中国->🇺🇸_US_美国
-  - 🇨🇳_CN_中国->🇺🇸_US_美国_1
-  - 🇨🇳CN-117.164.185.220-0000
-  - 🇨🇳CN-117.164.185.220-0001
-  - 🇨🇳CN-36.138.100.57-0009
-  - 🇨🇳CN-36.138.100.57-0010
-  - 🇨🇳CN-117.164.185.220-0011
-  - 🇨🇳CN-117.164.185.220-0012
-  - 🇨🇳CN-117.164.185.222-0013
-  - 🇨🇳CN-117.164.185.222-0014
-  - 🇨🇳CN-36.138.100.57-0017
-  - 🇨🇳CN-36.138.100.57-0018
-  - 🇨🇳CN-183.245.146.20-0019
-  - 🇨🇳CN-183.245.146.20-0020
-  - 🇨🇳CN-117.164.185.222-0021
-  - 🇨🇳CN-117.164.185.222-0022
-  - 🇨🇳CN-117.164.185.222-0023
-  - 🇨🇳CN-117.164.185.222-0024
-  - 🇨🇳CN-117.164.185.222-0025
+  proxies: *id001
   url: http://www.gstatic.com/generate_204
   interval: 300
+- name: ♻️ 自动切换
+  type: fallback
+  proxies: *id001
+  url: http://www.gstatic.com/generate_204
 rules:
+- DOMAIN-SUFFIX,cn,DIRECT
+- GEOIP,CN,DIRECT
+- DOMAIN-SUFFIX,baidu.com,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+- DOMAIN-SUFFIX,alipay.com,DIRECT
+- DOMAIN-SUFFIX,taobao.com,DIRECT
+- DOMAIN-SUFFIX,tmall.com,DIRECT
+- DOMAIN-SUFFIX,zhihu.com,DIRECT
+- DOMAIN-SUFFIX,bilibili.com,DIRECT
+- DOMAIN-SUFFIX,163.com,DIRECT
+- DOMAIN-SUFFIX,126.com,DIRECT
+- DOMAIN-SUFFIX,iqiyi.com,DIRECT
+- DOMAIN-SUFFIX,youku.com,DIRECT
+- DOMAIN-SUFFIX,sohu.com,DIRECT
+- DOMAIN-SUFFIX,sina.com,DIRECT
+- DOMAIN-SUFFIX,gov.cn,DIRECT
+- DOMAIN-SUFFIX,edu.cn,DIRECT
+- DOMAIN-SUFFIX,netflix.com,🚀 节点选择
+- DOMAIN-SUFFIX,netflix.net,🚀 节点选择
+- DOMAIN-KEYWORD,netflix,🚀 节点选择
+- DOMAIN-SUFFIX,openai.com,🚀 节点选择
+- DOMAIN-SUFFIX,chatgpt.com,🚀 节点选择
+- DOMAIN-SUFFIX,auth0.com,🚀 节点选择
+- DOMAIN-SUFFIX,poe.com,🚀 节点选择
+- DOMAIN-SUFFIX,telegram.org,🚀 节点选择
+- DOMAIN-SUFFIX,t.me,🚀 节点选择
 - DOMAIN-SUFFIX,google.com,🚀 节点选择
 - DOMAIN-SUFFIX,facebook.com,🚀 节点选择
+- DOMAIN-SUFFIX,instagram.com,🚀 节点选择
+- DOMAIN-SUFFIX,twitter.com,🚀 节点选择
 - DOMAIN-KEYWORD,youtube,🚀 节点选择
 - DOMAIN-SUFFIX,github.com,🚀 节点选择
 - MATCH,自动选择
