@@ -2,7 +2,8 @@ name: Update Clash Subscription
 
 on:
   schedule:
-    - cron: '0 3 * * *' # 每天 UTC+8 上午11点自动执行（可调整）
+    - cron: '0 16 * * *'    # UTC+8 00:00，每天北京时间0点
+    - cron: '0 4 * * *'     # UTC+8 12:00，每天北京时间12点
   workflow_dispatch:
 
 jobs:
@@ -18,12 +19,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests PyYAML
+        run: pip install requests PyYAML
 
       - name: Run update script
-        run: |
-          python update_subscription.py
+        run: python update_subscription.py
 
       - name: Commit & Push changes
         env:
