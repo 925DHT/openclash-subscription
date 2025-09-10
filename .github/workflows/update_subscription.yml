@@ -1,4 +1,4 @@
-name: Update Clash Subscription
+name: Auto Aggregate Free Proxy Nodes
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-subscription:
+  update-proxy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,7 +22,7 @@ jobs:
         run: pip install requests PyYAML
 
       - name: Run update script
-        run: python update_subscription.py
+        run: python update_proxy.py
 
       - name: Commit & Push changes
         env:
@@ -30,6 +30,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add subscription.yaml
-          git commit -m "自动更新订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
+          git add clash.yaml v2ray.json singbox.json README.md SUBSCRIBE.md
+          git commit -m "自动聚合节点订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
