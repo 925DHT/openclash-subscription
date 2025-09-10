@@ -13,6 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: List files for debug
+        run: ls -al
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -22,7 +25,7 @@ jobs:
         run: pip install requests PyYAML
 
       - name: Run update script
-        run: python update_proxy.py
+        run: python update_subscription.py
 
       - name: Commit & Push changes
         env:
@@ -30,6 +33,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add clash.yaml v2ray.json singbox.json README.md SUBSCRIBE.md
+          git add subscription.yaml README.md SUBSCRIBE.md
           git commit -m "自动聚合节点订阅 $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes"
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
