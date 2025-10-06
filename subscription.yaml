@@ -5,36 +5,6 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🏁RELAY-172.64.144.100-0025
-  server: 172.64.144.100
-  port: 443
-  type: vmess
-  uuid: 6e9217de-ad7e-4a67-bd17-a6dca951733b
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg3.zhujicn2.com
-  delay: 2.76947021484375
-- name: 🏁RELAY-172.64.155.200-0026
-  server: 172.64.155.200
-  port: 443
-  type: vmess
-  uuid: a8030afd-812a-4afe-a766-9c76ff3eddd4
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg4.zhujicn2.com
-  delay: 2.8324127197265625
 - name: 🏁RELAY-104.16.85.20-0065
   server: 104.16.85.20
   port: 80
@@ -49,7 +19,44 @@ proxies:
     path: /sshkit/2136177093/631ed45675ad7/
     headers:
       Host: sg4-v2ray.sshkit.org
-  delay: 3.177165985107422
+  delay: 2.019643783569336
+- name: 🏁RELAY-172.64.155.200-0026
+  server: 172.64.155.200
+  port: 443
+  type: vmess
+  uuid: a8030afd-812a-4afe-a766-9c76ff3eddd4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /dongtaiwang.com
+    headers:
+      Host: lg4.zhujicn2.com
+  delay: 2.077817916870117
+- name: 🏁RELAY-172.64.144.100-0025
+  server: 172.64.144.100
+  port: 443
+  type: vmess
+  uuid: 6e9217de-ad7e-4a67-bd17-a6dca951733b
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /dongtaiwang.com
+    headers:
+      Host: lg3.zhujicn2.com
+  delay: 2.1877288818359375
+- name: 🇺🇸US-104.192.226.106-0274
+  server: 104.192.226.106
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  delay: 11.882543563842773
 - name: 🏁RELAY-23.227.38.33-0105
   server: shopify.com
   port: 80
@@ -64,140 +71,82 @@ proxies:
     path: /aries
     headers:
       Host: tgsg.cloudflare.quest
-  delay: 10.469675064086914
-- name: 🇨🇦CA-23.162.200.227-0277
-  server: 23.162.200.227
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-  delay: 13.34238052368164
-- name: 🇺🇸US-156.146.38.167-0271
-  server: 156.146.38.167
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 24.731159210205078
-- name: 🇺🇸US-156.146.38.168-0272
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 24.79720115661621
-- name: 🇺🇸US-156.146.38.170-0270
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 24.873971939086914
-- name: 🇺🇸US-156.146.38.163-0164
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 24.89328384399414
+  delay: 21.08478546142578
 - name: 🇺🇸US-167.88.62.68-0099
   server: 167.88.62.68
   port: 8080
   type: ss
   cipher: aes-256-gcm
   password: KixLvKzwjekG00rm
-  delay: 25.331735610961914
-- name: 🇺🇸US-156.146.38.169-0273
+  delay: 41.992902755737305
+- name: 🇺🇸US-156.146.38.168-0270
+  server: 156.146.38.168
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 43.81275177001953
+- name: 🇺🇸US-156.146.38.169-0271
   server: 156.146.38.169
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  delay: 25.498390197753906
-- name: 🇺🇸US-64.74.163.130-0274
+  delay: 43.85566711425781
+- name: 🇺🇸US-156.146.38.163-0164
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 43.88785362243652
+- name: 🇺🇸US-156.146.38.167-0273
+  server: 156.146.38.167
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 43.92385482788086
+- name: 🇺🇸US-156.146.38.170-0272
+  server: 156.146.38.170
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 43.97225379943848
+- name: 🇺🇸_US_美国->🏳️_unKnow_未知
+  type: trojan
+  server: creativecommons.org
+  port: 2053
+  udp: true
+  sni: kotlet.arshiacomplus.dpdns.org
+  password: YwuvGJk36B
+  network: ws
+  ws-opts:
+    path: /yamtekodasayahhh
+  delay: 57.3878288269043
+- name: 🏁RELAY-104.21.95.59-0269
+  server: y-v1.888988866.xyz
+  port: 443
+  type: vmess
+  uuid: a397bd18-5a5f-4a5a-bf03-ed5bc1a990eb
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: y-v1.888988866.xyz
+  delay: 62.06631660461426
+- name: 🇺🇸US-64.74.163.130-0276
   server: 64.74.163.130
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: f8f7aCzcPKbsF8p3
-  delay: 26.204347610473633
-- name: 🇺🇸US-104.192.226.106-0279
-  server: 104.192.226.106
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 45.68600654602051
-- name: 🏁RELAY-172.67.143.87-0269
-  server: b-v1.888988866.xyz
-  port: 443
-  type: vmess
-  uuid: ab007933-7981-4267-9f33-fbc9c2575756
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: b-v1.888988866.xyz
-  delay: 47.98722267150879
-- name: 🇺🇸US-15.204.103.7-0278
-  server: 15.204.103.7
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: lammaland.org
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lammaland.org
-  delay: 58.88509750366211
-- name: 🇨🇦CA-79.127.233.170-0276
-  server: 79.127.233.170
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 71.19512557983398
-- name: 🇬🇧GB-64.227.43.168-0057
-  server: 64.227.43.168
-  port: 80
-  type: vmess
-  uuid: 07d3c132-e8b6-4685-b436-ffa3a8e2e82b
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-  delay: 95.3371524810791
-- name: 🇫🇮FI-95.216.220.131-0119
-  server: 95.216.220.131
-  port: 80
-  type: vmess
-  uuid: db82263f-c321-409b-810d-e92e896d344d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /graphql
-  delay: 130.96046447753906
+  delay: 72.91913032531738
 - name: 🇦🇺AU-103.224.212.215-0255
   server: vjp1.0bad.com
   port: 443
@@ -212,35 +161,92 @@ proxies:
     path: /chat
     headers:
       Host: vjp1.0bad.com
-  delay: 163.50746154785156
-- name: 🇺🇸_US_美国->🏳️_unKnow_未知
-  type: trojan
-  server: creativecommons.org
-  port: 2053
-  udp: true
-  sni: kotlet.arshiacomplus.dpdns.org
-  password: YwuvGJk36B
-  network: ws
-  ws-opts:
-    path: /yamtekodasayahhh
-  delay: 167.06466674804688
-- name: 🇩🇪DE-91.195.240.12-0066
-  server: sgp.kapok.buzz
-  port: 443
+  delay: 104.00700569152832
+- name: 🇬🇧GB-64.227.43.168-0057
+  server: 64.227.43.168
+  port: 80
   type: vmess
-  uuid: c1bac6b8-934a-44e2-9cf2-ee0db1fc1c85
+  uuid: 07d3c132-e8b6-4685-b436-ffa3a8e2e82b
   alterId: 0
   cipher: auto
-  tls: true
+  tls: false
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /4befdd8a6/
+    path: /
+  delay: 147.68242835998535
+- name: 🇬🇧GB-57.129.132.223-0278
+  server: 57.129.132.223
+  port: 80
+  type: vmess
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
     headers:
-      Host: sgp.kapok.buzz
-  delay: 174.0891933441162
+      Host: google.com
+  delay: 148.7877368927002
+- name: 🇫🇷FR-45.158.171.146-0277
+  server: 45.158.171.146
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  delay: 153.97381782531738
+- name: 🇫🇮FI-95.216.220.131-0119
+  server: 95.216.220.131
+  port: 80
+  type: vmess
+  uuid: db82263f-c321-409b-810d-e92e896d344d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /graphql
+  delay: 178.6630153656006
+- name: 未知_2
+  type: ss
+  server: 103.186.154.146
+  port: 38388
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  delay: 209.3486785888672
+- name: 未知
+  type: ss
+  server: 103.186.154.72
+  port: 38388
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  delay: 210.76083183288574
+- name: 未知_3
+  type: ss
+  server: 103.186.154.76
+  port: 38388
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  delay: 211.63439750671387
+- name: 未知_1
+  type: ss
+  server: 103.186.154.79
+  port: 38388
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  delay: 213.29164505004883
+- name: 🇲🇩_MD_摩尔多瓦
+  type: ss
+  server: 91.132.94.200
+  port: 989
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 225.37612915039062
 - name: 🇦🇺AU-103.224.212.215-0256
-  server: 104.19.212.207
+  server: 104.18.151.172
   port: 443
   type: vmess
   uuid: 927094d3-d678-4763-8591-e240d0bcae87
@@ -253,89 +259,68 @@ proxies:
     path: /chat
     headers:
       Host: vjp3.0bad.com
-  delay: 221.58360481262207
-- name: 未知_1
-  type: ss
-  server: 103.186.154.79
-  port: 38388
-  cipher: aes-256-cfb
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  delay: 249.50170516967773
-- name: 未知
-  type: ss
-  server: 103.186.154.72
-  port: 38388
-  cipher: aes-256-cfb
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  delay: 253.4506320953369
+  delay: 234.73787307739258
+- name: 🇩🇪DE-91.195.240.12-0066
+  server: 104.26.3.162
+  port: 443
+  type: vmess
+  uuid: c1bac6b8-934a-44e2-9cf2-ee0db1fc1c85
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /4befdd8a6/
+    headers:
+      Host: sgp.kapok.buzz
+  delay: 749.9527931213379
 - name: 未知_4
   type: ss
   server: 103.186.154.77
   port: 38388
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  delay: 253.9381980895996
-- name: 未知_3
-  type: ss
-  server: 103.186.154.76
-  port: 38388
-  cipher: aes-256-cfb
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  delay: 254.11248207092285
-- name: 未知_2
-  type: ss
-  server: 103.186.154.146
-  port: 38388
-  cipher: aes-256-cfb
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  delay: 255.52082061767578
+  delay: 1258.76784324646
 - name: 🇮🇳_IN_印度
   type: ss
   server: 134.209.147.198
   port: 989
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-  delay: 1332.1404457092285
-- name: 🇲🇩_MD_摩尔多瓦
-  type: ss
-  server: 91.132.94.200
-  port: 989
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 2225.038528442383
+  delay: 1318.7329769134521
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🏁RELAY-172.64.144.100-0025
-  - 🏁RELAY-172.64.155.200-0026
   - 🏁RELAY-104.16.85.20-0065
+  - 🏁RELAY-172.64.155.200-0026
+  - 🏁RELAY-172.64.144.100-0025
+  - 🇺🇸US-104.192.226.106-0274
   - 🏁RELAY-23.227.38.33-0105
-  - 🇨🇦CA-23.162.200.227-0277
-  - 🇺🇸US-156.146.38.167-0271
-  - 🇺🇸US-156.146.38.168-0272
-  - 🇺🇸US-156.146.38.170-0270
-  - 🇺🇸US-156.146.38.163-0164
   - 🇺🇸US-167.88.62.68-0099
-  - 🇺🇸US-156.146.38.169-0273
-  - 🇺🇸US-64.74.163.130-0274
-  - 🇺🇸US-104.192.226.106-0279
-  - 🏁RELAY-172.67.143.87-0269
-  - 🇺🇸US-15.204.103.7-0278
-  - 🇨🇦CA-79.127.233.170-0276
-  - 🇬🇧GB-64.227.43.168-0057
-  - 🇫🇮FI-95.216.220.131-0119
-  - 🇦🇺AU-103.224.212.215-0255
+  - 🇺🇸US-156.146.38.168-0270
+  - 🇺🇸US-156.146.38.169-0271
+  - 🇺🇸US-156.146.38.163-0164
+  - 🇺🇸US-156.146.38.167-0273
+  - 🇺🇸US-156.146.38.170-0272
   - 🇺🇸_US_美国->🏳️_unKnow_未知
-  - 🇩🇪DE-91.195.240.12-0066
-  - 🇦🇺AU-103.224.212.215-0256
-  - 未知_1
-  - 未知
-  - 未知_4
-  - 未知_3
+  - 🏁RELAY-104.21.95.59-0269
+  - 🇺🇸US-64.74.163.130-0276
+  - 🇦🇺AU-103.224.212.215-0255
+  - 🇬🇧GB-64.227.43.168-0057
+  - 🇬🇧GB-57.129.132.223-0278
+  - 🇫🇷FR-45.158.171.146-0277
+  - 🇫🇮FI-95.216.220.131-0119
   - 未知_2
-  - 🇮🇳_IN_印度
+  - 未知
+  - 未知_3
+  - 未知_1
   - 🇲🇩_MD_摩尔多瓦
+  - 🇦🇺AU-103.224.212.215-0256
+  - 🇩🇪DE-91.195.240.12-0066
+  - 未知_4
+  - 🇮🇳_IN_印度
 - name: 自动选择
   type: url-test
   proxies: *id001
