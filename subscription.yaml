@@ -5,53 +5,8 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🏁RELAY-172.64.154.102-0089
-  server: 172.64.154.102
-  port: 443
-  type: vmess
-  uuid: 5f64fa65-7b14-49c5-954d-aa15c6bfcacd
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: clash6.ssr-free.xyz
-  delay: 5.896329879760742
-- name: 🏁RELAY-172.64.154.222-0088
-  server: 172.64.154.222
-  port: 443
-  type: vmess
-  uuid: fcfaec91-6096-44d8-956c-7868d9e874b1
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: lg1.cfcdn1.xyz
-  delay: 5.977869033813477
-- name: 🏁RELAY-141.101.115.120-0090
-  server: 141.101.115.120
-  port: 443
-  type: vmess
-  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg1.cfcdn3.xyz
-  delay: 6.165027618408203
-- name: 🏁RELAY-172.64.154.201-0057
-  server: 172.64.154.201
+- name: 🏁RELAY-141.101.114.120-0077
+  server: 141.101.114.120
   port: 443
   type: vmess
   uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
@@ -59,108 +14,21 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: lg30.cfcdn3.xyz
   network: ws
   ws-opts:
     path: /ray
     headers:
       Host: lg30.cfcdn3.xyz
-  delay: 6.201267242431641
-- name: 🏁RELAY-141.101.114.120-0051
-  server: 141.101.114.120
-  port: 443
-  type: vmess
-  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg1.cfcdn3.xyz
-  delay: 6.222009658813477
-- name: 🏁RELAY-104.18.28.19-0059
-  server: 104.18.28.19
-  port: 80
-  type: vmess
-  uuid: 35556863-22b9-40b9-8722-a192b8526edc
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /p9Dq67Nx/
-    headers:
-      Host: fr1.cachexy.ga
-  delay: 6.267786026000977
-- name: 🇺🇸US-64.74.163.130-0232
-  server: 64.74.163.130
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  delay: 20.032882690429688
-- name: 🇺🇸US-156.146.38.167-0231
-  server: 156.146.38.167
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 34.709930419921875
-- name: 🇺🇸US-156.146.38.168-0229
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.27641296386719
-- name: 🇺🇸US-156.146.38.170-0228
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.37297248840332
-- name: 🇺🇸US-156.146.38.169-0230
-  server: 156.146.38.169
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.46881675720215
-- name: 🇺🇸US-156.146.38.163-0123
+  delay: 10.098457336425781
+- name: 🇺🇸US-156.146.38.163-0139
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 38.30265998840332
-- name: 🇺🇸US-104.192.226.106-0236
-  server: 104.192.226.106
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 59.972286224365234
-- name: 🇬🇧GB-62.100.205.48-0237
-  server: 62.100.205.48
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 82.94224739074707
-- name: 🇱🇹LT-45.87.175.158-0241
-  server: 45.87.175.158
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 86.55738830566406
-- name: 🇩🇪DE-8.209.114.185-0100
-  server: 8.209.114.185
+  delay: 43.862342834472656
+- name: 🇺🇸US-47.90.132.126-0086
+  server: 47.90.132.126
   port: 443
   type: vmess
   uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
@@ -173,148 +41,8 @@ proxies:
     path: /ray
     headers:
       Host: lg30.cfcdn3.xyz
-  delay: 88.83428573608398
-- name: 🇩🇪DE-47.254.175.195-0031
-  server: 47.254.175.195
-  port: 443
-  type: vmess
-  uuid: fc9c12e0-f4f2-4fc4-a30e-fc488bac7121
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: idnusa2.vpn-akcelluler.my.id
-  delay: 89.62154388427734
-- name: 🇱🇹LT-45.87.175.177-0240
-  server: 45.87.175.177
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-  delay: 89.90240097045898
-- name: 🇩🇪DE-47.254.174.110-0030
-  server: 47.254.174.110
-  port: 443
-  type: vmess
-  uuid: fc9c12e0-f4f2-4fc4-a30e-fc488bac7121
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: idnusa2.vpn-akcelluler.my.id
-  delay: 90.31844139099121
-- name: 🇨🇦CA-79.127.233.170-0234
-  server: 79.127.233.170
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  delay: 91.78352355957031
-- name: 🇨🇦CA-79.127.233.170-0235
-  server: 79.127.233.170
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 91.98665618896484
-- name: 🇦🇺AU-103.224.212.215-0047
-  server: vjp1.0bad.com
-  port: 443
-  type: vmess
-  uuid: 927094d3-d678-4763-8591-e240d0bcae87
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /chat
-    headers:
-      Host: vjp1.0bad.com
-  delay: 97.96905517578125
-- name: 🇫🇷FR-152.228.191.232-0094
-  server: 152.228.191.232
-  port: 443
-  type: vmess
-  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: lg30.cfcdn3.xyz
-  delay: 105.03530502319336
-- name: 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
-  type: ss
-  server: 185.153.197.5
-  port: 989
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 146.4991569519043
-- name: 🇯🇵JP-158.101.150.139-0052
-  server: 158.101.150.139
-  port: 2095
-  type: vmess
-  uuid: e94c706a-235f-4663-e214-edfa052f256e
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /wo.png
-    headers:
-      Host: els200.jklist.ga
-  delay: 160.22467613220215
-- name: 🇯🇵JP-47.245.25.67-0012
-  server: 47.245.25.67
-  port: 443
-  type: vmess
-  uuid: fc9c12e0-f4f2-4fc4-a30e-fc488bac7121
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: idnusa2.vpn-akcelluler.my.id
-  delay: 162.59050369262695
-- name: 🇯🇵JP-202.182.98.223-0239
-  server: 202.182.98.223
-  port: 9443
-  type: ss
-  cipher: aes-128-gcm
-  password: lINaALnHIiH4cSj8pJn6TQ==
-  delay: 162.62149810791016
-- name: 🇯🇵JP-47.91.17.249-0000
-  server: 47.91.17.249
-  port: 443
-  type: vmess
-  uuid: fc9c12e0-f4f2-4fc4-a30e-fc488bac7121
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: idnusa2.vpn-akcelluler.my.id
-  delay: 164.44730758666992
-- name: 🇦🇺AU-103.224.212.215-0215
+  delay: 66.97511672973633
+- name: 🇦🇺AU-103.224.212.215-0135
   server: vjp3.0bad.com
   port: 443
   type: vmess
@@ -328,73 +56,375 @@ proxies:
     path: /chat
     headers:
       Host: vjp3.0bad.com
-  delay: 165.64488410949707
-- name: 🏁RELAY-172.67.73.39-0061
-  server: api.qiscus.com
+  delay: 94.79880332946777
+- name: 🇯🇵JP-8.209.242.110-0036
+  server: 8.209.242.110
   port: 443
   type: vmess
-  uuid: a9481600-ef36-402a-a0e5-5547bfd7b87c
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: sg1.31vpn.com
   network: ws
   ws-opts:
-    path: /fastssh/hsjshskkaa/6358a09437359/
+    path: /wmzmvws
     headers:
-      Host: sg1.31vpn.com
-  delay: 176.8054962158203
-- name: 🇭🇰HK-159.100.206.88-0033
+      Host: goodfamily19.site
+  delay: 107.80906677246094
+- name: 🇯🇵JP-47.245.25.67-0043
+  server: 47.245.25.67
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 107.84745216369629
+- name: 🇯🇵JP-47.91.17.249-0044
+  server: 47.91.17.249
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 108.856201171875
+- name: 🇩🇪DE-8.209.104.230-0057
+  server: 8.209.104.230
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 158.78963470458984
+- name: 🇩🇪DE-8.209.105.92-0053
+  server: 8.209.105.92
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 159.14058685302734
+- name: 🇩🇪DE-47.91.92.132-0104
+  server: 47.91.92.132
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 159.38115119934082
+- name: 🇩🇪DE-8.209.72.9-0048
+  server: 8.209.72.9
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 159.47961807250977
+- name: 🇩🇪DE-47.254.174.110-0072
+  server: 47.254.174.110
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 159.79409217834473
+- name: 🇩🇪DE-8.209.112.171-0098
+  server: 8.209.112.171
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 160.83312034606934
+- name: 🇩🇪DE-8.209.104.32-0088
+  server: 8.209.104.32
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 162.1701717376709
+- name: 🇩🇪DE-8.209.82.213-0094
+  server: 8.209.82.213
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 162.40692138671875
+- name: 🇩🇪DE-8.209.88.239-0097
+  server: 8.209.88.239
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 162.47177124023438
+- name: 🇩🇪DE-8.209.113.255-0129
+  server: 8.209.113.255
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 162.5235080718994
+- name: 🇩🇪DE-8.209.117.4-0099
+  server: 8.209.117.4
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 162.8105640411377
+- name: 🇩🇪DE-47.254.175.195-0113
+  server: 47.254.175.195
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 163.04898262023926
+- name: 🇩🇪DE-8.209.91.245-0054
+  server: 8.209.91.245
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 163.2235050201416
+- name: 🇩🇪DE-8.209.83.99-0091
+  server: 8.209.83.99
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 163.36464881896973
+- name: 🇩🇪DE-8.209.75.64-0071
+  server: 8.209.75.64
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 163.6502742767334
+- name: 🇩🇪DE-8.209.118.4-0120
+  server: 8.209.118.4
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 164.07322883605957
+- name: 🇩🇪DE-8.209.106.142-0074
+  server: 8.209.106.142
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 164.35694694519043
+- name: 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
+  type: ss
+  server: 185.153.197.5
+  port: 989
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 182.30581283569336
+- name: 🇵🇭PH-8.212.129.36-0010
+  server: 8.212.129.36
+  port: 443
+  type: vmess
+  uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wmzmvws
+    headers:
+      Host: goodfamily19.site
+  delay: 198.8201141357422
+- name: 🇭🇰HK-159.100.206.88-0084
   server: 159.100.206.88
   port: 443
   type: vmess
-  uuid: fc9c12e0-f4f2-4fc4-a30e-fc488bac7121
+  uuid: acc94bf4-94c1-4a08-8b79-9be2b76499b6
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /v2ray
+    path: /2yevws
     headers:
-      Host: idnusa2.vpn-akcelluler.my.id
-  delay: 217.1039581298828
+      Host: cc.1808.cf
+  delay: 239.89391326904297
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🏁RELAY-172.64.154.102-0089
-  - 🏁RELAY-172.64.154.222-0088
-  - 🏁RELAY-141.101.115.120-0090
-  - 🏁RELAY-172.64.154.201-0057
-  - 🏁RELAY-141.101.114.120-0051
-  - 🏁RELAY-104.18.28.19-0059
-  - 🇺🇸US-64.74.163.130-0232
-  - 🇺🇸US-156.146.38.167-0231
-  - 🇺🇸US-156.146.38.168-0229
-  - 🇺🇸US-156.146.38.170-0228
-  - 🇺🇸US-156.146.38.169-0230
-  - 🇺🇸US-156.146.38.163-0123
-  - 🇺🇸US-104.192.226.106-0236
-  - 🇬🇧GB-62.100.205.48-0237
-  - 🇱🇹LT-45.87.175.158-0241
-  - 🇩🇪DE-8.209.114.185-0100
-  - 🇩🇪DE-47.254.175.195-0031
-  - 🇱🇹LT-45.87.175.177-0240
-  - 🇩🇪DE-47.254.174.110-0030
-  - 🇨🇦CA-79.127.233.170-0234
-  - 🇨🇦CA-79.127.233.170-0235
-  - 🇦🇺AU-103.224.212.215-0047
-  - 🇫🇷FR-152.228.191.232-0094
+  - 🏁RELAY-141.101.114.120-0077
+  - 🇺🇸US-156.146.38.163-0139
+  - 🇺🇸US-47.90.132.126-0086
+  - 🇦🇺AU-103.224.212.215-0135
+  - 🇯🇵JP-8.209.242.110-0036
+  - 🇯🇵JP-47.245.25.67-0043
+  - 🇯🇵JP-47.91.17.249-0044
+  - 🇩🇪DE-8.209.104.230-0057
+  - 🇩🇪DE-8.209.105.92-0053
+  - 🇩🇪DE-47.91.92.132-0104
+  - 🇩🇪DE-8.209.72.9-0048
+  - 🇩🇪DE-47.254.174.110-0072
+  - 🇩🇪DE-8.209.112.171-0098
+  - 🇩🇪DE-8.209.104.32-0088
+  - 🇩🇪DE-8.209.82.213-0094
+  - 🇩🇪DE-8.209.88.239-0097
+  - 🇩🇪DE-8.209.113.255-0129
+  - 🇩🇪DE-8.209.117.4-0099
+  - 🇩🇪DE-47.254.175.195-0113
+  - 🇩🇪DE-8.209.91.245-0054
+  - 🇩🇪DE-8.209.83.99-0091
+  - 🇩🇪DE-8.209.75.64-0071
+  - 🇩🇪DE-8.209.118.4-0120
+  - 🇩🇪DE-8.209.106.142-0074
   - 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
-  - 🇯🇵JP-158.101.150.139-0052
-  - 🇯🇵JP-47.245.25.67-0012
-  - 🇯🇵JP-202.182.98.223-0239
-  - 🇯🇵JP-47.91.17.249-0000
-  - 🇦🇺AU-103.224.212.215-0215
-  - 🏁RELAY-172.67.73.39-0061
-  - 🇭🇰HK-159.100.206.88-0033
+  - 🇵🇭PH-8.212.129.36-0010
+  - 🇭🇰HK-159.100.206.88-0084
 - name: 自动选择
   type: url-test
   proxies: *id001
