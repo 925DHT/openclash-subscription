@@ -5,51 +5,6 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🏁RELAY-172.67.233.140-0091
-  server: 172.67.233.140
-  port: 8443
-  type: vmess
-  uuid: 3baaad0f-b764-4f4e-d382-cdd104390838
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /live
-    headers:
-      Host: www.aoop1994.eu.org
-  delay: 1.5616416931152344
-- name: 🏁RELAY-141.101.115.100-0069
-  server: 141.101.115.100
-  port: 443
-  type: vmess
-  uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /VHONOFZ3
-    headers:
-      Host: lg1.cfcdn2.xyz
-  delay: 1.5745162963867188
-- name: 🏁RELAY-104.21.41.120-0015
-  server: 104.21.41.120
-  port: 80
-  type: vmess
-  uuid: 51fa265a-31f5-44f2-b354-5b2e351e2cdf
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /api/v3/download.getFile
-    headers:
-      Host: ssrsub.v02.asuka.buzz
-  delay: 1.5783309936523438
 - name: 🏁RELAY-198.41.203.2-0105
   server: 198.41.203.2
   port: 443
@@ -65,22 +20,37 @@ proxies:
     path: /dongtaiwang.com
     headers:
       Host: clash1.trump2023.net
-  delay: 1.583099365234375
-- name: 🏁RELAY-141.101.114.100-0045
-  server: 141.101.114.100
+  delay: 1.8172264099121094
+- name: 🏁RELAY-141.101.115.100-0069
+  server: 141.101.115.100
   port: 443
   type: vmess
-  uuid: 4679f00e-90ce-430d-9714-6a19367ba112
+  uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /dongtaiwang.com
+    path: /VHONOFZ3
     headers:
-      Host: v2ray1.zhujicn2.org
-  delay: 1.7049312591552734
+      Host: lg1.cfcdn2.xyz
+  delay: 1.8270015716552734
+- name: 🏁RELAY-104.21.41.120-0015
+  server: 104.21.41.120
+  port: 80
+  type: vmess
+  uuid: 51fa265a-31f5-44f2-b354-5b2e351e2cdf
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /api/v3/download.getFile
+    headers:
+      Host: ssrsub.v02.asuka.buzz
+  delay: 1.8639564514160156
 - name: 🏁RELAY-141.101.114.20-0088
   server: 141.101.114.20
   port: 443
@@ -95,38 +65,37 @@ proxies:
     path: /dongtaiwang.com
     headers:
       Host: clash1.trump2023.net
-  delay: 1.781463623046875
-- name: 🏁RELAY-141.101.114.120-0094
-  server: 141.101.114.120
+  delay: 1.878499984741211
+- name: 🏁RELAY-141.101.114.100-0045
+  server: 141.101.114.100
   port: 443
   type: vmess
-  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: lg30.cfcdn3.xyz
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: lg30.cfcdn3.xyz
-  delay: 1.7852783203125
-- name: 🏁RELAY-172.64.154.222-0068
-  server: 172.64.154.222
-  port: 443
-  type: vmess
-  uuid: fcfaec91-6096-44d8-956c-7868d9e874b1
+  uuid: 4679f00e-90ce-430d-9714-6a19367ba112
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /ray
+    path: /dongtaiwang.com
     headers:
-      Host: lg1.cfcdn1.xyz
-  delay: 1.7991065979003906
+      Host: v2ray1.zhujicn2.org
+  delay: 1.8837451934814453
+- name: 🏁RELAY-172.67.233.140-0091
+  server: 172.67.233.140
+  port: 8443
+  type: vmess
+  uuid: 3baaad0f-b764-4f4e-d382-cdd104390838
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /live
+    headers:
+      Host: www.aoop1994.eu.org
+  delay: 2.0809173583984375
 - name: 🏁RELAY-141.101.114.150-0066
   server: 141.101.114.150
   port: 443
@@ -141,22 +110,7 @@ proxies:
     path: /dongtaiwang.com
     headers:
       Host: clash6.ssr-free.xyz
-  delay: 1.9423961639404297
-- name: 🏁RELAY-172.64.148.111-0031
-  server: 172.64.148.111
-  port: 443
-  type: vmess
-  uuid: f33957e8-372e-4fba-99ed-f4db32cce9e5
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: fr2.cfcdn4.xyz
-  delay: 1.966714859008789
+  delay: 2.1390914916992188
 - name: 🏁RELAY-172.67.65.166-0072
   server: 172.67.65.166
   port: 443
@@ -172,22 +126,37 @@ proxies:
     path: /live
     headers:
       Host: www.aoop.cf
-  delay: 2.6483535766601562
-- name: 🏁RELAY-104.19.174.68-0014
-  server: www.digitalocean.com
-  port: 80
+  delay: 2.142190933227539
+- name: 🏁RELAY-172.64.148.111-0031
+  server: 172.64.148.111
+  port: 443
   type: vmess
-  uuid: 51fa265a-31f5-44f2-b354-5b2e351e2cdf
+  uuid: f33957e8-372e-4fba-99ed-f4db32cce9e5
   alterId: 0
   cipher: auto
-  tls: false
+  tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /api/v3/download.getFile
+    path: /ray
     headers:
-      Host: o08.tgfaka.com
-  delay: 5.493879318237305
+      Host: fr2.cfcdn4.xyz
+  delay: 2.1784305572509766
+- name: 🏁RELAY-172.64.154.222-0068
+  server: 172.64.154.222
+  port: 443
+  type: vmess
+  uuid: fcfaec91-6096-44d8-956c-7868d9e874b1
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg1.cfcdn1.xyz
+  delay: 2.287149429321289
 - name: 🏁RELAY-172.67.184.67-0059
   server: 172.67.184.67
   port: 8443
@@ -202,49 +171,87 @@ proxies:
     path: /live
     headers:
       Host: www.aoop1994.eu.org
-  delay: 5.790233612060547
-- name: 🇺🇸US-156.146.38.169-0253
-  server: 156.146.38.169
+  delay: 2.313375473022461
+- name: 🏁RELAY-141.101.114.120-0094
+  server: 141.101.114.120
   port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 43.72215270996094
-- name: 🇺🇸US-156.146.38.168-0256
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 43.810367584228516
-- name: 🇺🇸US-156.146.38.170-0254
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 43.936967849731445
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: lg30.cfcdn3.xyz
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 2.8128623962402344
+- name: 🏁RELAY-104.19.174.68-0014
+  server: www.digitalocean.com
+  port: 80
+  type: vmess
+  uuid: 51fa265a-31f5-44f2-b354-5b2e351e2cdf
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /api/v3/download.getFile
+    headers:
+      Host: o08.tgfaka.com
+  delay: 11.121273040771484
 - name: 🇺🇸US-156.146.38.163-0145
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 46.03838920593262
-- name: 🇺🇸US-156.146.38.167-0252
-  server: 156.146.38.167
+  delay: 45.99595069885254
+- name: 🇺🇸US-18.224.33.22-0251
+  server: 18.224.33.22
   port: 443
   type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 46.782493591308594
-- name: 🇺🇸US-3.145.46.227-0250
+  cipher: aes-256-cfb
+  password: amazonskr05
+  delay: 60.39285659790039
+- name: 🇺🇸US-3.137.215.129-0253
+  server: 3.137.215.129
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+  delay: 61.34533882141113
+- name: 🇺🇸US-3.141.46.88-0256
+  server: 3.141.46.88
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+  delay: 61.41543388366699
+- name: 🇺🇸US-13.59.110.241-0250
+  server: 13.59.110.241
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+  delay: 62.98327445983887
+- name: 🇺🇸US-3.145.46.227-0252
   server: 3.145.46.227
   port: 443
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-  delay: 61.03873252868652
+  delay: 62.98637390136719
+- name: 🇺🇸US-3.148.145.1-0255
+  server: 3.148.145.1
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+  delay: 63.40336799621582
 - name: 🇨🇦CA-137.184.164.233-0104
   server: 137.184.164.233
   port: 80
@@ -257,173 +264,16 @@ proxies:
   network: ws
   ws-opts:
     path: /vmess
-  delay: 64.47601318359375
-- name: 🇺🇸US-64.74.163.130-0255
-  server: 64.74.163.130
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  delay: 71.73466682434082
-- name: 🇦🇺AU-103.224.212.211-0036
-  server: 26.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 26.72img.xyz
-  delay: 83.0845832824707
-- name: 🇦🇺AU-103.224.212.211-0053
-  server: 53.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 53.72img.xyz
-  delay: 84.22136306762695
-- name: 🇦🇺AU-103.224.212.211-0060
-  server: 25.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 25.72img.xyz
-  delay: 85.56795120239258
-- name: 🇦🇺AU-103.224.212.211-0030
-  server: 33.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 33.72img.xyz
-  delay: 86.71069145202637
-- name: 🇨🇦CA-15.223.195.244-0251
-  server: 15.223.195.244
+  delay: 65.28973579406738
+- name: 🇺🇸US-3.147.64.175-0254
+  server: 3.147.64.175
   port: 443
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-  delay: 86.75646781921387
-- name: 🇦🇺AU-103.224.212.211-0028
-  server: 29.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 29.72img.xyz
-  delay: 87.71824836730957
-- name: 🇦🇺AU-103.224.212.211-0035
-  server: 35.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 35.72img.xyz
-  delay: 89.10083770751953
-- name: 🇦🇺AU-103.224.212.211-0029
-  server: 45.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 45.72img.xyz
-  delay: 89.9190902709961
-- name: 🇦🇺AU-103.224.212.211-0050
-  server: 30.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 30.72img.xyz
-  delay: 90.34156799316406
-- name: 🇦🇺AU-103.224.212.211-0043
-  server: 54.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 54.72img.xyz
-  delay: 91.04299545288086
-- name: 🇦🇺AU-103.224.212.211-0020
-  server: 9.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 9.72img.xyz
-  delay: 91.42136573791504
-- name: 🇦🇺AU-103.224.212.215-0099
-  server: vde1.0bad.com
+  delay: 66.34283065795898
+- name: 🇦🇺AU-103.224.212.215-0101
+  server: vuk2.0bad.com
   port: 443
   type: vmess
   uuid: 927094d3-d678-4763-8591-e240d0bcae87
@@ -435,38 +285,8 @@ proxies:
   ws-opts:
     path: /chat
     headers:
-      Host: vde1.0bad.com
-  delay: 92.90027618408203
-- name: 🇦🇺AU-103.224.212.211-0013
-  server: 46.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 46.72img.xyz
-  delay: 94.0091609954834
-- name: 🇦🇺AU-103.224.212.211-0051
-  server: 4.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 4.72img.xyz
-  delay: 94.85054016113281
+      Host: vuk2.0bad.com
+  delay: 82.22579956054688
 - name: 🇦🇺AU-103.224.212.215-0236
   server: vjp1.0bad.com
   port: 443
@@ -481,45 +301,7 @@ proxies:
     path: /chat
     headers:
       Host: vjp1.0bad.com
-  delay: 95.76225280761719
-- name: 🇦🇺AU-103.224.212.211-0041
-  server: 10.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 10.72img.xyz
-  delay: 95.92223167419434
-- name: 🇨🇦CA-167.114.67.25-0078
-  server: univstar.167.114.67.25.sslip.io
-  port: 443
-  type: trojan
-  password: ZRYSly2IRuFlgpZCaep3Ey3DDXqTDczO04aeC8F36OjaYSCABnA573wN8xxK9S
-  sni: httah.freetrade.link
-  skip-cert-verify: false
-  delay: 96.60816192626953
-- name: 🇦🇺AU-103.224.212.211-0027
-  server: 38.72img.xyz
-  port: 443
-  type: vmess
-  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 38.72img.xyz
-  delay: 96.88687324523926
+  delay: 82.74340629577637
 - name: 🇦🇺AU-103.224.212.215-0081
   server: vau1.0bad.com
   port: 443
@@ -535,7 +317,97 @@ proxies:
     path: /chat
     headers:
       Host: vau1.0bad.com
-  delay: 99.38693046569824
+  delay: 83.43815803527832
+- name: 🇦🇺AU-103.224.212.211-0060
+  server: 25.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 25.72img.xyz
+  delay: 83.48608016967773
+- name: 🇦🇺AU-103.224.212.215-0099
+  server: vde1.0bad.com
+  port: 443
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vde1.0bad.com
+  delay: 83.6029052734375
+- name: 🇦🇺AU-103.224.212.211-0041
+  server: 10.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 10.72img.xyz
+  delay: 83.65559577941895
+- name: 🇦🇺AU-103.224.212.211-0029
+  server: 45.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 45.72img.xyz
+  delay: 84.93208885192871
+- name: 🇦🇺AU-103.224.212.211-0020
+  server: 9.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 9.72img.xyz
+  delay: 86.46678924560547
+- name: 🇦🇺AU-103.224.212.211-0030
+  server: 33.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 33.72img.xyz
+  delay: 86.72308921813965
 - name: 🇦🇺AU-103.224.212.211-0012
   server: 34.72img.xyz
   port: 443
@@ -550,24 +422,9 @@ proxies:
     path: /
     headers:
       Host: 34.72img.xyz
-  delay: 100.05807876586914
-- name: 🇦🇺AU-103.224.212.215-0101
-  server: vuk2.0bad.com
-  port: 443
-  type: vmess
-  uuid: 927094d3-d678-4763-8591-e240d0bcae87
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /chat
-    headers:
-      Host: vuk2.0bad.com
-  delay: 109.4214916229248
-- name: 🇦🇺AU-103.224.212.211-0011
-  server: 21.72img.xyz
+  delay: 87.44668960571289
+- name: 🇦🇺AU-103.224.212.211-0036
+  server: 26.72img.xyz
   port: 443
   type: vmess
   uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
@@ -579,8 +436,68 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 21.72img.xyz
-  delay: 114.42685127258301
+      Host: 26.72img.xyz
+  delay: 88.38224411010742
+- name: 🇦🇺AU-103.224.212.211-0027
+  server: 38.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 38.72img.xyz
+  delay: 88.5322093963623
+- name: 🇦🇺AU-103.224.212.211-0053
+  server: 53.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 53.72img.xyz
+  delay: 88.95134925842285
+- name: 🇦🇺AU-103.224.212.211-0051
+  server: 4.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 4.72img.xyz
+  delay: 89.43581581115723
+- name: 🇦🇺AU-103.224.212.211-0013
+  server: 46.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 46.72img.xyz
+  delay: 90.62743186950684
 - name: 🇦🇺AU-103.224.212.211-0019
   server: 14.72img.xyz
   port: 443
@@ -595,7 +512,67 @@ proxies:
     path: /
     headers:
       Host: 14.72img.xyz
-  delay: 150.6211757659912
+  delay: 91.08328819274902
+- name: 🇦🇺AU-103.224.212.211-0050
+  server: 30.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 30.72img.xyz
+  delay: 91.89820289611816
+- name: 🇦🇺AU-103.224.212.211-0011
+  server: 21.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 21.72img.xyz
+  delay: 95.52264213562012
+- name: 🇦🇺AU-103.224.212.211-0043
+  server: 54.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 54.72img.xyz
+  delay: 95.95894813537598
+- name: 🇦🇺AU-103.224.212.211-0035
+  server: 35.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 35.72img.xyz
+  delay: 97.88942337036133
 - name: 🇦🇺AU-103.224.212.215-0074
   server: vjp3.0bad.com
   port: 443
@@ -610,15 +587,67 @@ proxies:
     path: /chat
     headers:
       Host: vjp3.0bad.com
-  delay: 154.5250415802002
-- name: 🇭🇰HK-219.76.13.180-0126
-  server: 219.76.13.180
+  delay: 102.31542587280273
+- name: 🇦🇺AU-103.224.212.215-0073
+  server: vsg1.0bad.com
   port: 443
-  type: trojan
-  password: ZRYSly2IRuFlgpZCaep3Ey3DDXqTDczO04aeC8F36OjaYSCABnA573wN8xxK9S
-  sni: httah.freetrade.link
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-  delay: 158.02621841430664
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vsg1.0bad.com
+  delay: 112.8542423248291
+- name: 🇦🇺AU-103.224.212.211-0028
+  server: 29.72img.xyz
+  port: 443
+  type: vmess
+  uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 29.72img.xyz
+  delay: 117.0186996459961
+- name: 🇰🇷KR-146.56.162.25-0006
+  server: 146.56.162.25
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 135.50043106079102
+- name: 🇦🇺AU-103.224.212.215-0021
+  server: vus4.0bad.com
+  port: 443
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vus4.0bad.com
+  delay: 148.96607398986816
 - name: 🇫🇷FR-51.83.97.167-0102
   server: 51.83.97.167
   port: 80
@@ -631,7 +660,15 @@ proxies:
   network: ws
   ws-opts:
     path: /vmess
-  delay: 158.5390567779541
+  delay: 157.2282314300537
+- name: 🇭🇰HK-219.76.13.180-0126
+  server: 219.76.13.180
+  port: 443
+  type: trojan
+  password: ZRYSly2IRuFlgpZCaep3Ey3DDXqTDczO04aeC8F36OjaYSCABnA573wN8xxK9S
+  sni: httah.freetrade.link
+  skip-cert-verify: false
+  delay: 158.57744216918945
 - name: 🇫🇷FR-152.228.191.232-0003
   server: 152.228.191.232
   port: 443
@@ -646,81 +683,61 @@ proxies:
     path: /ray
     headers:
       Host: lg30.cfcdn3.xyz
-  delay: 164.69335556030273
-- name: 🇸🇬SG-15.235.147.186-0062
-  server: 15.235.147.186
-  port: 80
-  type: vmess
-  uuid: 6fea1649-425b-4092-bf53-29792152c925
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /sshkit/Ertusg86/635014638c264/
-  delay: 169.56782341003418
-- name: 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
-  type: ss
-  server: 185.153.197.5
-  port: 989
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 183.58564376831055
+  delay: 167.27972030639648
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🏁RELAY-172.67.233.140-0091
+  - 🏁RELAY-198.41.203.2-0105
   - 🏁RELAY-141.101.115.100-0069
   - 🏁RELAY-104.21.41.120-0015
-  - 🏁RELAY-198.41.203.2-0105
-  - 🏁RELAY-141.101.114.100-0045
   - 🏁RELAY-141.101.114.20-0088
-  - 🏁RELAY-141.101.114.120-0094
-  - 🏁RELAY-172.64.154.222-0068
+  - 🏁RELAY-141.101.114.100-0045
+  - 🏁RELAY-172.67.233.140-0091
   - 🏁RELAY-141.101.114.150-0066
-  - 🏁RELAY-172.64.148.111-0031
   - 🏁RELAY-172.67.65.166-0072
-  - 🏁RELAY-104.19.174.68-0014
+  - 🏁RELAY-172.64.148.111-0031
+  - 🏁RELAY-172.64.154.222-0068
   - 🏁RELAY-172.67.184.67-0059
-  - 🇺🇸US-156.146.38.169-0253
-  - 🇺🇸US-156.146.38.168-0256
-  - 🇺🇸US-156.146.38.170-0254
+  - 🏁RELAY-141.101.114.120-0094
+  - 🏁RELAY-104.19.174.68-0014
   - 🇺🇸US-156.146.38.163-0145
-  - 🇺🇸US-156.146.38.167-0252
-  - 🇺🇸US-3.145.46.227-0250
+  - 🇺🇸US-18.224.33.22-0251
+  - 🇺🇸US-3.137.215.129-0253
+  - 🇺🇸US-3.141.46.88-0256
+  - 🇺🇸US-13.59.110.241-0250
+  - 🇺🇸US-3.145.46.227-0252
+  - 🇺🇸US-3.148.145.1-0255
   - 🇨🇦CA-137.184.164.233-0104
-  - 🇺🇸US-64.74.163.130-0255
-  - 🇦🇺AU-103.224.212.211-0036
-  - 🇦🇺AU-103.224.212.211-0053
-  - 🇦🇺AU-103.224.212.211-0060
-  - 🇦🇺AU-103.224.212.211-0030
-  - 🇨🇦CA-15.223.195.244-0251
-  - 🇦🇺AU-103.224.212.211-0028
-  - 🇦🇺AU-103.224.212.211-0035
-  - 🇦🇺AU-103.224.212.211-0029
-  - 🇦🇺AU-103.224.212.211-0050
-  - 🇦🇺AU-103.224.212.211-0043
-  - 🇦🇺AU-103.224.212.211-0020
-  - 🇦🇺AU-103.224.212.215-0099
-  - 🇦🇺AU-103.224.212.211-0013
-  - 🇦🇺AU-103.224.212.211-0051
-  - 🇦🇺AU-103.224.212.215-0236
-  - 🇦🇺AU-103.224.212.211-0041
-  - 🇨🇦CA-167.114.67.25-0078
-  - 🇦🇺AU-103.224.212.211-0027
-  - 🇦🇺AU-103.224.212.215-0081
-  - 🇦🇺AU-103.224.212.211-0012
+  - 🇺🇸US-3.147.64.175-0254
   - 🇦🇺AU-103.224.212.215-0101
-  - 🇦🇺AU-103.224.212.211-0011
+  - 🇦🇺AU-103.224.212.215-0236
+  - 🇦🇺AU-103.224.212.215-0081
+  - 🇦🇺AU-103.224.212.211-0060
+  - 🇦🇺AU-103.224.212.215-0099
+  - 🇦🇺AU-103.224.212.211-0041
+  - 🇦🇺AU-103.224.212.211-0029
+  - 🇦🇺AU-103.224.212.211-0020
+  - 🇦🇺AU-103.224.212.211-0030
+  - 🇦🇺AU-103.224.212.211-0012
+  - 🇦🇺AU-103.224.212.211-0036
+  - 🇦🇺AU-103.224.212.211-0027
+  - 🇦🇺AU-103.224.212.211-0053
+  - 🇦🇺AU-103.224.212.211-0051
+  - 🇦🇺AU-103.224.212.211-0013
   - 🇦🇺AU-103.224.212.211-0019
+  - 🇦🇺AU-103.224.212.211-0050
+  - 🇦🇺AU-103.224.212.211-0011
+  - 🇦🇺AU-103.224.212.211-0043
+  - 🇦🇺AU-103.224.212.211-0035
   - 🇦🇺AU-103.224.212.215-0074
-  - 🇭🇰HK-219.76.13.180-0126
+  - 🇦🇺AU-103.224.212.215-0073
+  - 🇦🇺AU-103.224.212.211-0028
+  - 🇰🇷KR-146.56.162.25-0006
+  - 🇦🇺AU-103.224.212.215-0021
   - 🇫🇷FR-51.83.97.167-0102
+  - 🇭🇰HK-219.76.13.180-0126
   - 🇫🇷FR-152.228.191.232-0003
-  - 🇸🇬SG-15.235.147.186-0062
-  - 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
 - name: 自动选择
   type: url-test
   proxies: *id001
