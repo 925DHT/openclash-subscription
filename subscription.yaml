@@ -5,21 +5,6 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🏁RELAY-172.64.152.150-0107
-  server: 172.64.152.150
-  port: 443
-  type: vmess
-  uuid: 5f64fa65-7b14-49c5-954d-aa15c6bfcacd
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: clash6.ssr-free.xyz
-  delay: 2.3107528686523438
 - name: 🏁RELAY-198.41.203.3-0109
   server: 198.41.203.3
   port: 443
@@ -34,7 +19,7 @@ proxies:
     path: /dongtaiwang.com
     headers:
       Host: lg1.cfcdn3.xyz
-  delay: 2.498149871826172
+  delay: 1.9252300262451172
 - name: 🏁RELAY-198.41.203.1-0108
   server: 198.41.203.1
   port: 443
@@ -49,22 +34,7 @@ proxies:
     path: /VHONOFZ3
     headers:
       Host: lg1.cfcdn2.xyz
-  delay: 2.5484561920166016
-- name: 🏁RELAY-141.101.114.120-0049
-  server: 141.101.114.120
-  port: 443
-  type: vmess
-  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg1.cfcdn3.xyz
-  delay: 2.5815963745117188
+  delay: 2.017974853515625
 - name: 🏁RELAY-172.64.154.222-0111
   server: 172.64.154.222
   port: 443
@@ -79,7 +49,37 @@ proxies:
     path: /ray
     headers:
       Host: lg1.cfcdn1.xyz
-  delay: 2.6493072509765625
+  delay: 3.044605255126953
+- name: 🏁RELAY-141.101.114.120-0049
+  server: 141.101.114.120
+  port: 443
+  type: vmess
+  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /dongtaiwang.com
+    headers:
+      Host: lg1.cfcdn3.xyz
+  delay: 4.086494445800781
+- name: 🏁RELAY-172.64.152.150-0107
+  server: 172.64.152.150
+  port: 443
+  type: vmess
+  uuid: 5f64fa65-7b14-49c5-954d-aa15c6bfcacd
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /dongtaiwang.com
+    headers:
+      Host: clash6.ssr-free.xyz
+  delay: 4.179477691650391
 - name: 🏁RELAY-104.19.174.68-0052
   server: www.digitalocean.com
   port: 80
@@ -94,14 +94,7 @@ proxies:
     path: /api/v3/download.getFile
     headers:
       Host: o07.tgfaka.com
-  delay: 8.176326751708984
-- name: 🇨🇦CA-134.195.196.231-0056
-  server: 134.195.196.231
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 22.832393646240234
+  delay: 7.695198059082031
 - name: 🇺🇸US-204.44.110.196-0106
   server: 204.44.110.196
   port: 443
@@ -116,35 +109,35 @@ proxies:
     path: /dongtaiwang.com
     headers:
       Host: clash1.trump2023.net
-  delay: 24.524211883544922
-- name: 🇺🇸US-156.146.38.169-0226
-  server: 156.146.38.169
-  port: 443
+  delay: 14.62101936340332
+- name: 🇨🇦CA-134.195.196.231-0056
+  server: 134.195.196.231
+  port: 8080
   type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.491943359375
-- name: 🇺🇸US-156.146.38.167-0225
-  server: 156.146.38.167
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.601139068603516
-- name: 🇺🇸US-156.146.38.168-0224
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 15.323400497436523
+- name: 🇺🇸US-156.146.38.168-0226
   server: 156.146.38.168
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  delay: 35.856008529663086
+  delay: 24.547576904296875
+- name: 🇺🇸US-156.146.38.169-0225
+  server: 156.146.38.169
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 24.558067321777344
 - name: 🇺🇸US-156.146.38.163-0119
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 35.895347595214844
+  delay: 24.66297149658203
 - name: 🇺🇸US-47.88.52.220-0104
   server: 47.88.52.220
   port: 80
@@ -159,7 +152,7 @@ proxies:
     path: /?ed=2048
     headers:
       Host: w.800876.xyz
-  delay: 69.08154487609863
+  delay: 51.77807807922363
 - name: 🇫🇷FR-152.228.191.232-0020
   server: 152.228.191.232
   port: 443
@@ -174,7 +167,14 @@ proxies:
     path: /ray
     headers:
       Host: lg30.cfcdn3.xyz
-  delay: 95.47901153564453
+  delay: 114.23659324645996
+- name: 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
+  type: ss
+  server: 185.153.197.5
+  port: 989
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 149.80435371398926
 - name: 🇦🇺AU-103.224.212.215-0210
   server: vjp1.0bad.com
   port: 443
@@ -189,44 +189,7 @@ proxies:
     path: /chat
     headers:
       Host: vjp1.0bad.com
-  delay: 149.63364601135254
-- name: 🇦🇺AU-103.224.212.215-0022
-  server: vau1.0bad.com
-  port: 443
-  type: vmess
-  uuid: 927094d3-d678-4763-8591-e240d0bcae87
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /chat
-    headers:
-      Host: vau1.0bad.com
-  delay: 151.64828300476074
-- name: 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
-  type: ss
-  server: 185.153.197.5
-  port: 989
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 163.83719444274902
-- name: 🏁RELAY-104.21.89.56-0065
-  server: surongwei.eu.org
-  port: 443
-  type: vmess
-  uuid: 6093eefb-7ab6-41df-aba0-d5fa58147e10
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /reffs7y26g0ua
-    headers:
-      Host: surongwei.eu.org
-  delay: 206.4523696899414
+  delay: 170.65668106079102
 - name: 🇦🇺AU-103.224.212.215-0211
   server: vjp3.0bad.com
   port: 443
@@ -241,7 +204,7 @@ proxies:
     path: /chat
     headers:
       Host: vjp3.0bad.com
-  delay: 211.9119167327881
+  delay: 173.03824424743652
 - name: 🇸🇬SG-15.235.147.186-0103
   server: 15.235.147.186
   port: 80
@@ -256,40 +219,69 @@ proxies:
     path: /sshkit/Ertusg86/635014638c264/
     headers:
       Host: 15.235.147.186
-  delay: 221.8782901763916
-- name: 🇹🇼TW-61.221.189.241-0005
+  delay: 208.36257934570312
+- name: 🇦🇺AU-103.224.212.215-0022
+  server: vau1.0bad.com
+  port: 443
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vau1.0bad.com
+  delay: 381.35361671447754
+- name: 🏁RELAY-104.21.89.56-0065
+  server: surongwei.eu.org
+  port: 443
+  type: vmess
+  uuid: 6093eefb-7ab6-41df-aba0-d5fa58147e10
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /reffs7y26g0ua
+    headers:
+      Host: surongwei.eu.org
+  delay: 414.9150848388672
+- name: 🇹🇼TW-61.228.75.240-0005
   server: official.taipeicitygovernment.chernovtsy.ua
   port: 8443
   type: trojan
   password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
   sni: 198.13.51.222
   skip-cert-verify: false
-  delay: 707.1642875671387
+  delay: 740.9322261810303
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🏁RELAY-172.64.152.150-0107
   - 🏁RELAY-198.41.203.3-0109
   - 🏁RELAY-198.41.203.1-0108
-  - 🏁RELAY-141.101.114.120-0049
   - 🏁RELAY-172.64.154.222-0111
+  - 🏁RELAY-141.101.114.120-0049
+  - 🏁RELAY-172.64.152.150-0107
   - 🏁RELAY-104.19.174.68-0052
-  - 🇨🇦CA-134.195.196.231-0056
   - 🇺🇸US-204.44.110.196-0106
-  - 🇺🇸US-156.146.38.169-0226
-  - 🇺🇸US-156.146.38.167-0225
-  - 🇺🇸US-156.146.38.168-0224
+  - 🇨🇦CA-134.195.196.231-0056
+  - 🇺🇸US-156.146.38.168-0226
+  - 🇺🇸US-156.146.38.169-0225
   - 🇺🇸US-156.146.38.163-0119
   - 🇺🇸US-47.88.52.220-0104
   - 🇫🇷FR-152.228.191.232-0020
-  - 🇦🇺AU-103.224.212.215-0210
-  - 🇦🇺AU-103.224.212.215-0022
   - 🇲🇩_MD_摩尔多瓦->🇷🇺_RU_俄罗斯
-  - 🏁RELAY-104.21.89.56-0065
+  - 🇦🇺AU-103.224.212.215-0210
   - 🇦🇺AU-103.224.212.215-0211
   - 🇸🇬SG-15.235.147.186-0103
-  - 🇹🇼TW-61.221.189.241-0005
+  - 🇦🇺AU-103.224.212.215-0022
+  - 🏁RELAY-104.21.89.56-0065
+  - 🇹🇼TW-61.228.75.240-0005
 - name: 自动选择
   type: url-test
   proxies: *id001
