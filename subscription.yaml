@@ -5,111 +5,6 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🏁RELAY-198.41.203.1-0035
-  server: 198.41.203.1
-  port: 443
-  type: vmess
-  uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /VHONOFZ3
-    headers:
-      Host: lg1.cfcdn2.xyz
-  delay: 2.2957324981689453
-- name: 🏁RELAY-141.101.114.25-0041
-  server: 141.101.114.25
-  port: 443
-  type: vmess
-  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: lg30.cfcdn3.xyz
-  delay: 2.512693405151367
-- name: 🏁RELAY-198.41.203.3-0031
-  server: 198.41.203.3
-  port: 443
-  type: vmess
-  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg1.cfcdn3.xyz
-  delay: 2.5315284729003906
-- name: 🏁RELAY-141.101.114.120-0015
-  server: 141.101.114.120
-  port: 443
-  type: vmess
-  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: lg1.cfcdn3.xyz
-  delay: 2.548694610595703
-- name: 🏁RELAY-172.64.152.150-0022
-  server: 172.64.152.150
-  port: 443
-  type: vmess
-  uuid: 5f64fa65-7b14-49c5-954d-aa15c6bfcacd
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /dongtaiwang.com
-    headers:
-      Host: clash6.ssr-free.xyz
-  delay: 2.606630325317383
-- name: 🏁RELAY-172.64.148.111-0042
-  server: 172.64.148.111
-  port: 443
-  type: vmess
-  uuid: f33957e8-372e-4fba-99ed-f4db32cce9e5
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: fr2.cfcdn4.xyz
-  delay: 2.6123523712158203
-- name: 🏁RELAY-198.41.203.5-0036
-  server: 198.41.203.5
-  port: 443
-  type: vmess
-  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: lg30.cfcdn3.xyz
-  delay: 2.8238296508789062
 - name: 🏁RELAY-141.101.114.133-0039
   server: 141.101.114.133
   port: 443
@@ -124,7 +19,37 @@ proxies:
     path: /ray
     headers:
       Host: lg1.cfcdn1.xyz
-  delay: 2.904653549194336
+  delay: 5.843400955200195
+- name: 🏁RELAY-172.64.152.150-0022
+  server: 172.64.152.150
+  port: 443
+  type: vmess
+  uuid: 5f64fa65-7b14-49c5-954d-aa15c6bfcacd
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /dongtaiwang.com
+    headers:
+      Host: clash6.ssr-free.xyz
+  delay: 5.864620208740234
+- name: 🏁RELAY-172.64.148.111-0042
+  server: 172.64.148.111
+  port: 443
+  type: vmess
+  uuid: f33957e8-372e-4fba-99ed-f4db32cce9e5
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: fr2.cfcdn4.xyz
+  delay: 6.000757217407227
 - name: 🏁RELAY-141.101.114.100-0013
   server: 141.101.114.100
   port: 443
@@ -139,7 +64,22 @@ proxies:
     path: /dongtaiwang.com
     headers:
       Host: v2ray1.zhujicn2.org
-  delay: 2.9900074005126953
+  delay: 6.042242050170898
+- name: 🏁RELAY-198.41.203.5-0036
+  server: 198.41.203.5
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 6.145954132080078
 - name: 🏁RELAY-172.64.154.222-0020
   server: 172.64.154.222
   port: 443
@@ -154,23 +94,75 @@ proxies:
     path: /ray
     headers:
       Host: lg1.cfcdn1.xyz
-  delay: 3.0732154846191406
-- name: 🇺🇸US-38.99.82.193-0213
-  server: 38.99.82.193
+  delay: 6.203889846801758
+- name: 🏁RELAY-198.41.203.3-0031
+  server: 198.41.203.3
   port: 443
   type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /
+    path: /dongtaiwang.com
     headers:
-      Host: tilebani.com
-  delay: 7.706880569458008
-- name: 🏁RELAY-104.19.173.68-0005
+      Host: lg1.cfcdn3.xyz
+  delay: 7.482767105102539
+- name: 🏁RELAY-141.101.114.120-0015
+  server: 141.101.114.120
+  port: 443
+  type: vmess
+  uuid: 33aa57df-1c93-4318-9fce-e850437ee781
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /dongtaiwang.com
+    headers:
+      Host: lg1.cfcdn3.xyz
+  delay: 7.508277893066406
+- name: 🏁RELAY-141.101.114.25-0041
+  server: 141.101.114.25
+  port: 443
+  type: vmess
+  uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: lg30.cfcdn3.xyz
+  delay: 7.575035095214844
+- name: 🏁RELAY-198.41.203.1-0035
+  server: 198.41.203.1
+  port: 443
+  type: vmess
+  uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /VHONOFZ3
+    headers:
+      Host: lg1.cfcdn2.xyz
+  delay: 7.589101791381836
+- name: 🇺🇸US-64.74.163.130-0164
+  server: 64.74.163.130
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  delay: 19.533634185791016
+- name: 🏁RELAY-104.19.174.68-0005
   server: www.digitalocean.com
   port: 80
   type: vmess
@@ -184,7 +176,92 @@ proxies:
     path: /api/v3/download.getFile
     headers:
       Host: o08.tgfaka.com
-  delay: 7.786035537719727
+  delay: 21.53158187866211
+- name: 🏁RELAY-172.67.174.226-0192
+  server: n5vaz1.zeeoomboom.de
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: n5vaz1.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: n5vaz1.zeeoomboom.de
+  delay: 22.817611694335938
+- name: 🇨🇦CA-15.235.85.147-0198
+  server: 15.235.85.147
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: pelang.org
+  delay: 25.170326232910156
+- name: 🇨🇦CA-23.162.200.227-0167
+  server: 23.162.200.227
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+  delay: 26.749610900878906
+- name: 🇨🇦CA-134.195.198.147-0165
+  server: 134.195.198.147
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+  delay: 27.515172958374023
+- name: 🇺🇸US-156.146.38.170-0163
+  server: 156.146.38.170
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 35.22467613220215
+- name: 🇺🇸US-156.146.38.168-0161
+  server: 156.146.38.168
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 35.36200523376465
+- name: 🇺🇸US-156.146.38.169-0162
+  server: 156.146.38.169
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 35.60638427734375
+- name: 🇺🇸US-156.146.38.167-0160
+  server: 156.146.38.167
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 35.70389747619629
 - name: 🇺🇸US-13.248.169.48-0032
   server: zhuyong.hucloud-dns.xyz
   port: 443
@@ -199,120 +276,35 @@ proxies:
     path: /
     headers:
       Host: zhuyong.hucloud-dns.xyz
-  delay: 12.781381607055664
-- name: 🇨🇦CA-15.235.85.147-0199
-  server: 15.235.85.147
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pelang.org
-  delay: 21.441936492919922
-- name: 🇨🇦CA-142.4.216.225-0219
-  server: 142.4.216.225
-  port: 80
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: JIhN6rBKkaEboLNXVSv5rq
-  delay: 21.867752075195312
-- name: 🇨🇦CA-23.162.200.227-0169
-  server: 23.162.200.227
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-  delay: 22.813081741333008
-- name: 🇺🇸US-64.74.163.130-0164
-  server: 64.74.163.130
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  delay: 24.507522583007812
-- name: 🇨🇦CA-142.4.216.225-0216
-  server: ca225.vpnbook.com
-  port: 80
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: JIhN6rBKkaEboLNXVSv5rq
-  delay: 27.818918228149414
-- name: 🇺🇸US-156.146.38.167-0162
-  server: 156.146.38.167
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.73942184448242
-- name: 🇺🇸US-156.146.38.168-0163
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.74347496032715
-- name: 🇺🇸US-156.146.38.169-0161
-  server: 156.146.38.169
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 35.89510917663574
+  delay: 47.00946807861328
 - name: 🇺🇸US-156.146.38.163-0055
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 35.92348098754883
-- name: 🇺🇸US-156.146.38.170-0160
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 36.089181900024414
-- name: 🇺🇸US-209.126.84.189-0230
-  server: 209.126.84.189
-  port: 443
-  type: vmess
-  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 209.126.84.189
-  delay: 42.60063171386719
-- name: 🇺🇸US-104.192.226.106-0166
+  delay: 55.66143989562988
+- name: 🇺🇸US-104.192.226.106-0168
   server: 104.192.226.106
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: f8f7aCzcPKbsF8p3
-  delay: 60.561180114746094
-- name: 🇺🇸US-104.192.226.106-0167
+  delay: 55.997610092163086
+- name: 🇺🇸US-104.192.226.106-0169
   server: 104.192.226.106
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-  delay: 60.67705154418945
+  delay: 62.23106384277344
+- name: 🇺🇸US-107.151.182.253-0217
+  server: 107.151.182.253
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  delay: 62.71028518676758
 - name: 🇺🇸US-47.88.52.220-0034
   server: 47.88.52.220
   port: 80
@@ -327,8 +319,8 @@ proxies:
     path: /?ed=2048
     headers:
       Host: w.800876.xyz
-  delay: 69.78607177734375
-- name: 🇫🇷FR-57.128.189.240-0194
+  delay: 64.76497650146484
+- name: 🇫🇷FR-57.128.189.240-0206
   server: 57.128.189.240
   port: 443
   type: vmess
@@ -340,128 +332,8 @@ proxies:
   network: ws
   ws-opts:
     path: /
-  delay: 77.3167610168457
-- name: 🇳🇱NL-193.29.139.227-0183
-  server: 193.29.139.227
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 82.03840255737305
-- name: 🇦🇪AE-151.242.251.131-0179
-  server: 151.242.251.131
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 82.5185775756836
-- name: 🇳🇱NL-51.15.17.169-0184
-  server: 51.15.17.169
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 83.05168151855469
-- name: 🇱🇹LT-45.87.175.178-0185
-  server: 45.87.175.178
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  delay: 83.14347267150879
-- name: 🇱🇹LT-45.87.175.177-0180
-  server: 45.87.175.177
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-  delay: 83.1449031829834
-- name: 🇦🇪AE-151.242.251.142-0178
-  server: 151.242.251.142
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 83.16493034362793
-- name: 🇳🇱NL-193.29.139.217-0170
-  server: 193.29.139.217
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 83.33587646484375
-- name: 🇳🇱NL-193.29.139.157-0177
-  server: 193.29.139.157
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  delay: 83.37211608886719
-- name: 🇦🇪AE-151.242.251.137-0200
-  server: 151.242.251.137
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: o5osZg269v5zHpYjr1xY9s
-  delay: 83.40978622436523
-- name: 🇦🇪AE-151.242.251.144-0176
-  server: 151.242.251.144
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  delay: 83.51945877075195
-- name: 🇦🇪AE-151.242.251.147-0174
-  server: 151.242.251.147
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 83.67919921875
-- name: 🇦🇪AE-151.242.251.152-0172
-  server: 151.242.251.152
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 83.7242603302002
-- name: 🇬🇧GB-141.98.101.178-0210
-  server: 141.98.101.178
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 83.74190330505371
-- name: 🇳🇱NL-109.201.152.181-0181
-  server: 109.201.152.181
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 83.77194404602051
-- name: 🇦🇪AE-151.242.251.133-0188
-  server: 151.242.251.133
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 83.80770683288574
-- name: 🇫🇷FR-141.94.155.229-0197
-  server: 141.94.155.229
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pelang.org
-  delay: 86.75551414489746
-- name: 🇫🇷FR-91.134.8.93-0196
+  delay: 80.72757720947266
+- name: 🇫🇷FR-91.134.8.93-0213
   server: 91.134.8.93
   port: 443
   type: vmess
@@ -475,102 +347,231 @@ proxies:
     path: /
     headers:
       Host: pelang.org
-  delay: 87.33654022216797
-- name: 🇱🇹LT-45.87.175.164-0182
+  delay: 86.12394332885742
+- name: 🇫🇷FR-35.181.172.34-0218
+  server: 35.181.172.34
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+  delay: 86.30990982055664
+- name: 🇱🇹LT-45.87.175.164-0180
   server: 45.87.175.164
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 4a2rfixophdjffa8KVA4Aa
-  delay: 88.87124061584473
-- name: 🇫🇷FR-195.154.169.198-0192
+  delay: 86.39764785766602
+- name: 🇦🇪AE-151.242.251.142-0170
+  server: 151.242.251.142
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 86.52257919311523
+- name: 🇱🇹LT-45.87.175.92-0205
+  server: 45.87.175.92
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 86.62700653076172
+- name: 🇦🇪AE-151.242.251.152-0173
+  server: 151.242.251.152
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 86.66586875915527
+- name: 🇱🇹LT-45.87.175.158-0197
+  server: 45.87.175.158
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 86.73477172851562
+- name: 🇦🇪AE-151.242.251.133-0207
+  server: 151.242.251.133
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 86.76481246948242
+- name: 🇱🇹LT-45.87.175.193-0188
+  server: 45.87.175.193
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  delay: 87.0668888092041
+- name: 🇱🇹LT-45.87.175.58-0184
+  server: 45.87.175.58
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 87.20231056213379
+- name: 🇳🇱NL-193.29.139.217-0194
+  server: 193.29.139.217
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  delay: 87.34393119812012
+- name: 🇱🇹LT-45.87.175.171-0190
+  server: 45.87.175.171
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  delay: 87.4176025390625
+- name: 🇱🇹LT-45.87.175.192-0178
+  server: 45.87.175.192
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  delay: 87.8596305847168
+- name: 🇫🇷FR-195.154.169.198-0189
   server: 195.154.169.198
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-  delay: 89.74695205688477
-- name: 🇩🇪DE-5.231.56.98-0205
-  server: 5.231.56.98
-  port: 3721
+  delay: 89.25175666809082
+- name: 🇳🇱NL-51.15.17.169-0204
+  server: 51.15.17.169
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 89.78581428527832
+- name: 🇫🇷FR-141.94.155.229-0212
+  server: 141.94.155.229
+  port: 443
   type: vmess
-  uuid: 5f2f0765-f331-4d1e-8560-d2fb533dd6fe
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
-  tls: false
+  tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
     path: /
-  delay: 90.57950973510742
-- name: 🇫🇷FR-195.154.185.174-0193
+    headers:
+      Host: pelang.org
+  delay: 89.88261222839355
+- name: 🇩🇪DE-57.129.24.125-0228
+  server: 57.129.24.125
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+  delay: 91.08710289001465
+- name: 🇦🇺AU-103.224.212.211-0040
+  server: 60.72img.xyz
+  port: 443
+  type: trojan
+  password: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+  skip-cert-verify: false
+  delay: 91.10140800476074
+- name: 🇨🇦CA-79.127.233.170-0183
+  server: 79.127.233.170
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 91.38083457946777
+- name: 🇫🇷FR-195.154.185.174-0203
   server: 195.154.185.174
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-  delay: 91.08638763427734
-- name: 🇧🇬BG-95.164.10.228-0189
-  server: 95.164.10.228
+  delay: 91.38822555541992
+- name: 🇳🇱NL-109.201.152.181-0200
+  server: 109.201.152.181
   port: 443
   type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 91.69578552246094
+- name: 🇨🇦CA-79.127.233.170-0199
+  server: 79.127.233.170
+  port: 990
+  type: ss
   cipher: chacha20-ietf-poly1305
-  password: SDaFISr3Gfm6YkBSSrFIEwwWjEEU7Xbo
-  delay: 92.3917293548584
+  password: f8f7aCzcPKbsF8p3
+  delay: 92.6504135131836
+- name: 🇮🇹IT-212.102.54.45-0211
+  server: 212.102.54.45
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  delay: 95.78967094421387
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🏁RELAY-198.41.203.1-0035
-  - 🏁RELAY-141.101.114.25-0041
-  - 🏁RELAY-198.41.203.3-0031
-  - 🏁RELAY-141.101.114.120-0015
+  - 🏁RELAY-141.101.114.133-0039
   - 🏁RELAY-172.64.152.150-0022
   - 🏁RELAY-172.64.148.111-0042
-  - 🏁RELAY-198.41.203.5-0036
-  - 🏁RELAY-141.101.114.133-0039
   - 🏁RELAY-141.101.114.100-0013
+  - 🏁RELAY-198.41.203.5-0036
   - 🏁RELAY-172.64.154.222-0020
-  - 🇺🇸US-38.99.82.193-0213
-  - 🏁RELAY-104.19.173.68-0005
-  - 🇺🇸US-13.248.169.48-0032
-  - 🇨🇦CA-15.235.85.147-0199
-  - 🇨🇦CA-142.4.216.225-0219
-  - 🇨🇦CA-23.162.200.227-0169
+  - 🏁RELAY-198.41.203.3-0031
+  - 🏁RELAY-141.101.114.120-0015
+  - 🏁RELAY-141.101.114.25-0041
+  - 🏁RELAY-198.41.203.1-0035
   - 🇺🇸US-64.74.163.130-0164
-  - 🇨🇦CA-142.4.216.225-0216
-  - 🇺🇸US-156.146.38.167-0162
-  - 🇺🇸US-156.146.38.168-0163
-  - 🇺🇸US-156.146.38.169-0161
+  - 🏁RELAY-104.19.174.68-0005
+  - 🏁RELAY-172.67.174.226-0192
+  - 🇨🇦CA-15.235.85.147-0198
+  - 🇨🇦CA-23.162.200.227-0167
+  - 🇨🇦CA-134.195.198.147-0165
+  - 🇺🇸US-156.146.38.170-0163
+  - 🇺🇸US-156.146.38.168-0161
+  - 🇺🇸US-156.146.38.169-0162
+  - 🇺🇸US-156.146.38.167-0160
+  - 🇺🇸US-13.248.169.48-0032
   - 🇺🇸US-156.146.38.163-0055
-  - 🇺🇸US-156.146.38.170-0160
-  - 🇺🇸US-209.126.84.189-0230
-  - 🇺🇸US-104.192.226.106-0166
-  - 🇺🇸US-104.192.226.106-0167
+  - 🇺🇸US-104.192.226.106-0168
+  - 🇺🇸US-104.192.226.106-0169
+  - 🇺🇸US-107.151.182.253-0217
   - 🇺🇸US-47.88.52.220-0034
-  - 🇫🇷FR-57.128.189.240-0194
-  - 🇳🇱NL-193.29.139.227-0183
-  - 🇦🇪AE-151.242.251.131-0179
-  - 🇳🇱NL-51.15.17.169-0184
-  - 🇱🇹LT-45.87.175.178-0185
-  - 🇱🇹LT-45.87.175.177-0180
-  - 🇦🇪AE-151.242.251.142-0178
-  - 🇳🇱NL-193.29.139.217-0170
-  - 🇳🇱NL-193.29.139.157-0177
-  - 🇦🇪AE-151.242.251.137-0200
-  - 🇦🇪AE-151.242.251.144-0176
-  - 🇦🇪AE-151.242.251.147-0174
-  - 🇦🇪AE-151.242.251.152-0172
-  - 🇬🇧GB-141.98.101.178-0210
-  - 🇳🇱NL-109.201.152.181-0181
-  - 🇦🇪AE-151.242.251.133-0188
-  - 🇫🇷FR-141.94.155.229-0197
-  - 🇫🇷FR-91.134.8.93-0196
-  - 🇱🇹LT-45.87.175.164-0182
-  - 🇫🇷FR-195.154.169.198-0192
-  - 🇩🇪DE-5.231.56.98-0205
-  - 🇫🇷FR-195.154.185.174-0193
-  - 🇧🇬BG-95.164.10.228-0189
+  - 🇫🇷FR-57.128.189.240-0206
+  - 🇫🇷FR-91.134.8.93-0213
+  - 🇫🇷FR-35.181.172.34-0218
+  - 🇱🇹LT-45.87.175.164-0180
+  - 🇦🇪AE-151.242.251.142-0170
+  - 🇱🇹LT-45.87.175.92-0205
+  - 🇦🇪AE-151.242.251.152-0173
+  - 🇱🇹LT-45.87.175.158-0197
+  - 🇦🇪AE-151.242.251.133-0207
+  - 🇱🇹LT-45.87.175.193-0188
+  - 🇱🇹LT-45.87.175.58-0184
+  - 🇳🇱NL-193.29.139.217-0194
+  - 🇱🇹LT-45.87.175.171-0190
+  - 🇱🇹LT-45.87.175.192-0178
+  - 🇫🇷FR-195.154.169.198-0189
+  - 🇳🇱NL-51.15.17.169-0204
+  - 🇫🇷FR-141.94.155.229-0212
+  - 🇩🇪DE-57.129.24.125-0228
+  - 🇦🇺AU-103.224.212.211-0040
+  - 🇨🇦CA-79.127.233.170-0183
+  - 🇫🇷FR-195.154.185.174-0203
+  - 🇳🇱NL-109.201.152.181-0200
+  - 🇨🇦CA-79.127.233.170-0199
+  - 🇮🇹IT-212.102.54.45-0211
 - name: 自动选择
   type: url-test
   proxies: *id001
