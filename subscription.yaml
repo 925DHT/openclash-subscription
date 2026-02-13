@@ -5,21 +5,6 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🏁RELAY-104.16.18.194-0060
-  server: 104.16.18.194
-  port: 80
-  type: vmess
-  uuid: c22d7577-1631-4d13-81bc-20c190c04071
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /wwwnet
-    headers:
-      Host: caa.ziyun.ga
-  delay: 2.2194385528564453
 - name: 🏁RELAY-104.16.19.116-0056
   server: 104.16.19.116
   port: 80
@@ -34,42 +19,43 @@ proxies:
     path: /wwwnet
     headers:
       Host: caa.ziyun.ga
-  delay: 2.3889541625976562
-- name: 🇺🇸US-173.244.56.6-0206
-  server: 173.244.56.6
+  delay: 6.260395050048828
+- name: 🏁RELAY-104.16.18.194-0060
+  server: 104.16.18.194
+  port: 80
+  type: vmess
+  uuid: c22d7577-1631-4d13-81bc-20c190c04071
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /wwwnet
+    headers:
+      Host: caa.ziyun.ga
+  delay: 6.2885284423828125
+- name: 🇺🇸US-37.19.198.236-0211
+  server: 37.19.198.236
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  delay: 15.943288803100586
-- name: 🇺🇸US-156.146.38.167-0207
-  server: 156.146.38.167
-  port: 443
+  delay: 11.475801467895508
+- name: 🇨🇦CA-137.184.174.93-0209
+  server: 137.184.174.93
+  port: 8080
   type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 43.36738586425781
-- name: 🇺🇸US-156.146.38.169-0208
-  server: 156.146.38.169
-  port: 443
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  delay: 25.118112564086914
+- name: 🇺🇸US-173.234.29.2-0210
+  server: 173.234.29.2
+  port: 990
   type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 44.68870162963867
-- name: 🇺🇸US-156.146.38.163-0101
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 45.15647888183594
-- name: 🇺🇸US-156.146.38.170-0209
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 47.05095291137695
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  delay: 25.44546127319336
 - name: 🇺🇸US-107.155.83.152-0020
   server: 107.155.83.152
   port: 443
@@ -84,35 +70,49 @@ proxies:
     path: /ray
     headers:
       Host: govacaxixo.watchdoctor.xyz
-  delay: 49.515724182128906
-- name: 🇺🇸US-173.234.29.2-0212
-  server: 173.234.29.2
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 53.28702926635742
-- name: 🇨🇦CA-137.184.174.93-0210
-  server: 137.184.174.93
-  port: 8080
-  type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  delay: 60.97865104675293
-- name: 🇺🇸US-37.19.198.236-0213
-  server: 37.19.198.236
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 68.03417205810547
-- name: 🇨🇦CA-79.127.200.169-0211
+  delay: 30.23076057434082
+- name: 🇨🇦CA-79.127.200.169-0214
   server: 79.127.200.169
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 77.56686210632324
+  delay: 33.10704231262207
+- name: 🇺🇸US-156.146.38.170-0208
+  server: 156.146.38.170
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 35.3093147277832
+- name: 🇺🇸US-156.146.38.163-0101
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 35.711050033569336
+- name: 🇺🇸US-156.146.38.167-0207
+  server: 156.146.38.167
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 35.98213195800781
+- name: 🇺🇸US-173.244.56.6-0206
+  server: 173.244.56.6
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 59.88502502441406
+- name: 🇬🇧GB-172.99.190.149-0017
+  server: 172.99.190.149
+  port: 8080
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 84.56659317016602
 - name: 🇺🇸US-172.239.57.117-0192
   server: vjp1.0bad.com
   port: 443
@@ -127,7 +127,22 @@ proxies:
     path: /chat
     headers:
       Host: vjp1.0bad.com
-  delay: 130.32937049865723
+  delay: 121.99807167053223
+- name: 🇺🇸US-172.234.24.211-0193
+  server: vjp3.0bad.com
+  port: 443
+  type: vmess
+  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /chat
+    headers:
+      Host: vjp3.0bad.com
+  delay: 122.4822998046875
 - name: 🇦🇺AU-45.76.127.189-0039
   server: 45.76.127.189
   port: 443
@@ -142,49 +157,42 @@ proxies:
     path: /ray
     headers:
       Host: govacaxixo.watchdoctor.xyz
-  delay: 138.4110450744629
-- name: 🇬🇧GB-172.99.190.149-0017
-  server: 172.99.190.149
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 151.52215957641602
-- name: 🇺🇸US-172.239.57.117-0193
-  server: vjp3.0bad.com
+  delay: 193.4359073638916
+- name: 🇨🇦CA-134.195.198.147-0212
+  server: 134.195.198.147
   port: 443
   type: vmess
-  uuid: 927094d3-d678-4763-8591-e240d0bcae87
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /chat
+    path: /
     headers:
-      Host: vjp3.0bad.com
-  delay: 168.92051696777344
+      Host: inna.cfd
+  delay: 2098.111391067505
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🏁RELAY-104.16.18.194-0060
   - 🏁RELAY-104.16.19.116-0056
-  - 🇺🇸US-173.244.56.6-0206
-  - 🇺🇸US-156.146.38.167-0207
-  - 🇺🇸US-156.146.38.169-0208
-  - 🇺🇸US-156.146.38.163-0101
-  - 🇺🇸US-156.146.38.170-0209
+  - 🏁RELAY-104.16.18.194-0060
+  - 🇺🇸US-37.19.198.236-0211
+  - 🇨🇦CA-137.184.174.93-0209
+  - 🇺🇸US-173.234.29.2-0210
   - 🇺🇸US-107.155.83.152-0020
-  - 🇺🇸US-173.234.29.2-0212
-  - 🇨🇦CA-137.184.174.93-0210
-  - 🇺🇸US-37.19.198.236-0213
-  - 🇨🇦CA-79.127.200.169-0211
-  - 🇺🇸US-172.239.57.117-0192
-  - 🇦🇺AU-45.76.127.189-0039
+  - 🇨🇦CA-79.127.200.169-0214
+  - 🇺🇸US-156.146.38.170-0208
+  - 🇺🇸US-156.146.38.163-0101
+  - 🇺🇸US-156.146.38.167-0207
+  - 🇺🇸US-173.244.56.6-0206
   - 🇬🇧GB-172.99.190.149-0017
-  - 🇺🇸US-172.239.57.117-0193
+  - 🇺🇸US-172.239.57.117-0192
+  - 🇺🇸US-172.234.24.211-0193
+  - 🇦🇺AU-45.76.127.189-0039
+  - 🇨🇦CA-134.195.198.147-0212
 - name: 自动选择
   type: url-test
   proxies: *id001
