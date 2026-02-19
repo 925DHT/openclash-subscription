@@ -19,65 +19,7 @@ proxies:
     path: /wwwnet
     headers:
       Host: caa.ziyun.ga
-  delay: 2.507925033569336
-- name: 🇺🇸US-167.88.63.28-0032
-  server: 167.88.63.28
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 20.003557205200195
-- name: 🇨🇦CA-134.195.196.3-0130
-  server: 134.195.196.3
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 21.159648895263672
-- name: 🇺🇸US-156.146.38.163-0136
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 24.598360061645508
-- name: 🇨🇦CA-134.195.196.3-0122
-  server: 134.195.196.3
-  port: 443
-  type: ss
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
-  delay: 25.864601135253906
-- name: 🇺🇸US-13.248.169.48-0109
-  server: 1207tw.fans8.xyz
-  port: 80
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: 1207tw.fans8.xyz
-  delay: 52.55866050720215
-- name: 🇺🇸US-13.248.169.48-0113
-  server: 128hk01.fans8.xyz
-  port: 80
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: 128hk01.fans8.xyz
-  delay: 60.34445762634277
+  delay: 2.290010452270508
 - name: 🇺🇸US-13.248.169.48-0110
   server: 0118ru.fans8.xyz
   port: 80
@@ -92,22 +34,7 @@ proxies:
     path: /v2ray
     headers:
       Host: 0118ru.fans8.xyz
-  delay: 61.40303611755371
-- name: 🇺🇸US-13.248.169.48-0107
-  server: 1222mnl.fans8.xyz
-  port: 80
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: 1222mnl.fans8.xyz
-  delay: 64.9566650390625
+  delay: 34.79146957397461
 - name: 🇺🇸US-13.248.169.48-0087
   server: 1222ru.fans8.xyz
   port: 80
@@ -122,9 +49,9 @@ proxies:
     path: /v2ray
     headers:
       Host: 1222ru.fans8.xyz
-  delay: 65.26732444763184
-- name: 🇺🇸US-13.248.169.48-0082
-  server: 1229hk.fans8.xyz
+  delay: 37.24813461303711
+- name: 🇺🇸US-13.248.169.48-0109
+  server: 1207tw.fans8.xyz
   port: 80
   type: vmess
   uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
@@ -136,8 +63,15 @@ proxies:
   ws-opts:
     path: /v2ray
     headers:
-      Host: 1229hk.fans8.xyz
-  delay: 75.87289810180664
+      Host: 1207tw.fans8.xyz
+  delay: 41.6719913482666
+- name: 🇺🇸US-156.146.38.163-0136
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 46.885013580322266
 - name: 🇺🇸US-13.248.169.48-0078
   server: 128hk8.fans8.xyz
   port: 80
@@ -152,44 +86,28 @@ proxies:
     path: /v2ray
     headers:
       Host: 128hk8.fans8.xyz
-  delay: 80.22665977478027
-- name: 🇫🇷FR-149.202.82.172-0094
-  server: 149.202.82.172
+  delay: 58.617353439331055
+- name: 🇺🇸US-167.88.63.28-0032
+  server: 167.88.63.28
   port: 8080
   type: ss
   cipher: aes-256-gcm
   password: KixLvKzwjekG00rm
-  delay: 102.00357437133789
-- name: 🇩🇪DE-37.61.213.94-0062
-  server: 37.61.213.94
+  delay: 61.907291412353516
+- name: 🇨🇦CA-134.195.196.3-0122
+  server: 134.195.196.3
   port: 443
-  type: vmess
-  uuid: 97ff78ea-8807-4c33-93e5-d8481ac0539e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: govacaxixo.watchdoctor.xyz
-  delay: 110.01253128051758
-- name: 🇮🇪IE-54.78.134.111-0037
-  server: anzhuo-hezi1.herokuapp.com
-  port: 443
-  type: vmess
-  uuid: 05b8441f-3c76-4af1-b5b9-dd60d27e5ef8
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /05b8441f-3c76-4af1-b5b9-dd60d27e5ef8-vmess
-    headers:
-      Host: anzhuo-hezi1.herokuapp.com
-  delay: 148.15855026245117
+  type: ss
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+  delay: 64.62621688842773
+- name: 🇨🇦CA-134.195.196.3-0130
+  server: 134.195.196.3
+  port: 8080
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 64.87917900085449
 - name: 🇦🇺AU-45.76.127.189-0077
   server: 45.76.127.189
   port: 443
@@ -204,27 +122,109 @@ proxies:
     path: /ray
     headers:
       Host: govacaxixo.watchdoctor.xyz
-  delay: 187.57367134094238
+  delay: 138.43727111816406
+- name: 🇺🇸US-23.22.144.165-0037
+  server: anzhuo-hezi1.herokuapp.com
+  port: 443
+  type: vmess
+  uuid: 05b8441f-3c76-4af1-b5b9-dd60d27e5ef8
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /05b8441f-3c76-4af1-b5b9-dd60d27e5ef8-vmess
+    headers:
+      Host: anzhuo-hezi1.herokuapp.com
+  delay: 146.2693214416504
+- name: 🇩🇪DE-37.61.213.94-0062
+  server: 37.61.213.94
+  port: 443
+  type: vmess
+  uuid: 97ff78ea-8807-4c33-93e5-d8481ac0539e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: govacaxixo.watchdoctor.xyz
+  delay: 157.31048583984375
+- name: 🇫🇷FR-149.202.82.172-0094
+  server: 149.202.82.172
+  port: 8080
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 204.66232299804688
+- name: 🇺🇸US-13.248.169.48-0082
+  server: 1229hk.fans8.xyz
+  port: 80
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /v2ray
+    headers:
+      Host: 1229hk.fans8.xyz
+  delay: 381.0434341430664
+- name: 🇺🇸US-13.248.169.48-0113
+  server: 128hk01.fans8.xyz
+  port: 80
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /v2ray
+    headers:
+      Host: 128hk01.fans8.xyz
+  delay: 3417.7920818328857
+- name: 🇺🇸US-13.248.169.48-0107
+  server: 1222mnl.fans8.xyz
+  port: 80
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /v2ray
+    headers:
+      Host: 1222mnl.fans8.xyz
+  delay: 4726.180553436279
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
   - 🏁RELAY-104.16.18.194-0105
-  - 🇺🇸US-167.88.63.28-0032
-  - 🇨🇦CA-134.195.196.3-0130
-  - 🇺🇸US-156.146.38.163-0136
-  - 🇨🇦CA-134.195.196.3-0122
-  - 🇺🇸US-13.248.169.48-0109
-  - 🇺🇸US-13.248.169.48-0113
   - 🇺🇸US-13.248.169.48-0110
-  - 🇺🇸US-13.248.169.48-0107
   - 🇺🇸US-13.248.169.48-0087
-  - 🇺🇸US-13.248.169.48-0082
+  - 🇺🇸US-13.248.169.48-0109
+  - 🇺🇸US-156.146.38.163-0136
   - 🇺🇸US-13.248.169.48-0078
-  - 🇫🇷FR-149.202.82.172-0094
-  - 🇩🇪DE-37.61.213.94-0062
-  - 🇮🇪IE-54.78.134.111-0037
+  - 🇺🇸US-167.88.63.28-0032
+  - 🇨🇦CA-134.195.196.3-0122
+  - 🇨🇦CA-134.195.196.3-0130
   - 🇦🇺AU-45.76.127.189-0077
+  - 🇺🇸US-23.22.144.165-0037
+  - 🇩🇪DE-37.61.213.94-0062
+  - 🇫🇷FR-149.202.82.172-0094
+  - 🇺🇸US-13.248.169.48-0082
+  - 🇺🇸US-13.248.169.48-0113
+  - 🇺🇸US-13.248.169.48-0107
 - name: 自动选择
   type: url-test
   proxies: *id001
