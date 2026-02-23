@@ -19,51 +19,14 @@ proxies:
     path: /shuier
     headers:
       Host: xc1.v2rie.pp.ua
-  delay: 2.0155906677246094
-- name: 🇺🇸US-76.223.54.146-0085
-  server: 4.earths.team
+  delay: 10.332584381103516
+- name: 🇺🇸US-156.146.38.163-0122
+  server: 156.146.38.163
   port: 443
-  type: trojan
-  password: b3d27d09-77fe-431d-9829-6eba7dce20b0
-  skip-cert-verify: false
-  delay: 25.68960189819336
-- name: 🇺🇸US-76.223.54.146-0079
-  server: 1211hk1.fans8.xyz
-  port: 80
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: 1211hk1.fans8.xyz
-  delay: 26.023387908935547
-- name: 🇺🇸US-13.248.169.48-0080
-  server: 128hk8.fans8.xyz
-  port: 80
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /v2ray
-    headers:
-      Host: 128hk8.fans8.xyz
-  delay: 26.631593704223633
-- name: 🇺🇸US-76.223.54.146-0086
-  server: 5.earths.team
-  port: 443
-  type: trojan
-  password: b3d27d09-77fe-431d-9829-6eba7dce20b0
-  skip-cert-verify: false
-  delay: 34.40451622009277
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 26.346206665039062
 - name: 🇺🇸US-13.248.169.48-0117
   server: 128tw02.fans8.xyz
   port: 80
@@ -78,23 +41,16 @@ proxies:
     path: /v2ray
     headers:
       Host: 128tw02.fans8.xyz
-  delay: 38.3610725402832
-- name: 🇺🇸US-156.146.38.163-0122
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 43.21408271789551
-- name: 🇺🇸US-76.223.54.146-0084
-  server: 6.earths.team
+  delay: 57.074546813964844
+- name: 🇺🇸US-76.223.54.146-0086
+  server: 5.earths.team
   port: 443
   type: trojan
   password: b3d27d09-77fe-431d-9829-6eba7dce20b0
   skip-cert-verify: false
-  delay: 43.823957443237305
-- name: 🇺🇸US-76.223.54.146-0001
-  server: 0122us.fans8.xyz
+  delay: 57.443857192993164
+- name: 🇺🇸US-13.248.169.48-0079
+  server: 1211hk1.fans8.xyz
   port: 80
   type: vmess
   uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
@@ -106,10 +62,10 @@ proxies:
   ws-opts:
     path: /v2ray
     headers:
-      Host: 0122us.fans8.xyz
-  delay: 49.13926124572754
-- name: 🇺🇸US-13.248.169.48-0069
-  server: 128hk01.fans8.xyz
+      Host: 1211hk1.fans8.xyz
+  delay: 58.17294120788574
+- name: 🇺🇸US-13.248.169.48-0080
+  server: 128hk8.fans8.xyz
   port: 80
   type: vmess
   uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
@@ -121,37 +77,22 @@ proxies:
   ws-opts:
     path: /v2ray
     headers:
-      Host: 128hk01.fans8.xyz
-  delay: 49.25131797790527
+      Host: 128hk8.fans8.xyz
+  delay: 61.713457107543945
 - name: 🇨🇦CA-134.195.196.193-0092
   server: 134.195.196.193
   port: 443
   type: ss
   cipher: aes-256-gcm
   password: pKEW8JPByTVTLtM
-  delay: 59.63468551635742
-- name: 🇮🇪IE-34.241.115.67-0026
-  server: anzhuo-hezi1.herokuapp.com
+  delay: 62.18743324279785
+- name: 🇺🇸US-76.223.54.146-0084
+  server: 6.earths.team
   port: 443
-  type: vmess
-  uuid: 05b8441f-3c76-4af1-b5b9-dd60d27e5ef8
-  alterId: 0
-  cipher: auto
-  tls: true
+  type: trojan
+  password: b3d27d09-77fe-431d-9829-6eba7dce20b0
   skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /05b8441f-3c76-4af1-b5b9-dd60d27e5ef8-vmess
-    headers:
-      Host: anzhuo-hezi1.herokuapp.com
-  delay: 76.25412940979004
-- name: 🇫🇷FR-149.202.82.172-0013
-  server: 149.202.82.172
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 151.89695358276367
+  delay: 71.56658172607422
 - name: 🇩🇪DE-37.61.213.94-0087
   server: 37.61.213.94
   port: 443
@@ -166,7 +107,36 @@ proxies:
     path: /ray
     headers:
       Host: govacaxixo.watchdoctor.xyz
-  delay: 153.9928913116455
+  delay: 140.2280330657959
+- name: 🇺🇸US-54.208.186.182-0026
+  server: anzhuo-hezi1.herokuapp.com
+  port: 443
+  type: vmess
+  uuid: 05b8441f-3c76-4af1-b5b9-dd60d27e5ef8
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /05b8441f-3c76-4af1-b5b9-dd60d27e5ef8-vmess
+    headers:
+      Host: anzhuo-hezi1.herokuapp.com
+  delay: 143.45717430114746
+- name: 🇫🇷FR-149.202.82.172-0013
+  server: 149.202.82.172
+  port: 8080
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 144.7317600250244
+- name: 🇺🇸US-76.223.54.146-0085
+  server: 4.earths.team
+  port: 443
+  type: trojan
+  password: b3d27d09-77fe-431d-9829-6eba7dce20b0
+  skip-cert-verify: false
+  delay: 205.6710720062256
 - name: 🇺🇸US-172.239.57.117-0213
   server: vjp1.0bad.com
   port: 443
@@ -181,7 +151,7 @@ proxies:
     path: /chat
     headers:
       Host: vjp1.0bad.com
-  delay: 166.94927215576172
+  delay: 214.57743644714355
 - name: 🇺🇸US-172.234.24.211-0214
   server: vjp3.0bad.com
   port: 443
@@ -196,21 +166,14 @@ proxies:
     path: /chat
     headers:
       Host: vjp3.0bad.com
-  delay: 174.63302612304688
+  delay: 230.44133186340332
 - name: 🇺🇸US-76.223.54.146-0082
   server: 1.earths.team
   port: 443
   type: trojan
   password: b3d27d09-77fe-431d-9829-6eba7dce20b0
   skip-cert-verify: false
-  delay: 193.13716888427734
-- name: 🇺🇸US-76.223.54.146-0067
-  server: 14.earths.team
-  port: 443
-  type: trojan
-  password: 6593b778-e45e-4f94-b5ae-641d4b7b02ae
-  skip-cert-verify: false
-  delay: 197.75938987731934
+  delay: 376.5542507171631
 - name: 🇺🇸US-13.248.169.48-0076
   server: 1222mnl.fans8.xyz
   port: 80
@@ -225,7 +188,29 @@ proxies:
     path: /v2ray
     headers:
       Host: 1222mnl.fans8.xyz
-  delay: 3934.711456298828
+  delay: 3805.1154613494873
+- name: 🇺🇸US-13.248.169.48-0001
+  server: 0122us.fans8.xyz
+  port: 80
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /v2ray
+    headers:
+      Host: 0122us.fans8.xyz
+  delay: 3890.976667404175
+- name: 🇺🇸US-76.223.54.146-0067
+  server: 14.earths.team
+  port: 443
+  type: trojan
+  password: 6593b778-e45e-4f94-b5ae-641d4b7b02ae
+  skip-cert-verify: false
+  delay: 4255.14030456543
 - name: 🇺🇸US-13.248.169.48-0000
   server: 0118ru.fans8.xyz
   port: 80
@@ -240,31 +225,46 @@ proxies:
     path: /v2ray
     headers:
       Host: 0118ru.fans8.xyz
-  delay: 4260.16902923584
+  delay: 4491.257190704346
+- name: 🇺🇸US-13.248.169.48-0069
+  server: 128hk01.fans8.xyz
+  port: 80
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /v2ray
+    headers:
+      Host: 128hk01.fans8.xyz
+  delay: 9332.670450210571
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
   - 🏁RELAY-172.67.68.58-0029
-  - 🇺🇸US-76.223.54.146-0085
-  - 🇺🇸US-76.223.54.146-0079
-  - 🇺🇸US-13.248.169.48-0080
-  - 🇺🇸US-76.223.54.146-0086
-  - 🇺🇸US-13.248.169.48-0117
   - 🇺🇸US-156.146.38.163-0122
-  - 🇺🇸US-76.223.54.146-0084
-  - 🇺🇸US-76.223.54.146-0001
-  - 🇺🇸US-13.248.169.48-0069
+  - 🇺🇸US-13.248.169.48-0117
+  - 🇺🇸US-76.223.54.146-0086
+  - 🇺🇸US-13.248.169.48-0079
+  - 🇺🇸US-13.248.169.48-0080
   - 🇨🇦CA-134.195.196.193-0092
-  - 🇮🇪IE-34.241.115.67-0026
-  - 🇫🇷FR-149.202.82.172-0013
+  - 🇺🇸US-76.223.54.146-0084
   - 🇩🇪DE-37.61.213.94-0087
+  - 🇺🇸US-54.208.186.182-0026
+  - 🇫🇷FR-149.202.82.172-0013
+  - 🇺🇸US-76.223.54.146-0085
   - 🇺🇸US-172.239.57.117-0213
   - 🇺🇸US-172.234.24.211-0214
   - 🇺🇸US-76.223.54.146-0082
-  - 🇺🇸US-76.223.54.146-0067
   - 🇺🇸US-13.248.169.48-0076
+  - 🇺🇸US-13.248.169.48-0001
+  - 🇺🇸US-76.223.54.146-0067
   - 🇺🇸US-13.248.169.48-0000
+  - 🇺🇸US-13.248.169.48-0069
 - name: 自动选择
   type: url-test
   proxies: *id001
