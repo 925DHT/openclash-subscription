@@ -5,403 +5,403 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🇨🇦CA-79.127.233.170-0181
-  server: 79.127.233.170
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 7.659673690795898
-- name: 🇺🇸US-104.192.226.106-0180
-  server: 104.192.226.106
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 29.513120651245117
-- name: 🇺🇸US-173.244.56.6-0179
-  server: 173.244.56.6
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 36.53264045715332
-- name: 🇺🇸US-173.234.29.2-0178
+- name: 🇺🇸US-173.234.29.2-0186
   server: 173.234.29.2
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 46.97299003601074
-- name: 🇺🇸US-156.146.38.163-0068
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  delay: 55.3433895111084
-- name: 🇺🇸US-156.146.38.167-0176
-  server: 156.146.38.167
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 55.36675453186035
-- name: 🇺🇸US-156.146.38.170-0175
-  server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 55.41110038757324
-- name: 🇺🇸US-156.146.38.169-0177
-  server: 156.146.38.169
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 55.585384368896484
-- name: 🇨🇦CA-137.184.174.93-0174
-  server: 137.184.174.93
-  port: 8080
-  type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  delay: 58.686017990112305
+  delay: 7.437944412231445
 - name: 🇨🇦CA-79.127.200.169-0173
   server: 79.127.200.169
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 59.65781211853027
-- name: 🇵🇦PA-138.186.142.80-0220
-  server: 138.186.142.80
-  port: 990
+  delay: 14.403104782104492
+- name: 🇺🇸US-37.19.198.236-0176
+  server: 37.19.198.236
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 22.8269100189209
+- name: 🇺🇸US-156.146.38.169-0178
+  server: 156.146.38.169
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 24.962425231933594
+- name: 🇺🇸US-156.146.38.170-0179
+  server: 156.146.38.170
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 24.96790885925293
+- name: 🇺🇸US-156.146.38.163-0068
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  delay: 25.01678466796875
+- name: 🇺🇸US-156.146.38.167-0177
+  server: 156.146.38.167
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  delay: 25.803804397583008
+- name: 🇺🇸US-38.135.24.131-0174
+  server: 38.135.24.131
+  port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 124.07135963439941
-- name: 🇪🇨EC-38.165.231.25-0195
+  password: hbGrpfvNrJsUmKmPbR3iY2
+  delay: 27.00209617614746
+- name: 🇺🇸US-104.192.226.106-0180
+  server: 104.192.226.106
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 45.69196701049805
+- name: 🇨🇦CA-79.127.233.170-0181
+  server: 79.127.233.170
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 52.66070365905762
+- name: 🇺🇸US-38.135.24.131-0175
+  server: tinkered-pennies-puppies.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hbGrpfvNrJsUmKmPbR3iY2
+  delay: 61.74445152282715
+- name: 🇬🇧GB-146.70.61.37-0182
+  server: 146.70.61.37
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  delay: 96.98867797851562
+- name: 🇪🇨EC-38.165.231.25-0183
   server: 38.165.231.25
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 126.01971626281738
-- name: 🇵🇦PA-138.186.142.81-0219
-  server: 138.186.142.81
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  delay: 128.1440258026123
-- name: 🇬🇧GB-20.50.123.224-0187
-  server: series-a2.samanehha.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-  delay: 148.4377384185791
-- name: 🇳🇱NL-51.15.17.169-0185
-  server: 51.15.17.169
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  delay: 150.76303482055664
-- name: 🇬🇧GB-141.98.101.178-0216
-  server: 141.98.101.178
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 150.83026885986328
-- name: 🇬🇧GB-57.129.140.88-0182
+  delay: 97.8705883026123
+- name: 🇬🇧GB-57.129.140.88-0191
   server: 57.129.140.88
   port: 8388
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1v5g9FefdoO
-  delay: 151.86023712158203
-- name: 🇳🇱NL-109.201.152.181-0215
+  delay: 100.36277770996094
+- name: 🇳🇱NL-109.201.152.181-0189
   server: 109.201.152.181
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 152.38571166992188
+  delay: 102.75650024414062
+- name: 🇳🇱NL-51.15.17.169-0184
+  server: 51.15.17.169
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  delay: 104.0184497833252
 - name: 🇳🇱NL-158.173.20.171-0213
   server: 158.173.20.171
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  delay: 152.6625156402588
-- name: 🇬🇧GB-141.98.101.182-0218
-  server: 141.98.101.182
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  delay: 162.34302520751953
-- name: 🇬🇧GB-82.38.31.35-0192
-  server: 82.38.31.35
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 164.92104530334473
-- name: 🇳🇱NL-193.29.139.227-0211
-  server: 193.29.139.227
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 164.97445106506348
-- name: 🇬🇧GB-82.38.31.82-0194
-  server: 82.38.31.82
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 164.98827934265137
-- name: 🇬🇧GB-82.38.31.176-0209
-  server: 82.38.31.176
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 164.99710083007812
-- name: 🇬🇧GB-82.38.31.205-0207
+  delay: 105.68833351135254
+- name: 🇬🇧GB-82.38.31.205-0199
   server: 82.38.31.205
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.0388240814209
-- name: 🇳🇱NL-193.29.139.189-0191
-  server: 193.29.139.189
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-  delay: 165.06648063659668
-- name: 🇬🇧GB-82.38.31.99-0193
-  server: 82.38.31.99
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 165.1921272277832
-- name: 🇬🇧GB-82.38.31.187-0189
-  server: 82.38.31.187
+  delay: 110.0304126739502
+- name: 🇬🇧GB-82.38.31.176-0215
+  server: 82.38.31.176
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.24648666381836
-- name: 🇳🇱NL-193.29.139.141-0190
-  server: 193.29.139.141
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 165.2510166168213
-- name: 🇳🇱NL-193.29.139.251-0198
-  server: 193.29.139.251
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 165.29417037963867
-- name: 🇳🇱NL-193.29.139.157-0202
-  server: 193.29.139.157
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  delay: 165.31634330749512
-- name: 🇳🇱NL-193.29.139.217-0206
-  server: 193.29.139.217
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  delay: 165.35043716430664
-- name: 🇬🇧GB-82.38.31.194-0196
+  delay: 110.0313663482666
+- name: 🇬🇧GB-82.38.31.194-0208
   server: 82.38.31.194
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.3759479522705
-- name: 🇬🇧GB-82.38.31.217-0214
-  server: 82.38.31.217
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.3890609741211
-- name: 🇬🇧GB-82.38.31.208-0217
-  server: 82.38.31.208
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.39978981018066
-- name: 🇬🇧GB-82.38.31.189-0208
-  server: 82.38.31.189
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.40765762329102
-- name: 🇬🇧GB-82.38.31.202-0204
-  server: 82.38.31.202
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.43030738830566
-- name: 🇳🇱NL-193.29.139.202-0199
-  server: 193.29.139.202
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 165.44246673583984
-- name: 🇬🇧GB-82.38.31.210-0201
+  delay: 110.1832389831543
+- name: 🇬🇧GB-82.38.31.210-0188
   server: 82.38.31.210
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.47083854675293
-- name: 🇬🇧GB-82.38.31.214-0200
+  delay: 110.35418510437012
+- name: 🇬🇧GB-82.38.31.214-0202
   server: 82.38.31.214
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.51685333251953
-- name: 🇬🇧GB-82.38.31.218-0197
-  server: 82.38.31.218
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.5256748199463
-- name: 🇬🇧GB-82.38.31.191-0210
-  server: 82.38.31.191
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  delay: 165.5282974243164
-- name: 🇬🇧GB-82.38.31.124-0188
-  server: 82.38.31.124
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  delay: 165.6794548034668
-- name: 🇳🇱NL-193.29.139.206-0205
+  delay: 110.39423942565918
+- name: 🇳🇱NL-193.29.139.206-0194
   server: 193.29.139.206
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 4a2rfixophdjffa8KVA4Aa
-  delay: 166.05710983276367
-- name: 🇸🇪SE-121.127.46.147-0212
+  delay: 111.20772361755371
+- name: 🇬🇧GB-82.38.31.189-0200
+  server: 82.38.31.189
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 112.30659484863281
+- name: 🇳🇱NL-193.29.139.217-0204
+  server: 193.29.139.217
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  delay: 112.66183853149414
+- name: 🇬🇧GB-82.38.31.191-0203
+  server: 82.38.31.191
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 112.7011775970459
+- name: 🇬🇧GB-82.38.31.187-0190
+  server: 82.38.31.187
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 112.7169132232666
+- name: 🇬🇧GB-82.38.31.124-0198
+  server: 82.38.31.124
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 112.72430419921875
+- name: 🇳🇱NL-193.29.139.189-0206
+  server: 193.29.139.189
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  delay: 112.75696754455566
+- name: 🇳🇱NL-193.29.139.179-0195
+  server: 193.29.139.179
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  delay: 112.7767562866211
+- name: 🇬🇧GB-82.38.31.179-0192
+  server: 82.38.31.179
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 112.7774715423584
+- name: 🇬🇧GB-82.38.31.218-0201
+  server: 82.38.31.218
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 112.84899711608887
+- name: 🇬🇧GB-82.38.31.202-0187
+  server: 82.38.31.202
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 112.85257339477539
+- name: 🇳🇱NL-193.29.139.157-0205
+  server: 193.29.139.157
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  delay: 112.85853385925293
+- name: 🇬🇧GB-82.38.31.82-0209
+  server: 82.38.31.82
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 112.91027069091797
+- name: 🇬🇧GB-82.38.31.199-0196
+  server: 82.38.31.199
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 113.11602592468262
+- name: 🇬🇧GB-82.38.31.35-0210
+  server: 82.38.31.35
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 113.11793327331543
+- name: 🇬🇧GB-82.38.31.208-0214
+  server: 82.38.31.208
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 113.31343650817871
+- name: 🇳🇱NL-193.29.139.227-0216
+  server: 193.29.139.227
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  delay: 113.8296127319336
+- name: 🇳🇱NL-193.29.139.251-0197
+  server: 193.29.139.251
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 116.68682098388672
+- name: 🇬🇧GB-82.38.31.99-0211
+  server: 82.38.31.99
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 116.91546440124512
+- name: 🇳🇱NL-193.29.139.141-0207
+  server: 193.29.139.141
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 119.51637268066406
+- name: 🇳🇱NL-193.29.139.202-0193
+  server: 193.29.139.202
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  delay: 119.54188346862793
+- name: 🇬🇧GB-82.38.31.217-0217
+  server: 82.38.31.217
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  delay: 120.28050422668457
+- name: 🇬🇧GB-20.50.123.224-0212
+  server: admin.c1.havij.co
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 1kVr0KATIJI7mwOF
+  delay: 125.37670135498047
+- name: 🇸🇪SE-121.127.46.147-0220
   server: 121.127.46.147
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-  delay: 178.19547653198242
-- name: 🇳🇱NL-194.124.216.191-0203
+  delay: 127.92396545410156
+- name: 🇳🇱NL-194.124.216.186-0185
   server: nl-4.tr202512.com
   port: 443
   type: trojan
   password: M08tvzYWtUEJNtbpHp
   sni: nl-4.tr202512.com
   skip-cert-verify: false
-  delay: 198.12941551208496
-- name: 🇬🇧GB-20.50.123.224-0183
-  server: admin.c1.havij.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 1kVr0KATIJI7mwOF
-  delay: 202.27885246276855
-- name: 🇬🇧GB-20.50.123.224-0184
-  server: admin.c1.webramz.co
+  delay: 207.53717422485352
+- name: 🇬🇧GB-20.50.123.224-0218
+  server: series-a2.samanehha.co
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: W74XFALLLuw6m5IA
-  delay: 225.95572471618652
-- name: 🇬🇧GB-20.50.123.224-0186
+  delay: 215.6991958618164
+- name: 🇬🇧GB-20.50.123.224-0219
   server: series-a1.samanehha.co
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: W74XFALLLuw6m5IA
-  delay: 291.1562919616699
+  delay: 216.73989295959473
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🇨🇦CA-79.127.233.170-0181
-  - 🇺🇸US-104.192.226.106-0180
-  - 🇺🇸US-173.244.56.6-0179
-  - 🇺🇸US-173.234.29.2-0178
-  - 🇺🇸US-156.146.38.163-0068
-  - 🇺🇸US-156.146.38.167-0176
-  - 🇺🇸US-156.146.38.170-0175
-  - 🇺🇸US-156.146.38.169-0177
-  - 🇨🇦CA-137.184.174.93-0174
+  - 🇺🇸US-173.234.29.2-0186
   - 🇨🇦CA-79.127.200.169-0173
-  - 🇵🇦PA-138.186.142.80-0220
-  - 🇪🇨EC-38.165.231.25-0195
-  - 🇵🇦PA-138.186.142.81-0219
-  - 🇬🇧GB-20.50.123.224-0187
-  - 🇳🇱NL-51.15.17.169-0185
-  - 🇬🇧GB-141.98.101.178-0216
-  - 🇬🇧GB-57.129.140.88-0182
-  - 🇳🇱NL-109.201.152.181-0215
+  - 🇺🇸US-37.19.198.236-0176
+  - 🇺🇸US-156.146.38.169-0178
+  - 🇺🇸US-156.146.38.170-0179
+  - 🇺🇸US-156.146.38.163-0068
+  - 🇺🇸US-156.146.38.167-0177
+  - 🇺🇸US-38.135.24.131-0174
+  - 🇺🇸US-104.192.226.106-0180
+  - 🇨🇦CA-79.127.233.170-0181
+  - 🇺🇸US-38.135.24.131-0175
+  - 🇬🇧GB-146.70.61.37-0182
+  - 🇪🇨EC-38.165.231.25-0183
+  - 🇬🇧GB-57.129.140.88-0191
+  - 🇳🇱NL-109.201.152.181-0189
+  - 🇳🇱NL-51.15.17.169-0184
   - 🇳🇱NL-158.173.20.171-0213
-  - 🇬🇧GB-141.98.101.182-0218
-  - 🇬🇧GB-82.38.31.35-0192
-  - 🇳🇱NL-193.29.139.227-0211
-  - 🇬🇧GB-82.38.31.82-0194
-  - 🇬🇧GB-82.38.31.176-0209
-  - 🇬🇧GB-82.38.31.205-0207
-  - 🇳🇱NL-193.29.139.189-0191
-  - 🇬🇧GB-82.38.31.99-0193
-  - 🇬🇧GB-82.38.31.187-0189
-  - 🇳🇱NL-193.29.139.141-0190
-  - 🇳🇱NL-193.29.139.251-0198
-  - 🇳🇱NL-193.29.139.157-0202
-  - 🇳🇱NL-193.29.139.217-0206
-  - 🇬🇧GB-82.38.31.194-0196
-  - 🇬🇧GB-82.38.31.217-0214
-  - 🇬🇧GB-82.38.31.208-0217
-  - 🇬🇧GB-82.38.31.189-0208
-  - 🇬🇧GB-82.38.31.202-0204
-  - 🇳🇱NL-193.29.139.202-0199
-  - 🇬🇧GB-82.38.31.210-0201
-  - 🇬🇧GB-82.38.31.214-0200
-  - 🇬🇧GB-82.38.31.218-0197
-  - 🇬🇧GB-82.38.31.191-0210
-  - 🇬🇧GB-82.38.31.124-0188
-  - 🇳🇱NL-193.29.139.206-0205
-  - 🇸🇪SE-121.127.46.147-0212
-  - 🇳🇱NL-194.124.216.191-0203
-  - 🇬🇧GB-20.50.123.224-0183
-  - 🇬🇧GB-20.50.123.224-0184
-  - 🇬🇧GB-20.50.123.224-0186
+  - 🇬🇧GB-82.38.31.205-0199
+  - 🇬🇧GB-82.38.31.176-0215
+  - 🇬🇧GB-82.38.31.194-0208
+  - 🇬🇧GB-82.38.31.210-0188
+  - 🇬🇧GB-82.38.31.214-0202
+  - 🇳🇱NL-193.29.139.206-0194
+  - 🇬🇧GB-82.38.31.189-0200
+  - 🇳🇱NL-193.29.139.217-0204
+  - 🇬🇧GB-82.38.31.191-0203
+  - 🇬🇧GB-82.38.31.187-0190
+  - 🇬🇧GB-82.38.31.124-0198
+  - 🇳🇱NL-193.29.139.189-0206
+  - 🇳🇱NL-193.29.139.179-0195
+  - 🇬🇧GB-82.38.31.179-0192
+  - 🇬🇧GB-82.38.31.218-0201
+  - 🇬🇧GB-82.38.31.202-0187
+  - 🇳🇱NL-193.29.139.157-0205
+  - 🇬🇧GB-82.38.31.82-0209
+  - 🇬🇧GB-82.38.31.199-0196
+  - 🇬🇧GB-82.38.31.35-0210
+  - 🇬🇧GB-82.38.31.208-0214
+  - 🇳🇱NL-193.29.139.227-0216
+  - 🇳🇱NL-193.29.139.251-0197
+  - 🇬🇧GB-82.38.31.99-0211
+  - 🇳🇱NL-193.29.139.141-0207
+  - 🇳🇱NL-193.29.139.202-0193
+  - 🇬🇧GB-82.38.31.217-0217
+  - 🇬🇧GB-20.50.123.224-0212
+  - 🇸🇪SE-121.127.46.147-0220
+  - 🇳🇱NL-194.124.216.186-0185
+  - 🇬🇧GB-20.50.123.224-0218
+  - 🇬🇧GB-20.50.123.224-0219
 - name: 自动选择
   type: url-test
   proxies: *id001
