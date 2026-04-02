@@ -5,65 +5,20 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🇺🇸US-13.248.169.48-0024
-  server: 0319hzm01.fans8.xyz
-  port: 443
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /nmsl
-    headers:
-      Host: 0319hzm01.fans8.xyz
-  delay: 19.79541778564453
 - name: 🇨🇦CA-134.195.198.211-0020
   server: 134.195.198.211
   port: 443
   type: ss
   cipher: aes-256-gcm
   password: pKEW8JPByTVTLtM
-  delay: 21.537065505981445
-- name: 🇺🇸US-13.248.169.48-0023
-  server: 0320hk567.fans8.xyz
-  port: 443
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: 0320hk567.fans8.xyz
-  delay: 28.11288833618164
+  delay: 25.081157684326172
 - name: 🇺🇸US-156.146.38.163-0110
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 36.50069236755371
-- name: 🇺🇸US-13.248.169.48-0106
-  server: 0320hk857.fans8.xyz
-  port: 443
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: 0320hk857.fans8.xyz
-  delay: 71.76852226257324
+  delay: 35.8576774597168
 - name: 🇺🇸US-13.248.169.48-0103
   server: 0320jp.fans8.xyz
   port: 443
@@ -78,17 +33,78 @@ proxies:
     path: /ray
     headers:
       Host: 0320jp.fans8.xyz
-  delay: 3737.123727798462
+  delay: 37.18137741088867
+- name: 🇺🇸US-13.248.169.48-0106
+  server: 0320hk857.fans8.xyz
+  port: 443
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: 0320hk857.fans8.xyz
+  delay: 45.688629150390625
+- name: 🇺🇸US-192.157.56.141-0007
+  server: cloudflare.xrenblog.com
+  port: 443
+  type: vmess
+  uuid: 6c175d1a-a57f-4881-a471-173eb139694b
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /xrenblog/
+    headers:
+      Host: ipv6.xrenblog.com
+  delay: 511.8889808654785
+- name: 🇺🇸US-13.248.169.48-0024
+  server: 0319hzm01.fans8.xyz
+  port: 443
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /nmsl
+    headers:
+      Host: 0319hzm01.fans8.xyz
+  delay: 3862.678050994873
+- name: 🇺🇸US-13.248.169.48-0023
+  server: 0320hk567.fans8.xyz
+  port: 443
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: 0320hk567.fans8.xyz
+  delay: 4564.509153366089
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
-  - 🇺🇸US-13.248.169.48-0024
   - 🇨🇦CA-134.195.198.211-0020
-  - 🇺🇸US-13.248.169.48-0023
   - 🇺🇸US-156.146.38.163-0110
-  - 🇺🇸US-13.248.169.48-0106
   - 🇺🇸US-13.248.169.48-0103
+  - 🇺🇸US-13.248.169.48-0106
+  - 🇺🇸US-192.157.56.141-0007
+  - 🇺🇸US-13.248.169.48-0024
+  - 🇺🇸US-13.248.169.48-0023
 - name: 自动选择
   type: url-test
   proxies: *id001
