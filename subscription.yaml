@@ -11,36 +11,28 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: KixLvKzwjekG00rm
-  delay: 9.124755859375
-- name: 🇺🇸US-13.248.169.48-0025
-  server: 330tw.fans8.xyz
-  port: 443
-  type: vmess
-  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
-  alterId: 2
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ray
-    headers:
-      Host: 330tw.fans8.xyz
-  delay: 33.68186950683594
-- name: 🇺🇸US-167.88.62.62-0012
-  server: 167.88.62.62
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 42.627573013305664
+  delay: 11.108160018920898
 - name: 🇺🇸US-156.146.38.163-0129
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-  delay: 44.42405700683594
+  delay: 26.08776092529297
+- name: 🇺🇸US-167.88.62.62-0012
+  server: 167.88.62.62
+  port: 8080
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 27.410507202148438
+- name: 🇨🇦CA-134.195.196.60-0046
+  server: 134.195.196.60
+  port: 8080
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  delay: 59.181928634643555
 - name: 🇺🇸US-13.248.169.48-0098
   server: 48us.fans8.xyz
   port: 443
@@ -55,39 +47,47 @@ proxies:
     path: /ray
     headers:
       Host: 48us.fans8.xyz
-  delay: 44.8000431060791
-- name: 🇨🇦CA-134.195.196.60-0046
-  server: 134.195.196.60
-  port: 8080
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  delay: 56.996822357177734
+  delay: 64.72897529602051
 - name: 🇨🇦CA-134.195.198.211-0112
   server: 134.195.198.211
   port: 443
   type: ss
   cipher: aes-256-gcm
   password: pKEW8JPByTVTLtM
-  delay: 69.49162483215332
+  delay: 66.13588333129883
+- name: 🇺🇸US-13.248.169.48-0025
+  server: 330tw.fans8.xyz
+  port: 443
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: 330tw.fans8.xyz
+  delay: 163.2070541381836
 - name: 🇮🇳IN-172.105.59.32-0016
   server: 172.105.59.32
   port: 443
   type: ss
   cipher: aes-256-gcm
   password: pKEW8JPByTVTLtM
-  delay: 230.64374923706055
+  delay: 229.87747192382812
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies: &id001
   - 🇺🇸US-38.75.137.71-0083
-  - 🇺🇸US-13.248.169.48-0025
-  - 🇺🇸US-167.88.62.62-0012
   - 🇺🇸US-156.146.38.163-0129
-  - 🇺🇸US-13.248.169.48-0098
+  - 🇺🇸US-167.88.62.62-0012
   - 🇨🇦CA-134.195.196.60-0046
+  - 🇺🇸US-13.248.169.48-0098
   - 🇨🇦CA-134.195.198.211-0112
+  - 🇺🇸US-13.248.169.48-0025
   - 🇮🇳IN-172.105.59.32-0016
 - name: 自动选择
   type: url-test
